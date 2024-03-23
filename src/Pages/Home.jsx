@@ -28,10 +28,7 @@ const Home = () => {
 
   return (
     <>
-  
-      <Carousel
-       
-      >
+      <Carousel>
         {items.map((item, i) => (
           <Item key={i} item={item} />
         ))}
