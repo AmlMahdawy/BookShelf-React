@@ -1,5 +1,5 @@
 import React from "react";
-import "./home.css";
+import "./Home.css";
 import Carousel from "react-material-ui-carousel";
 import { Paper, Button } from "@mui/material";
 import LoginPage from "./LoginPage";
@@ -28,6 +28,7 @@ const Home = () => {
 
   return (
     <>
+  
       <Carousel
        
       >
@@ -35,7 +36,6 @@ const Home = () => {
           <Item key={i} item={item} />
         ))}
       </Carousel>
-      <LoginPage></LoginPage>
     </>
   );
 };
