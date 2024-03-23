@@ -1,7 +1,9 @@
 import React from "react";
-import "./home.css";
+import "./Home.css";
 import Carousel from "react-material-ui-carousel";
-import { Paper, Button } from "@mui/material";
+import { Paper, Button, Typography } from "@mui/material";
+import LoginPage from "./LoginPage";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const Home = () => {
   var items = [
@@ -12,7 +14,7 @@ const Home = () => {
         "Join the community of readers at Clever and discover the joy of losing yourself in a good book.",
     },
     {
-      img: " https://plus.unsplash.com/premium_photo-1661964155525-fe70c0f7162b?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      img: " https://plus.unsplash.com/premium_photo-1661964153042-56211a8e2d0b?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       header: "Find Inspiration on Every Page at Clever .",
       paragraph:
         "Step into Clever Bookstore and immerse yourself in a world of literature. ",
@@ -27,9 +29,7 @@ const Home = () => {
 
   return (
     <>
-      <Carousel
-       
-      >
+      <Carousel className="w-100">
         {items.map((item, i) => (
           <Item key={i} item={item} />
         ))}
@@ -40,27 +40,26 @@ const Home = () => {
 function Item(props) {
   return (
     <>
-    <Paper>
-        <div className="container">
+      <Paper>
+        <div className={"containerItems "}>
           <div className="img-container">
             <img src={props.item.img}></img>
             <div class="overlay"></div>
           </div>
-          <div className="container-items">
+          <div className="container-items col-lg-4 col-md-6 col-10 ">
             <div className="promo-container">
-            <div
+              <div
                 className="p-one"
                 style={{ fontSize: "15px", color: "white" }}
               >
-               HOT PROMO
+                HOT PROMO
               </div>
               <div
                 className="p-two"
                 style={{ fontSize: "15px", color: "white" }}
               >
-                discount 60% !Special Book Day 
+                discount 60% !Special Book Day
               </div>
-              
             </div>
             <h1>{props.item.header}</h1>
             <p>{props.item.paragraph}</p>
@@ -68,7 +67,6 @@ function Item(props) {
           </div>
         </div>
       </Paper>
-      
     </>
   );
 }
