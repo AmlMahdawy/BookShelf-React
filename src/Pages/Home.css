@@ -2,7 +2,7 @@ img {
   width: 100%;
   height: 85vh;
 }
-.container {
+.containerItems {
   position: relative;
   color: white;
 }
@@ -33,13 +33,14 @@ img {
   position: absolute;
   top: 0;
   left: 0;
-  
   margin-left: 15%;
   width: 35%;
-  height: 100%;
+  height: 60%;
+  margin-top: 10%;
   display: flex;
   flex-direction: column;
-  justify-content:center
+  justify-content:space-evenly;
+  align-items: start;
   
 }
 h1 {
@@ -77,4 +78,49 @@ z-index: 10;
   color:white !important;
   width: 50%;
   margin-top:5% !important;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  img {
+    width: 100%;
+    height: 65vh;
+  }
+  .container-items{
+    height: 80%;
+  }
+  .css-1m9128y {
+    margin-top: 5px !important;
+  }
+  
+}
+
+/* Tabletes */
+@media (min-width: 601px) and (max-width: 900px) {
+  img {
+    width: 100%;
+    height: 75vh;
+  }
+  .container-items{
+    height:60%;
+  }
+  .css-1m9128y {
+    margin-top: 10px !important;
+  }
+}
+
+/* Desktops */
+@media (min-width: 901px) and (max-width: 1200px) {
+  img {
+    width: 100%;
+    height: 85vh;
+  }
+  .css-1m9128y {
+    margin-top: 15px !important;
+  }
+}
+
+/* Large Devices */
+@media (min-width: 1201px) {
+  /* Your CSS rules for devices larger than 1201px wide */
 }
