@@ -15,7 +15,6 @@ const RegisterForm = () => {
     let res = await register(userData);
     if (res) {
       navigate("/login");
-    } else {
     }
   }
   function handleOnChange(event) {
