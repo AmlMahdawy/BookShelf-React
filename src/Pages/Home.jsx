@@ -4,11 +4,12 @@ import Carousel from "react-material-ui-carousel";
 import { Paper, Button, Typography } from "@mui/material";
 import LoginPage from "./LoginPage";
 import "bootstrap/dist/css/bootstrap.min.css";
+import BookCard from "./../Components/bookCard";
 
 const Home = () => {
   var items = [
     {
-      img: " https://images.unsplash.com/photo-1529007196863-d07650a3f0ea?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      img: "eliabe-costa-tzsUJD0TGkk-unsplash.jpg",
       header: "Find over 100 K Books on Clever.",
       paragraph:
         "Join the community of readers at Clever and discover the joy of losing yourself in a good book.",
@@ -34,6 +35,21 @@ const Home = () => {
           <Item key={i} item={item} />
         ))}
       </Carousel>
+      <div className="books-container mt-5">
+        <div className="container d-flex flex-column  justify-content-center align-items-center w-50">
+        <h1>Trending this week </h1>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident
+          libero porro esse excepturi accusamus exercitationem vel quisquam
+          ducimus rem neque ab earum, quas, eum molestiae inventore iste
+          perspiciatis, aperiam impedit.
+        </p>
+        </div>
+        <div className="books mt-5">
+<BookCard></BookCard>
+        </div>
+        
+      </div>
     </>
   );
 };
