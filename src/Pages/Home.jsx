@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Home.css";
 import Carousel from "react-material-ui-carousel";
 import { Paper, Button, Typography } from "@mui/material";
 import LoginPage from "./LoginPage";
 import "bootstrap/dist/css/bootstrap.min.css";
 import BookCard from "./../Components/bookCard";
+import axios from "axios";
+import { useEffect } from "react";
 
 const Home = () => {
+  let [books, setBooks] = useState([]);
   var items = [
     {
       img: "eliabe-costa-tzsUJD0TGkk-unsplash.jpg",
@@ -28,6 +31,13 @@ const Home = () => {
     },
   ];
 
+  //Getting data from API in useEffext
+  useEffect(() => {
+    axios.get("http://localhost:3000/book/all").then((res) => {
+      setBooks(res.data);
+    });
+  }, []);
+
   return (
     <>
       <Carousel className="w-100">
@@ -37,18 +47,20 @@ const Home = () => {
       </Carousel>
       <div className="books-container mt-5">
         <div className="container d-flex flex-column  justify-content-center align-items-center w-50">
-        <h1>Trending this week </h1>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident
-          libero porro esse excepturi accusamus exercitationem vel quisquam
-          ducimus rem neque ab earum, quas, eum molestiae inventore iste
-          perspiciatis, aperiam impedit.
-        </p>
+          <h1>Trending this week </h1>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident
+            libero porro esse excepturi accusamus exercitationem vel quisquam
+            ducimus rem neque ab earum, quas, eum molestiae inventore iste
+            perspiciatis, aperiam impedit.
+          </p>
         </div>
         <div className="books mt-5">
-<BookCard></BookCard>
+          {books.slice(0, 5).map((book) => {
+            console.log(book);
+            return <BookCard key={book.id} props={book} />;
+          })}
         </div>
-        
       </div>
     </>
   );
@@ -60,7 +72,7 @@ function Item(props) {
         <div className={"containerItems "}>
           <div className="img-container">
             <img src={props.item.img}></img>
-            <div class="overlay"></div>
+            <div className="overlay"></div>
           </div>
           <div className="container-items col-lg-4 col-md-6 col-10 ">
             <div className="promo-container">

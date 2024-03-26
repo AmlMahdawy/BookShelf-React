@@ -79,6 +79,10 @@ z-index: 10;
   width: 50%;
   margin-top:5% !important;
 }
+.books{
+  display: flex;
+  justify-content: center;
+}
 
 /* Mobile */
 @media (max-width: 600px) {

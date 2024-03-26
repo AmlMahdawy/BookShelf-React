@@ -1,18 +1,43 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./bookCard.css";
+import Rating from "@mui/material/Rating";
 
-function BookCard() {
+function BookCard(props) {
+  let { props: book } = props;
+  
   return (
     <div>
-      <div className="bookCard d-flex flex-column  justify-content-center align-items-center  border border-2 border-danger  p-3" style={{width:'fit-content'}}>
+      <div
+        className="bookCard d-flex flex-column  justify-content-center align-items-center    p-3"
+        style={{ width: "fit-content" }}
+      >
         <img
-        className="my-2"
-          src="https://www.4readlib.com/uploads/images/1532191169.jpg"
-          style={{ width: "200px", height: "300px",borderRadius:'15px' }}
+          className="my-2"
+          src={book.thumbnailUrl}
+          style={{ width: "200px", height: "300px", borderRadius: "15px" }}
         />
-        <div className="category mt-2 mt-4" style={{color:'#a757bf',fontSize:'small',fontWeight:'bold'}}>Self Development</div>
-        <h5 className="title my-1" style={{fontWeight:'bold'}}>Atomic Habits</h5>
-        <div className="auther mb-1" style={{color:'#8f8f8f'}}>James Clear</div>
-        <h5 className="price my-3 px-3" style={{color:'#a757bf',fontWeight:'bold',border:'1px #8f8f8f solid',padding:'10px',borderRadius:'10px'}}>120 L.E</h5>
+        <Rating
+            name="simple-controlled "
+            className="mt-2"
+            value={book.rating||4}
+            readOnly
+          />
+        <div
+          className="category mt-3"
+          style={{ color: "#a757bf", fontSize: "small", fontWeight: "bold" }}
+        >
+          {book.categories[0]}
+        </div>
+        <h5 className="title mt-2" style={{ fontWeight: "bold" }}>
+          {book.title}
+        </h5>
+        <div className="auther mb-1" style={{ color: "#8f8f8f" }}>
+          {book.authors[0]}
+        </div>
+        <h5 className="price my-4 px-3">{book.price} L.E</h5>
+        <div className="rating ">
+          
+        </div>
       </div>
     </div>
   );
