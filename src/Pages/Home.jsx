@@ -705,8 +705,14 @@ const Home = () => {
         <h2 className="my-5 col-10">Featured Books</h2>
 
         <div className="container d-flex flex-column flex-lg-row  ">
-          <div className=" book-display-card col-12 me-2 col-lg-6 mt-4 mt-lg-0 d-flex justify-content-center"
-            style={{ backgroundColor: "#fafafa", padding: "15px",borderRaduis:'15px' }}>
+          <div
+            className=" book-display-card col-12 me-2 col-lg-6 mt-4 mt-lg-0 d-flex justify-content-center"
+            style={{
+              backgroundColor: "#fafafa",
+              padding: "15px",
+              borderRaduis: "15px",
+            }}
+          >
             <div className="book-cover-con  mx-2">
               <img
                 src={books[2]?.thumbnailUrl}
@@ -781,8 +787,14 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className=" book-display-card col-12 me-2 col-lg-6 mt-4 mt-lg-0 d-flex justify-content-center"
-            style={{ backgroundColor: "#fafafa", padding: "15px",borderRaduis:'15px' }}>
+          <div
+            className=" book-display-card col-12 me-2 col-lg-6 mt-4 mt-lg-0 d-flex justify-content-center"
+            style={{
+              backgroundColor: "#fafafa",
+              padding: "15px",
+              borderRaduis: "15px",
+            }}
+          >
             <div className="book-cover-con  mx-2">
               <img
                 src={books[2]?.thumbnailUrl}
@@ -857,8 +869,172 @@ const Home = () => {
               </div>
             </div>
           </div>
-          
-          
+        </div>
+        <div className="container d-flex flex-column flex-lg-row  mt-3 ">
+          <div
+            className=" book-display-card col-12 me-2 col-lg-6 mt-4 mt-lg-0 d-flex justify-content-center"
+            style={{
+              backgroundColor: "#fafafa",
+              padding: "15px",
+              borderRaduis: "15px",
+            }}
+          >
+            <div className="book-cover-con  mx-2">
+              <img
+                src={books[2]?.thumbnailUrl}
+                style={{
+                  width: "200px",
+                  height: "300px",
+                  borderRadius: "15px",
+                }}
+              />
+            </div>
+            <div className="data-con w-50 mx-2 d-flex flex-column justify-content-between h-100 ">
+              <div className="d-flex flex-column flex-lg-row   justify-content-between align-items-baseline  ">
+                <p
+                  style={{
+                    backgroundColor: "#e3e3e3",
+                    color: "#8d27ad",
+                    padding: "5px",
+                    borderRadius: "10px",
+                    textAlign: "center",
+                    fontSize: "smaller",
+                    fontWeight: "semi-bold",
+                  }}
+                  className="col-6 mx-1 mx-lg-0 col-lg-6"
+                >
+                  {books[2]?.categories[0]}
+                </p>
+                <h2 style={{ fontSize: "small", color: "#8f8f8f" }}>
+                  Reviews : 150{" "}
+                </h2>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-evenly",
+                }}
+                className="col-6 col-lg-6"
+              >
+                <Rating name="simple-controlled " value={3} readOnly />
+              </div>
+
+              <div className="data-con w-100 ms-lg-4  ">
+                <h5>{books[2]?.title}</h5>
+                <p style={{ color: "#8f8f8f" }}>{books[2]?.authors[0]}</p>
+              </div>
+              <div className="data-con w-100 ms-lg-4 ">
+                <h2 style={{ color: "#9436b2" }}>{books[2]?.price} L.E</h2>
+              </div>
+              <div>
+                <div className="d-flex flex-column flex-lg-row justify-content-center ">
+                  <ButtonMui
+                    variant="contained"
+                    style={{ backgroundColor: "#8e67ae" }}
+                  >
+                    <img
+                      className="me-2"
+                      src="./../../public/Icons/shopping-cart (2).png"
+                      style={{ width: "25px", height: "23px" }}
+                    ></img>
+                    Add to cart
+                  </ButtonMui>
+                  <ButtonMui
+                    variant="outlined"
+                    href="#outlined-buttons"
+                    className="ms-2 mt-2 mt-lg-0"
+                  >
+                    <img
+                      src="./../../public/Icons/heart.png"
+                      style={{ width: "25px", height: "23px" }}
+                    ></img>
+                  </ButtonMui>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className=" book-display-card col-12 me-2 col-lg-6 mt-4 mt-lg-0 d-flex justify-content-center"
+            style={{
+              backgroundColor: "#fafafa",
+              padding: "15px",
+              borderRaduis: "15px",
+            }}
+          >
+            <div className="book-cover-con  mx-2">
+              <img
+                src={books[2]?.thumbnailUrl}
+                style={{
+                  width: "200px",
+                  height: "300px",
+                  borderRadius: "15px",
+                }}
+              />
+            </div>
+            <div className="data-con w-50 mx-2 d-flex flex-column justify-content-between h-100 ">
+              <div className="d-flex flex-column flex-lg-row   justify-content-between align-items-baseline  ">
+                <p
+                  style={{
+                    backgroundColor: "#e3e3e3",
+                    color: "#8d27ad",
+                    padding: "5px",
+                    borderRadius: "10px",
+                    textAlign: "center",
+                    fontSize: "smaller",
+                    fontWeight: "semi-bold",
+                  }}
+                  className="col-6 mx-1 mx-lg-0 col-lg-6"
+                >
+                  {books[2]?.categories[0]}
+                </p>
+                <h2 style={{ fontSize: "small", color: "#8f8f8f" }}>
+                  Reviews : 150{" "}
+                </h2>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-evenly",
+                }}
+                className="col-6 col-lg-6"
+              >
+                <Rating name="simple-controlled " value={3} readOnly />
+              </div>
+
+              <div className="data-con w-100 ms-lg-4  ">
+                <h5>{books[2]?.title}</h5>
+                <p style={{ color: "#8f8f8f" }}>{books[2]?.authors[0]}</p>
+              </div>
+              <div className="data-con w-100 ms-lg-4 ">
+                <h2 style={{ color: "#9436b2" }}>{books[2]?.price} L.E</h2>
+              </div>
+              <div>
+                <div className="d-flex flex-column flex-lg-row justify-content-center ">
+                  <ButtonMui
+                    variant="contained"
+                    style={{ backgroundColor: "#8e67ae" }}
+                  >
+                    <img
+                      className="me-2"
+                      src="./../../public/Icons/shopping-cart (2).png"
+                      style={{ width: "25px", height: "23px" }}
+                    ></img>
+                    Add to cart
+                  </ButtonMui>
+                  <ButtonMui
+                    variant="outlined"
+                    href="#outlined-buttons"
+                    className="ms-2 mt-2 mt-lg-0"
+                  >
+                    <img
+                      src="./../../public/Icons/heart.png"
+                      style={{ width: "25px", height: "23px" }}
+                    ></img>
+                  </ButtonMui>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>
