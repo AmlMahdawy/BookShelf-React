@@ -8,6 +8,12 @@ import BookCard from "./../Components/bookCard";
 import axios from "axios";
 import { useEffect } from "react";
 import { Opacity } from "@mui/icons-material";
+import Rating from "@mui/material/Rating";
+import EmblaCarouselReact from "embla-carousel-react";
+
+const OPTIONS = { align: "start" };
+const SLIDE_COUNT = 6;
+const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 
 const Home = () => {
   let [books, setBooks] = useState([]);
@@ -41,11 +47,14 @@ const Home = () => {
 
   return (
     <>
+      {/* Carousel Part */}
       <Carousel className="w-100">
         {items.map((item, i) => (
           <Item key={i} item={item} />
         ))}
       </Carousel>
+
+      {/* Book Cards Part */}
       <div className="books-container mt-5">
         <div className="container d-flex flex-column  justify-content-center align-items-center w-50">
           <h1>Trending this week </h1>
@@ -58,11 +67,12 @@ const Home = () => {
         </div>
         <div className="books mt-5 d-flex flex-wrap   flex-column justify-content-center align-items-center  flex-md-row justify-content-md-center">
           {books.slice(0, 5).map((book) => {
-            console.log(book);
             return <BookCard key={book.id} props={book} />;
           })}
         </div>
       </div>
+
+      {/* Facilites Part */}
       <div className="features mt-5 d-flex justify-content-center ">
         <div className="content my-3 w-75 d-flex   flex-column  flex-lg-row justify-content-lg-between align-items-center justify-content-center  ">
           <div className="feature ">
@@ -111,9 +121,237 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+      {/* Best Sales Part */}
+      <div className="bestSales mt-5">
+        <div className="container d-flex flex-wrap  w-75 ">
+          <div className="div book-display-card col-12 col-lg-6 mt-4 mt-lg-0 d-flex">
+            <div className="book-cover-con  mx-2">
+              <img
+                src={books[0]?.thumbnailUrl}
+                style={{
+                  width: "200px",
+                  height: "300px",
+                  borderRadius: "15px",
+                }}
+              />
+            </div>
+            <div className="data-con w-50 mx-2 d-flex flex-column justify-content-between h-75 ">
+              <div className="d-flex justify-content-evenly ">
+                <p
+                  style={{
+                    backgroundColor: "#e3e3e3",
+                    color: "#8d27ad",
+                    padding: "5px",
+                    borderRadius: "10px",
+
+                    textAlign: "center",
+                    fontSize: "smaller",
+                    fontWeight: "semi-bold",
+                  }}
+                  className=""
+                >
+                  {books[0]?.categories[0]}
+                </p>
+                <div
+                  style={{
+                    backgroundColor: "#ffd781",
+                    color: "#ff7a01 ",
+                    padding: "5px",
+                    borderRadius: "10px",
+                   
+                    display: "flex",
+                    justifyContent: "space-around",
+                    maxHeight: "35px",
+                  }}
+                >
+                  <img
+                    src="./../../public/Icons/star.png"
+                    style={{ width: "20px", height: "20px" }}
+                  />
+                  <p>4.0</p>
+                </div>
+              </div>
+              <div className="data-con w-100 ms-4 ">
+                <h5>{books[0]?.title}</h5>
+                <p style={{ color: "#8f8f8f" }}>{books[0]?.authors[0]}</p>
+              </div>
+              <div className="data-con w-100 ms-4 ">
+                <h2 style={{ color: "#9436b2" }}>{books[0]?.price} L.E</h2>
+              </div>
+            </div>
+          </div>
+          <div className="div book-display-card col-12 col-lg-6 mt-4 mt-lg-0  d-flex">
+            <div className="book-cover-con  mx-2">
+              <img
+                src={books[1]?.thumbnailUrl}
+                style={{
+                  width: "200px",
+                  height: "300px",
+                  borderRadius: "15px",
+                }}
+              />
+            </div>
+            <div className="data-con w-50 mx-2 d-flex flex-column justify-content-between h-75 ">
+              <div className="d-flex justify-content-evenly ">
+                <p
+                  style={{
+                    backgroundColor: "#e3e3e3",
+                    color: "#8d27ad",
+                    padding: "5px",
+                    borderRadius: "10px",
+                    width: "50%",
+                    textAlign: "center",
+                    fontSize: "smaller",
+                    fontWeight: "semi-bold",
+                  }}
+                >
+                  {books[1]?.categories[0]}
+                </p>
+                <div
+                  style={{
+                    backgroundColor: "#ffd781",
+                    color: "#ff7a01 ",
+                    padding: "5px",
+                    borderRadius: "10px",
+                    
+                    display: "flex",
+                    justifyContent: "space-around",
+                    maxHeight: "35px",
+                  }}
+                >
+                  <img
+                    src="./../../public/Icons/star.png"
+                    style={{ width: "20px", height: "20px" }}
+                  />
+                  <p>3.0</p>
+                </div>
+              </div>
+              <div className="data-con w-100 ms-4 ">
+                <h5>{books[1]?.title}</h5>
+                <p style={{ color: "#8f8f8f" }}>{books[1]?.authors[0]}</p>
+              </div>
+              <div className="data-con w-100 ms-4 ">
+                <h2 style={{ color: "#9436b2" }}>{books[1]?.price} L.E</h2>
+              </div>
+            </div>
+          </div>
+          <div className="div book-display-card col-12 col-lg-6  mt-4 d-flex">
+            <div className="book-cover-con  mx-2">
+              <img
+                src={books[2]?.thumbnailUrl}
+                style={{
+                  width: "200px",
+                  height: "300px",
+                  borderRadius: "15px",
+                }}
+              />
+            </div>
+            <div className="data-con w-50 mx-2 d-flex flex-column justify-content-between h-75 ">
+              <div className="d-flex justify-content-evenly ">
+                <p
+                  style={{
+                    backgroundColor: "#e3e3e3",
+                    color: "#8d27ad",
+                    padding: "5px",
+                    borderRadius: "10px",
+                    width: "50%",
+                    textAlign: "center",
+                    fontSize: "smaller",
+                    fontWeight: "semi-bold",
+                  }}
+                >
+                  {books[2]?.categories[0]}
+                </p>
+                <div
+                  style={{
+                    backgroundColor: "#ffd781",
+                    color: "#ff7a01 ",
+                    padding: "5px",
+                    borderRadius: "10px",
+                    display: "flex",
+                    justifyContent: "space-around",
+                    maxHeight: "35px",
+                  }}
+                >
+                  <img
+                    src="./../../public/Icons/star.png"
+                    style={{ width: "20px", height: "20px" }}
+                  />
+                  <p>4.5</p>
+                </div>
+              </div>
+              <div className="data-con w-100 ms-4 ">
+                <h5>{books[2]?.title}</h5>
+                <p style={{ color: "#8f8f8f" }}>{books[2]?.authors[0]}</p>
+              </div>
+              <div className="data-con w-100 ms-4 ">
+                <h2 style={{ color: "#9436b2" }}>{books[2]?.price} L.E</h2>
+              </div>
+            </div>
+          </div>
+          <div className="div book-display-card col-12 col-lg-6  mt-4 d-flex">
+            <div className="book-cover-con  mx-2">
+              <img
+                src={books[3]?.thumbnailUrl}
+                style={{
+                  width: "200px",
+                  height: "300px",
+                  borderRadius: "15px",
+                }}
+              />
+            </div>
+            <div className="data-con w-50 mx-2 d-flex flex-column justify-content-between h-75 ">
+              <div className="d-flex justify-content-evenly ">
+                <p
+                  style={{
+                    backgroundColor: "#e3e3e3",
+                    color: "#8d27ad",
+                    padding: "5px",
+                    borderRadius: "10px",
+                    width: "50%",
+                    textAlign: "center",
+                    fontSize: "smaller",
+                    fontWeight: "semi-bold",
+                  }}
+                >
+                  {books[3]?.categories[0]}
+                </p>
+                <div
+                  style={{
+                    backgroundColor: "#ffd781",
+                    color: "#ff7a01 ",
+                    padding: "5px",
+                    borderRadius: "10px",
+                    display: "flex",
+                    justifyContent: "space-around",
+                    maxHeight: "35px",
+                    fontWeight: "semi-bold",
+                  }}
+                >
+                  <img
+                    src="./../../public/Icons/star.png"
+                    style={{ width: "20px", height: "20px" }}
+                  />
+                  <p>3.0</p>
+                </div>
+              </div>
+              <div className="data-con w-100 ms-4 ">
+                <h5>{books[3]?.title}</h5>
+                <p style={{ color: "#8f8f8f" }}>{books[3]?.authors[0]}</p>
+              </div>
+              <div className="data-con w-100 ms-4 ">
+                <h2 style={{ color: "#9436b2" }}>{books[3]?.price} L.E</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 };
+
+//Function for main Carousel
 function Item(props) {
   return (
     <>
@@ -147,4 +385,5 @@ function Item(props) {
     </>
   );
 }
+
 export default Home;
