@@ -11,12 +11,16 @@ import { Opacity } from "@mui/icons-material";
 import Rating from "@mui/material/Rating";
 import EmblaCarouselReact from "embla-carousel-react";
 import CategorieCard from "../Components/CategorieCard";
-
-const OPTIONS = { align: "start" };
-const SLIDE_COUNT = 6;
-const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
 
 const Home = () => {
+  const responsive = {
+    0: { items: 1 },
+    568: { items: 2 },
+    1024: { items: 4 },
+  };
+
   let [books, setBooks] = useState([]);
   var items = [
     {
@@ -58,7 +62,7 @@ const Home = () => {
     {
       img: "https://images.unsplash.com/photo-1491841651911-c44c30c34548?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       title: "Mystrey",
-    }
+    },
   ];
 
   //Getting data from API in useEffext
@@ -67,6 +71,289 @@ const Home = () => {
       setBooks(res.data);
     });
   }, []);
+
+  const items2 = [
+    <div className="item" data-value="1">
+      <div className="container">
+        <div className="img">
+          <img
+            src={books[0]?.thumbnailUrl}
+            style={{
+              maxHeight: "300px",
+              maxWidth: "1250px",
+              borderRadius: "10px",
+            }}
+          />
+        </div>
+        <div className="container">
+          <Rating
+            name="simple-controlled "
+            style={{ marginTop: "10%" }}
+            value={4}
+            readOnly
+          />
+          <h5>{books[0]?.title}</h5>
+          <p style={{ color: "#8f8f8f" }}>{books[0]?.authors[0]}</p>
+        </div>
+        <div className="container">
+          <div
+            style={{
+              backgroundColor: "#eedff4",
+              padding: "5px",
+              fontSize: "20px",
+              fontWeight: "bold",
+              borderRadius: "10px",
+              display: "flex",
+              justifyContent: "space-around",
+              alignItems: "center",
+              width: "100%",
+              marginTop: "15%",
+            }}
+          >
+            <p className="mt-3">{books[0]?.price} L.E.</p>
+            <div className="icon d-flex justify-content-end  align-items-center">
+              <img
+                src="./../../public/Icons/shopping-basket.png"
+                style={{ width: "38px", height: "38px", borderRaduis: "50%" }}
+              />
+              <img
+                src="./../../public/Icons/more.png"
+                style={{
+                  maxWidth: "46px",
+                  maxHeight: "46px",
+                  borderRaduis: "50%",
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>,
+    <div className="item" data-value="2">
+      <div className="container">
+        <div className="img">
+          <img
+            src={books[1]?.thumbnailUrl}
+            style={{
+              maxHeight: "300px",
+              maxWidth: "1250px",
+              borderRadius: "10px",
+            }}
+          />
+        </div>
+        <div className="container">
+          <Rating
+            name="simple-controlled "
+            style={{ marginTop: "10%" }}
+            value={4}
+            readOnly
+          />
+          <h5>{books[1]?.title}</h5>
+          <p style={{ color: "#8f8f8f" }}>{books[1]?.authors[0]}</p>
+        </div>
+        <div className="container">
+          <div
+            style={{
+              backgroundColor: "#eedff4",
+              padding: "5px",
+              fontSize: "20px",
+              fontWeight: "bold",
+              borderRadius: "10px",
+              display: "flex",
+              justifyContent: "space-around",
+              alignItems: "center",
+              width: "100%",
+              marginTop: "15%",
+            }}
+          >
+            <p className="mt-3">{books[1]?.price} L.E.</p>
+            <div className="icon d-flex justify-content-end  align-items-center">
+              <img
+                src="./../../public/Icons/shopping-basket.png"
+                style={{ width: "38px", height: "38px", borderRaduis: "50%" }}
+              />
+              <img
+                src="./../../public/Icons/more.png"
+                style={{
+                  maxWidth: "46px",
+                  maxHeight: "46px",
+                  borderRaduis: "50%",
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>,
+    <div className="item" data-value="3">
+      <div className="container">
+        <div className="img">
+          <img
+            src={books[2]?.thumbnailUrl}
+            style={{
+              maxHeight: "300px",
+              maxWidth: "1250px",
+              borderRadius: "10px",
+            }}
+          />
+        </div>
+        <div className="container">
+          <Rating
+            name="simple-controlled "
+            style={{ marginTop: "10%" }}
+            value={4}
+            readOnly
+          />
+          <h5>{books[2]?.title}</h5>
+          <p style={{ color: "#8f8f8f" }}>{books[2]?.authors[0]}</p>
+        </div>
+        <div className="container">
+          <div
+            style={{
+              backgroundColor: "#eedff4",
+              padding: "5px",
+              fontSize: "20px",
+              fontWeight: "bold",
+              borderRadius: "10px",
+              display: "flex",
+              justifyContent: "space-around",
+              alignItems: "center",
+              width: "100%",
+              marginTop: "15%",
+            }}
+          >
+            <p className="mt-3">{books[2]?.price} L.E.</p>
+            <div className="icon d-flex justify-content-end  align-items-center">
+              <img
+                src="./../../public/Icons/shopping-basket.png"
+                style={{ width: "38px", height: "38px", borderRaduis: "50%" }}
+              />
+              <img
+                src="./../../public/Icons/more.png"
+                style={{
+                  maxWidth: "46px",
+                  maxHeight: "46px",
+                  borderRaduis: "50%",
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>,
+    <div className="item" data-value="4">
+      <div className="container">
+        <div className="img">
+          <img
+            src={books[3]?.thumbnailUrl}
+            style={{
+              maxHeight: "300px",
+              maxWidth: "1250px",
+              borderRadius: "10px",
+            }}
+          />
+        </div>
+        <div className="container">
+          <Rating
+            name="simple-controlled "
+            style={{ marginTop: "10%" }}
+            value={4}
+            readOnly
+          />
+          <h5>{books[3]?.title}</h5>
+          <p style={{ color: "#8f8f8f" }}>{books[3]?.authors[0]}</p>
+        </div>
+        <div className="container">
+          <div
+            style={{
+              backgroundColor: "#eedff4",
+              padding: "5px",
+              fontSize: "20px",
+              fontWeight: "bold",
+              borderRadius: "10px",
+              display: "flex",
+              justifyContent: "space-around",
+              alignItems: "center",
+              width: "100%",
+              marginTop: "15%",
+            }}
+          >
+            <p className="mt-3">{books[3]?.price} L.E.</p>
+            <div className="icon d-flex justify-content-end  align-items-center">
+              <img
+                src="./../../public/Icons/shopping-basket.png"
+                style={{ width: "38px", height: "38px", borderRaduis: "50%" }}
+              />
+              <img
+                src="./../../public/Icons/more.png"
+                style={{
+                  maxWidth: "46px",
+                  maxHeight: "46px",
+                  borderRaduis: "50%",
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>,
+    <div className="item" data-value="5">
+      <div className="container">
+        <div className="img">
+          <img
+            src={books[4]?.thumbnailUrl}
+            style={{
+              maxHeight: "300px",
+              maxWidth: "1250px",
+              borderRadius: "10px",
+            }}
+          />
+        </div>
+        <div className="container">
+          <Rating
+            name="simple-controlled "
+            style={{ marginTop: "10%" }}
+            value={4}
+            readOnly
+          />
+          <h5>{books[4]?.title}</h5>
+          <p style={{ color: "#8f8f8f" }}>{books[4]?.authors[0]}</p>
+        </div>
+        <div className="container">
+          <div
+            style={{
+              backgroundColor: "#eedff4",
+              padding: "5px",
+              fontSize: "20px",
+              fontWeight: "bold",
+              borderRadius: "10px",
+              display: "flex",
+              justifyContent: "space-around",
+              alignItems: "center",
+              width: "100%",
+              marginTop: "15%",
+            }}
+          >
+            <p className="mt-3">{books[4]?.price} L.E.</p>
+            <div className="icon d-flex justify-content-end  align-items-center">
+              <img
+                src="./../../public/Icons/shopping-basket.png"
+                style={{ width: "38px", height: "38px", borderRaduis: "50%" }}
+              />
+              <img
+                src="./../../public/Icons/more.png"
+                style={{
+                  maxWidth: "46px",
+                  maxHeight: "46px",
+                  borderRaduis: "50%",
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>,
+  ];
 
   return (
     <>
@@ -399,6 +686,19 @@ const Home = () => {
             return <CategorieCard {...ele}></CategorieCard>;
           })}
         </div>
+      </div>
+
+      {/* Books Slider */}
+      <div className="container w-75" style={{ marginTop: "7%" }}>
+        <h2 className="my-5 col-10" >
+          Top 5 rated books
+        </h2>
+        <AliceCarousel
+          mouseTracking
+          items={items2}
+          responsive={responsive}
+          controlsStrategy="alternate"
+        />
       </div>
     </>
   );
