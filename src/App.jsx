@@ -4,6 +4,8 @@ import LoginPage from "./Pages/LoginPage";
 import RegisterPage from "./Pages/RegisterPage";
 import Home from "./Pages/Home";
 import { AppProvider } from "./Contexts/appContext";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 function App() {
   const [count, setCount] = useState(0);
 
@@ -22,8 +24,6 @@ function App() {
           </Routes>
         </BrowserRouter>
       </AppProvider>
-
-      {/* <Home></Home> */}
     </>
   );
 }
