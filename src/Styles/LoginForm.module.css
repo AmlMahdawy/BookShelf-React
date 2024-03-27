@@ -1,3 +1,148 @@
-/* body{
-    background-color:#8d27ae ;
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url("bookshelf.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.mainContainer {
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  width: 70vw;
+  height: 90vh;
+  justify-content: center;
+  align-items: center;
+}
+.imgContainer {
+    position: relative;
+  width: 48%;
+  height: 100%;
+  border-radius: 16px;
+  background-image: url("bookjump.gif");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.overLay{
+    position: absolute;
+    background-color: #5c067f;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0; 
+    opacity: 25%;
+}
+form {
+  width: 52%;
+  height: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.inputContainer {
+  width: 90%;
+
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+input {
+  all: unset;
+
+  display: block;
+  height: 50px;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  padding: 0 10px;
+}
+
+input:focus {
+  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.62);
+  border-bottom: 2px solid #5c067f;
+  border-right: 2px solid #5c067f;
+  animation: letters 2s ease 0s 1 normal forwards;
+
+}
+input:focus-within+label{
+    color:red
+}
+
+label {
+  font-family: "Inter", sans-serif;
+  color: white;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  align-self: flex-start;
+}
+button {
+  all: unset;
+  margin-bottom: 20px !important;
+  border: 1px solid rgb(83, 7, 104);
+  width: 40%;
+  height: 20%;
+  text-align: center;
+  line-height: 60px !important;
+  color: #fff;
+  box-sizing: border-box;
+  background: linear-gradient(90deg, #5b067d, #d8a2ea, rgb(194, 71, 246));
+  background-size: 400%;
+  border-radius: 30px !important;
+  opacity: 80%;
+}
+button:hover {
+  animation: animate 8s linear infinite;
+}
+@keyframes animate {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 400%;
+  }
+}
+.error {
+  color: white;
+  filter: drop-shadow(2px 2px 4px rgb(255, 1, 1));
+  text-shadow: 8px 1px 12px #ff0e0e, 5px 5px 10px #000000;
+  margin-bottom: 10px;
+}
+
+.logo {
+    display :flex;
+  align-items: center;
+  text-shadow: 1px 2px 5px #ffffff;
+  color: #fff;
+  font-size: 2rem;
+  animation: logo 2s ease 0s 1 normal forwards;
+  height: 40%;
+}
+@keyframes logo {
+	0% {
+		transform: scale(0.5);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}
+/* @keyframes letters{
+    0%{
+        letter-spacing: 2px;
+    }
+    100%{
+        letter-spacing: 10px;
+    }
+    
 } */
