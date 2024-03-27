@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import { Opacity } from "@mui/icons-material";
 import Rating from "@mui/material/Rating";
 import EmblaCarouselReact from "embla-carousel-react";
+import CategorieCard from "../Components/CategorieCard";
 
 const OPTIONS = { align: "start" };
 const SLIDE_COUNT = 6;
@@ -37,6 +38,28 @@ const Home = () => {
         " Clever, where every book is a doorway to adventure, knowledge, and inspiration. Explore our vast collection and embark on journeys beyond imagination",
     },
   ];
+  var categories = [
+    {
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8Ykrp-qg_qg3GhT_czXbHIGvFTVTE7nihxUkSXb-6FA&s",
+      title: "Artistry ",
+    },
+    {
+      img: "https://images.unsplash.com/photo-1588072432904-843af37f03ed?q=80&w=1744&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      title: "Children",
+    },
+    {
+      img: "https://images.unsplash.com/photo-1619819583905-2d5228bf4560?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGNvb2tib29rfGVufDB8fDB8fHww",
+      title: "Recipe",
+    },
+    {
+      img: "https://images.unsplash.com/photo-1599901723404-e38e7192b930?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D0",
+      title: "Novels",
+    },
+    {
+      img: "https://images.unsplash.com/photo-1491841651911-c44c30c34548?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      title: "Mystrey",
+    }
+  ];
 
   //Getting data from API in useEffext
   useEffect(() => {
@@ -55,7 +78,7 @@ const Home = () => {
       </Carousel>
 
       {/* Book Cards Part */}
-      <div className="books-container text-center" style={{marginTop:'7%'}}>
+      <div className="books-container text-center" style={{ marginTop: "7%" }}>
         <div className="container d-flex flex-column  justify-content-center align-items-center w-50">
           <h1>Trending this week </h1>
           <p className="mt-3">
@@ -73,7 +96,10 @@ const Home = () => {
       </div>
 
       {/* Facilites Part */}
-      <div className="features d-flex justify-content-center" style={{marginTop:'7%'}}>
+      <div
+        className="features d-flex justify-content-center"
+        style={{ marginTop: "7%" }}
+      >
         <div className="content my-3 w-75 d-flex   flex-column  flex-lg-row justify-content-lg-between align-items-center justify-content-center  ">
           <div className="feature ">
             <div className="icon my-4">
@@ -123,8 +149,10 @@ const Home = () => {
       </div>
 
       {/* Best Saleres Part */}
-      <div className="bestSales" style={{marginTop:'7%'}}>
-        <h2 className="my-5 col-10 offset-1" style={{marginLeft:'13%'}}>Best Sellers</h2>
+      <div className="bestSales" style={{ marginTop: "7%" }}>
+        <h2 className="my-5 col-10 offset-1" style={{ marginLeft: "13%" }}>
+          Best Sellers
+        </h2>
         <div className="container d-flex flex-wrap  col-10 offset-1 ">
           <div className="div book-display-card col-12 col-lg-6 mt-4 mt-lg-0 d-flex justify-content-center ">
             <div className="book-cover-con  mx-2">
@@ -357,6 +385,19 @@ const Home = () => {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Categories */}
+      <div className="categories-display" style={{ marginTop: "7%" }}>
+        <h2 className="my-5 col-10 offset-1" style={{ marginLeft: "13%" }}>
+          Categories
+        </h2>
+
+        <div className="container d-flex flex-column justify-content-center align-items-center flex-md-row justify-content-center  ">
+          {categories.map((ele) => {
+            return <CategorieCard {...ele}></CategorieCard>;
+          })}
         </div>
       </div>
     </>
