@@ -1,0 +1,137 @@
+* {
+  font-family: sans-serif;
+}
+.cart-wrapper {
+  margin-top: 200px;
+}
+.empty-cart {
+  border: 2px solid #f6eff8;
+  border-radius: 20px;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 200px;
+}
+.return-to-shop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.return-to-shop-btn {
+  background-color: #8d28ad;
+  color: white;
+  width: 150px;
+  height: 40px;
+  border: 2px solid #8d28ad;
+}
+/*****************************************/
+.item-wrapper {
+  border: 2px solid #f6eff8;
+  border-radius: 20px;
+  min-height: 200px;
+  margin-bottom: 20px;
+}
+.book-info-qty-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+}
+.item-all-info {
+  display: flex;
+}
+.img-wrapper {
+  text-align: center;
+  margin-top: 25px;
+}
+.item-img {
+  width: 130px;
+}
+
+.item-info {
+  padding-left: 22px;
+  padding-block: 50px;
+}
+
+.isbn {
+  color: #8d8d8d;
+  font-size: 15px;
+}
+.book-title {
+  font-weight: bold;
+}
+.author {
+  font-size: 15px;
+  color: #3c3c3c;
+}
+/*****************************************/
+.qty-wrapper {
+  display: flex;
+  align-items: center;
+}
+.qty-box {
+  height: 44px;
+  width: 127px;
+  background-color: #ebebeb;
+  margin-left: 12px;
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 10px;
+}
+.icon-plus-min {
+  color: #8d28ad;
+  font-size: 30px;
+  cursor: pointer;
+}
+h6 {
+  display: flex;
+}
+/*****************************************/
+.price-remove {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 50%;
+  padding-left: 100px;
+}
+.price-wrapper {
+  display: flex;
+  align-items: center;
+}
+.remove-icon {
+  color: #8d28ad;
+  font-size: 25px;
+  cursor: pointer;
+}
+/******************/
+.checkout-wrapper {
+  background-color: #f0e3f4;
+  min-height: 320px;
+  border-radius: 10px;
+}
+.promo-code-wrapper {
+  background-color: #d4c0db;
+  border: 2px solid #d4c0db;
+  border-radius: 10px;
+  width: 280px;
+
+  input {
+    background-color: #d4c0db;
+    border: 2px solid #d4c0db;
+    padding-inline: 10px;
+  }
+}
+.promo-input:focus {
+  outline: none; /* Remove default focus outline */
+  border-color: transparent;
+}
+.promo-code-content {
+  padding-left: 20px;
+  padding-block: 2px;
+}
+
+.coupon-img {
+  width: 30px;
+}
+
+/* #E9DEEC */

@@ -4,26 +4,29 @@ import LoginPage from "./Pages/LoginPage";
 import RegisterPage from "./Pages/RegisterPage";
 import Home from "./Pages/Home";
 import { AppProvider } from "./Contexts/appContext";
+import CartPage from "./Pages/CartPage";
+import { CartContext, CartProvider } from "./Contexts/CartContext";
 function App() {
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
 
   return (
     <>
       <AppProvider>
-        <BrowserRouter>
-          <Routes>
-          <Route path="/" element={<Home></Home>}></Route>
-            <Route path="/home" element={<Home></Home>}></Route>
-            <Route
-              path="/register"
-              element={<RegisterPage></RegisterPage>}
-            ></Route>
-            <Route path="/login" element={<LoginPage></LoginPage>}></Route>
-          </Routes>
-        </BrowserRouter>
+        <CartProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Home></Home>}></Route>
+              <Route path="/home" element={<Home></Home>}></Route>
+              <Route
+                path="/register"
+                element={<RegisterPage></RegisterPage>}
+              ></Route>
+              <Route path="/login" element={<LoginPage></LoginPage>}></Route>
+              <Route path="/cart" element={<CartPage></CartPage>}></Route>
+            </Routes>
+          </BrowserRouter>
+        </CartProvider>
       </AppProvider>
-
-      {/* <Home></Home> */}
     </>
   );
 }
