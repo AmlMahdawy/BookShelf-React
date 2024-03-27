@@ -7,6 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import BookCard from "./../Components/bookCard";
 import axios from "axios";
 import { useEffect } from "react";
+import { Opacity } from "@mui/icons-material";
 
 const Home = () => {
   let [books, setBooks] = useState([]);
@@ -55,11 +56,59 @@ const Home = () => {
             perspiciatis, aperiam impedit.
           </p>
         </div>
-        <div className="books mt-5">
+        <div className="books mt-5 d-flex flex-wrap   flex-column justify-content-center align-items-center  flex-md-row justify-content-md-center">
           {books.slice(0, 5).map((book) => {
             console.log(book);
             return <BookCard key={book.id} props={book} />;
           })}
+        </div>
+      </div>
+      <div className="features mt-5 d-flex justify-content-center ">
+        <div className="content my-3 w-75 d-flex   flex-column  flex-lg-row justify-content-lg-between align-items-center justify-content-center  ">
+          <div className="feature ">
+            <div className="icon my-4">
+              <img src="public/Icons/on-time.png" />
+            </div>
+            <h5 className="my-3">Quick Delivery</h5>
+            <p style={{ color: "gray", Opacity: "30%" }}>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
+              maiores maxime dolorem atque in illo magni sed eveniet dolores
+              accusantium, .
+            </p>
+          </div>
+          <div className="feature ">
+            <div className="icon my-4">
+              <img src="public/Icons/credit-card.png" />
+            </div>
+            <h5 className="my-3">Secure Payment</h5>
+            <p style={{ color: "gray", Opacity: "30%" }}>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
+              maiores maxime dolorem atque in illo magni sed eveniet dolores
+              accusantium, .
+            </p>
+          </div>
+          <div className="feature ">
+            <div className="icon my-4">
+              <img src="public/Icons/exclusive.png" />
+            </div>
+            <h5 className="my-3">Best Quality</h5>
+            <p style={{ color: "gray", Opacity: "30%" }}>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
+              maiores maxime dolorem atque in illo magni sed eveniet dolores
+              accusantium, .
+            </p>
+          </div>
+          <div className="feature ">
+            <div className="icon my-4">
+              <img src="public/Icons/protection.png" />
+            </div>
+            <h5 className="my-3">Return Guarantee</h5>
+            <p style={{ color: "gray", Opacity: "30%" }}>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
+              maiores maxime dolorem atque in illo magni sed eveniet dolores
+              accusantium, .
+            </p>
+          </div>
         </div>
       </div>
     </>
