@@ -1,0 +1,69 @@
+.book-container {
+    position: relative;
+    width: 200px; 
+    margin: 10px;
+}
+
+.book-image-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.book-image {
+    width: 200px;
+    height: 249px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    border-radius: 5px;
+}
+
+.book-image-container::before {
+    content: "";
+    position: absolute;
+    top: -5%; 
+    left: -5%; 
+    width: 110%; 
+    height: 110%;
+    background-color: rgba(91, 6, 125, 0.9);
+    opacity: 0; 
+    transition: opacity 0.3s ease;
+    z-index: 999;
+}
+
+.book-image-container:hover::before {
+    opacity: 1; 
+    border-radius: 5px;
+}
+
+.overlay-icons {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-end;
+    justify-content: center;
+    width: 80%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 9999999;
+}
+
+.overlay-icons .icon {
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.book-image-container:hover .overlay-icons {
+    opacity: 1;
+}
+
+.book-image-container:hover .book-image {
+    transform: scale(1.1);
+    border-radius: 5px;
+
+}
