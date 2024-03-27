@@ -55,10 +55,10 @@ const Home = () => {
       </Carousel>
 
       {/* Book Cards Part */}
-      <div className="books-container mt-5">
+      <div className="books-container text-center" style={{marginTop:'7%'}}>
         <div className="container d-flex flex-column  justify-content-center align-items-center w-50">
           <h1>Trending this week </h1>
-          <p>
+          <p className="mt-3">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident
             libero porro esse excepturi accusamus exercitationem vel quisquam
             ducimus rem neque ab earum, quas, eum molestiae inventore iste
@@ -73,7 +73,7 @@ const Home = () => {
       </div>
 
       {/* Facilites Part */}
-      <div className="features mt-5 d-flex justify-content-center ">
+      <div className="features d-flex justify-content-center" style={{marginTop:'7%'}}>
         <div className="content my-3 w-75 d-flex   flex-column  flex-lg-row justify-content-lg-between align-items-center justify-content-center  ">
           <div className="feature ">
             <div className="icon my-4">
@@ -122,10 +122,11 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Best Sales Part */}
-      <div className="bestSales mt-5">
-        <div className="container d-flex flex-wrap  w-75 ">
-          <div className="div book-display-card col-12 col-lg-6 mt-4 mt-lg-0 d-flex">
+      {/* Best Saleres Part */}
+      <div className="bestSales" style={{marginTop:'7%'}}>
+        <h2 className="my-5 col-10 offset-1" style={{marginLeft:'13%'}}>Best Sellers</h2>
+        <div className="container d-flex flex-wrap  col-10 offset-1 ">
+          <div className="div book-display-card col-12 col-lg-6 mt-4 mt-lg-0 d-flex justify-content-center ">
             <div className="book-cover-con  mx-2">
               <img
                 src={books[0]?.thumbnailUrl}
@@ -144,12 +145,11 @@ const Home = () => {
                     color: "#8d27ad",
                     padding: "5px",
                     borderRadius: "10px",
-
                     textAlign: "center",
                     fontSize: "smaller",
                     fontWeight: "semi-bold",
                   }}
-                  className=""
+                  className="col-6 mx-1 mx-lg-0 col-lg-6"
                 >
                   {books[0]?.categories[0]}
                 </p>
@@ -159,29 +159,32 @@ const Home = () => {
                     color: "#ff7a01 ",
                     padding: "5px",
                     borderRadius: "10px",
-                   
                     display: "flex",
-                    justifyContent: "space-around",
-                    maxHeight: "35px",
+                    justifyContent: "space-evenly",
+                    maxHeight: "30px",
+                    fontSize: "smaller",
+                    fontWeight: "semi-bold",
                   }}
+                  className="col-6 col-lg-3"
                 >
                   <img
                     src="./../../public/Icons/star.png"
-                    style={{ width: "20px", height: "20px" }}
+                    style={{ width: "18px", height: "18px" }}
                   />
                   <p>4.0</p>
                 </div>
               </div>
-              <div className="data-con w-100 ms-4 ">
+              <div className="data-con w-100 ms-lg-4  ">
                 <h5>{books[0]?.title}</h5>
                 <p style={{ color: "#8f8f8f" }}>{books[0]?.authors[0]}</p>
               </div>
-              <div className="data-con w-100 ms-4 ">
+              <div className="data-con w-100 ms-lg-4 ">
                 <h2 style={{ color: "#9436b2" }}>{books[0]?.price} L.E</h2>
               </div>
             </div>
           </div>
-          <div className="div book-display-card col-12 col-lg-6 mt-4 mt-lg-0  d-flex">
+
+          <div className="div book-display-card col-12 col-lg-6 mt-4 mt-lg-0 d-flex justify-content-center">
             <div className="book-cover-con  mx-2">
               <img
                 src={books[1]?.thumbnailUrl}
@@ -200,11 +203,11 @@ const Home = () => {
                     color: "#8d27ad",
                     padding: "5px",
                     borderRadius: "10px",
-                    width: "50%",
                     textAlign: "center",
                     fontSize: "smaller",
                     fontWeight: "semi-bold",
                   }}
+                  className="col-6 mx-1 mx-lg-0 col-lg-6"
                 >
                   {books[1]?.categories[0]}
                 </p>
@@ -214,29 +217,32 @@ const Home = () => {
                     color: "#ff7a01 ",
                     padding: "5px",
                     borderRadius: "10px",
-                    
                     display: "flex",
-                    justifyContent: "space-around",
-                    maxHeight: "35px",
+                    justifyContent: "space-evenly",
+                    maxHeight: "30px",
+                    fontSize: "smaller",
+                    fontWeight: "semi-bold",
                   }}
+                  className="col-6 col-lg-3"
                 >
                   <img
                     src="./../../public/Icons/star.png"
-                    style={{ width: "20px", height: "20px" }}
+                    style={{ width: "18px", height: "18px" }}
                   />
-                  <p>3.0</p>
+                  <p>4.0</p>
                 </div>
               </div>
-              <div className="data-con w-100 ms-4 ">
+              <div className="data-con w-100 ms-lg-4  ">
                 <h5>{books[1]?.title}</h5>
                 <p style={{ color: "#8f8f8f" }}>{books[1]?.authors[0]}</p>
               </div>
-              <div className="data-con w-100 ms-4 ">
+              <div className="data-con w-100 ms-lg-4 ">
                 <h2 style={{ color: "#9436b2" }}>{books[1]?.price} L.E</h2>
               </div>
             </div>
           </div>
-          <div className="div book-display-card col-12 col-lg-6  mt-4 d-flex">
+
+          <div className="div book-display-card col-12 col-lg-6 mt-4  d-flex justify-content-center">
             <div className="book-cover-con  mx-2">
               <img
                 src={books[2]?.thumbnailUrl}
@@ -255,11 +261,11 @@ const Home = () => {
                     color: "#8d27ad",
                     padding: "5px",
                     borderRadius: "10px",
-                    width: "50%",
                     textAlign: "center",
                     fontSize: "smaller",
                     fontWeight: "semi-bold",
                   }}
+                  className="col-6 mx-1 mx-lg-0 col-lg-6"
                 >
                   {books[2]?.categories[0]}
                 </p>
@@ -270,27 +276,31 @@ const Home = () => {
                     padding: "5px",
                     borderRadius: "10px",
                     display: "flex",
-                    justifyContent: "space-around",
-                    maxHeight: "35px",
+                    justifyContent: "space-evenly",
+                    maxHeight: "30px",
+                    fontSize: "smaller",
+                    fontWeight: "semi-bold",
                   }}
+                  className="col-6 col-lg-3"
                 >
                   <img
                     src="./../../public/Icons/star.png"
-                    style={{ width: "20px", height: "20px" }}
+                    style={{ width: "18px", height: "18px" }}
                   />
-                  <p>4.5</p>
+                  <p>4.0</p>
                 </div>
               </div>
-              <div className="data-con w-100 ms-4 ">
+              <div className="data-con w-100 ms-lg-4  ">
                 <h5>{books[2]?.title}</h5>
                 <p style={{ color: "#8f8f8f" }}>{books[2]?.authors[0]}</p>
               </div>
-              <div className="data-con w-100 ms-4 ">
+              <div className="data-con w-100 ms-lg-4 ">
                 <h2 style={{ color: "#9436b2" }}>{books[2]?.price} L.E</h2>
               </div>
             </div>
           </div>
-          <div className="div book-display-card col-12 col-lg-6  mt-4 d-flex">
+
+          <div className="div book-display-card col-12 col-lg-6 mt-4  d-flex justify-content-center">
             <div className="book-cover-con  mx-2">
               <img
                 src={books[3]?.thumbnailUrl}
@@ -309,11 +319,11 @@ const Home = () => {
                     color: "#8d27ad",
                     padding: "5px",
                     borderRadius: "10px",
-                    width: "50%",
                     textAlign: "center",
                     fontSize: "smaller",
                     fontWeight: "semi-bold",
                   }}
+                  className="col-6 mx-1 mx-lg-0 col-lg-6"
                 >
                   {books[3]?.categories[0]}
                 </p>
@@ -324,23 +334,25 @@ const Home = () => {
                     padding: "5px",
                     borderRadius: "10px",
                     display: "flex",
-                    justifyContent: "space-around",
-                    maxHeight: "35px",
+                    justifyContent: "space-evenly",
+                    maxHeight: "30px",
+                    fontSize: "smaller",
                     fontWeight: "semi-bold",
                   }}
+                  className="col-6 col-lg-3"
                 >
                   <img
                     src="./../../public/Icons/star.png"
-                    style={{ width: "20px", height: "20px" }}
+                    style={{ width: "18px", height: "18px" }}
                   />
-                  <p>3.0</p>
+                  <p>4.0</p>
                 </div>
               </div>
-              <div className="data-con w-100 ms-4 ">
+              <div className="data-con w-100 ms-lg-4  ">
                 <h5>{books[3]?.title}</h5>
                 <p style={{ color: "#8f8f8f" }}>{books[3]?.authors[0]}</p>
               </div>
-              <div className="data-con w-100 ms-4 ">
+              <div className="data-con w-100 ms-lg-4 ">
                 <h2 style={{ color: "#9436b2" }}>{books[3]?.price} L.E</h2>
               </div>
             </div>
