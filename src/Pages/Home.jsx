@@ -1037,6 +1037,177 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+      {/* Latest News Part */}
+      <div
+        className="container d-flex flex-column  justify-content-center align-items-center w-50"
+        style={{ marginTop: "7%" }}
+      >
+        <h2>Latest News </h2>
+        <p className="mt-3 text-center ">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident
+          libero porro esse excepturi accusamus exercitationem vel quisquam
+          ducimus rem neque ab earum, quas, eum molestiae inventore iste
+          perspiciatis, aperiam impedit.
+        </p>
+      </div>
+      <div className="news d-flex flex-column flex-md-row justify-content-center align-items-center  mt-5 flex-wrap">
+        <div className="new col-10 col-md-5 col-lg-3 d-flex flex-column justify-content-between mx-3 ">
+          <img
+            className="my-3"
+            src="https://images.unsplash.com/photo-1553729784-e91953dec042?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            style={{ width: "100%", height: "200px", borderRadius: "10px" }}
+          />
+          <h6 className="my-3" style={{ fontWeight: "bold" }}>
+            Title of the news
+          </h6>
+          <p className="my-3" style={{ color: "#8f8f8f", overflow: "elepsis" }}>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste harum
+            adipisci, rem magnam debitis commodi reprehenderit praesentium error
+            ad aperiam. Quidem temporibus deserunt exercitationem cum quae culpa
+            dolorem animi beatae.
+          </p>
+        </div>
+        <div className="new col-10 col-md-5 col-lg-3 d-flex flex-column justify-content-between mx-3">
+          <img
+            className="my-3"
+            src="https://images.unsplash.com/photo-1553729784-e91953dec042?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            style={{ width: "100%", height: "200px", borderRadius: "10px" }}
+          />
+          <h6 style={{ fontWeight: "bold" }} className="my-3">
+            Title of the news
+          </h6>
+          <p className="my-3" style={{ color: "#8f8f8f", overflow: "elepsis" }}>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste harum
+            adipisci, rem magnam debitis commodi reprehenderit praesentium error
+            ad aperiam. Quidem temporibus deserunt exercitationem cum quae culpa
+            dolorem animi beatae.
+          </p>
+        </div>
+        <div className="new col-10 col-md-5 col-lg-3 d-flex flex-column justify-content-between  mx-3">
+          <img
+            className="my-3"
+            src="https://images.unsplash.com/photo-1553729784-e91953dec042?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            style={{ width: "100%", height: "200px", borderRadius: "10px" }}
+          />
+          <h6 style={{ fontWeight: "bold" }} className="my-3">
+            Title of the news
+          </h6>
+          <p className="my-3" style={{ color: "#8f8f8f", overflow: "elepsis" }}>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste harum
+            adipisci, rem magnam debitis commodi reprehenderit praesentium error
+            ad aperiam. Quidem temporibus deserunt exercitationem cum quae culpa
+            dolorem animi beatae.
+          </p>
+        </div>
+      </div>
+
+      {/* Reviews Part */}
+      <div
+        className="container d-flex flex-column  justify-content-center align-items-center w-50"
+        style={{ marginTop: "7%" }}
+      >
+        <h2>Reviews </h2>
+        <p className="mt-3 text-center ">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident
+          libero porro esse excepturi accusamus exercitationem vel quisquam
+          ducimus rem neque ab earum, quas, eum molestiae inventore iste
+          perspiciatis, aperiam impedit.
+        </p>
+      </div>
+      <div className="reviews d-flex flex-column flex-md-row justify-content-center align-items-center  mt-5 flex-wrap">
+        <div
+          className="review col-10 col-lg-3 my-2 p-3 mx-2 "
+          style={{ border: "5px #ddddddy solid", borderRadius: "15px" ,boxShadow: "0 4px 8px rgba(0, 0, 0, 0.8)"}}
+        >
+          <Rating
+            name="simple-controlled "
+            className="my-3"
+            value={4}
+            readOnly
+          />
+          <div className="comment col-10 mb-3">
+            <p style={{ color: "#8f8f8f" }}>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Provident libero porro esse excepturi accusamus exercitationem vel
+              quisquam
+            </p>
+          </div>
+          <div className="contact-info d-flex justify-content-between ">
+            <div>
+              <h6>User Name</h6>
+              <p style={{ color: "#8f8f8f", fontSize: "smaller" }}>His title</p>
+            </div>
+            <div>
+              <img
+                src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
+                style={{ width: "60px", height: "60px", borderRadius: "50%" }}
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          className="review  col-10 col-lg-3 my-2 p-3 mx-2 "
+          style={{ border: "5px #ddddddy solid", borderRadius: "15px" ,boxShadow: "0 4px 8px rgba(0, 0, 0, 0.8)"}}
+        >
+          <Rating
+            name="simple-controlled "
+            className="my-3"
+            value={4}
+            readOnly
+          />
+          <div className="comment col-10 mb-3">
+            <p style={{ color: "#8f8f8f" }}>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Provident libero porro esse excepturi accusamus exercitationem vel
+              quisquam
+            </p>
+          </div>
+          <div className="contact-info d-flex justify-content-between ">
+            <div>
+              <h6>User Name</h6>
+              <p style={{ color: "#8f8f8f", fontSize: "smaller" }}>His title</p>
+            </div>
+            <div>
+              <img
+                src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
+                style={{ width: "60px", height: "60px", borderRadius: "50%" }}
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          className="review  col-10 col-lg-3 my-2 p-3 mx-2 "
+          style={{ border: "5px #ddddddy solid", borderRadius: "15px" ,boxShadow: "0 4px 8px rgba(0, 0, 0, 0.8)"}}
+        >
+          <Rating
+            name="simple-controlled "
+            className="my-3"
+            value={4}
+            readOnly
+          />
+          <div className="comment col-10 mb-3">
+            <p style={{ color: "#8f8f8f" }}>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Provident libero porro esse excepturi accusamus exercitationem vel
+              quisquam
+            </p>
+          </div>
+          <div className="contact-info d-flex justify-content-between ">
+            <div>
+              <h6>User Name</h6>
+              <p style={{ color: "#8f8f8f", fontSize: "smaller" }}>His title</p>
+            </div>
+            <div>
+              <img
+                src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
+                style={{ width: "60px", height: "60px", borderRadius: "50%" }}
+              />
+            </div>
+          </div>
+        </div>
+        
+      </div>
     </>
   );
 };
