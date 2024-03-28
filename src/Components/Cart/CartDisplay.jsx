@@ -85,14 +85,18 @@ export default function CartDisplay() {
       <div className="my-5">
         {cartItems.length === 0 ? (
           <>
-            <div className="empty-cart container">
-              <h5
-                className={
-                  showMessage ? "animate__animated animate__flash" : ""
-                }
-              >
-                Your cart is empty. Add books now!
-              </h5>
+            <div className=" container">
+              <div className="empty-cart">
+                <div className="empty-cart-text">
+                  <h5
+                    className={
+                      showMessage ? "animate__animated animate__flash" : ""
+                    }
+                  >
+                    Your cart is empty. Add books now!
+                  </h5>
+                </div>
+              </div>
             </div>
             <div className="return-to-shop my-5">
               <button className="return-to-shop-btn">Return To Shop</button>

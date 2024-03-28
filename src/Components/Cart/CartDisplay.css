@@ -13,6 +13,17 @@
   justify-content: center;
   margin-top: 200px;
 }
+@media (max-width: 600px) {
+  .empty-cart {
+    margin: 10px;
+  }
+}
+@media (max-width: 400px) {
+  .empty-cart-text {
+    text-align: center;
+    padding: 10px;
+  }
+}
 .return-to-shop {
   display: flex;
   align-items: center;
