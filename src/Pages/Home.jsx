@@ -261,7 +261,7 @@ const Home = () => {
             value={4}
             readOnly
           />
-          <h5>{books[3]?.title}</h5>
+          <h5 style={{overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis'}}>{books[3]?.title}</h5>
           <p style={{ color: "#8f8f8f" }}>{books[3]?.authors[0]}</p>
         </div>
         <div className="container">
@@ -368,12 +368,12 @@ const Home = () => {
       {/* Book Cards Part */}
       <div className="books-container text-center" style={{ marginTop: "7%" }}>
         <div className="container d-flex flex-column  justify-content-center align-items-center w-50">
-          <h1>Trending this week </h1>
+          <h1>Trending This Week </h1>
           <p className="mt-3">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident
-            libero porro esse excepturi accusamus exercitationem vel quisquam
-            ducimus rem neque ab earum, quas, eum molestiae inventore iste
-            perspiciatis, aperiam impedit.
+            you'll discover the most interesting titles flying off our virtual
+            shelves. From gripping thrillers to poignant memoirs, these are the
+            books everyone is talking about. Stay ahead of the curve and explore
+            the latest literary sensations at BookShelf.
           </p>
         </div>
         <div className="books mt-5 d-flex flex-wrap   flex-column justify-content-center align-items-center  flex-md-row justify-content-md-center">
@@ -389,48 +389,44 @@ const Home = () => {
         style={{ marginTop: "7%" }}
       >
         <div className="content my-3 w-75 d-flex   flex-column  flex-lg-row justify-content-lg-between align-items-center justify-content-center  ">
-          <div className="feature ">
+          <div className="feature col-12  col-md-3 ">
             <div className="icon my-4">
               <img src="public/Icons/on-time.png" />
             </div>
             <h5 className="my-3">Quick Delivery</h5>
             <p style={{ color: "gray", Opacity: "30%" }}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
-              maiores maxime dolorem atque in illo magni sed eveniet dolores
-              accusantium, .
+              With our efficient shipping process, Get your books fast with
+              BookShelf's speedy delivery!Order today and start reading sooner.
             </p>
           </div>
-          <div className="feature ">
+          <div className="feature col-12  col-md-3 ">
             <div className="icon my-4">
               <img src="public/Icons/credit-card.png" />
             </div>
             <h5 className="my-3">Secure Payment</h5>
             <p style={{ color: "gray", Opacity: "30%" }}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
-              maiores maxime dolorem atque in illo magni sed eveniet dolores
-              accusantium, .
+              Safeguard your transactions with BookShelf's secure payment system
+              with confidence your information is protected.
             </p>
           </div>
-          <div className="feature ">
+          <div className="feature col-12  col-md-3">
             <div className="icon my-4">
               <img src="public/Icons/exclusive.png" />
             </div>
             <h5 className="my-3">Best Quality</h5>
             <p style={{ color: "gray", Opacity: "30%" }}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
-              maiores maxime dolorem atque in illo magni sed eveniet dolores
-              accusantium, .
+              Experience the best in literary quality with BookShelf. Our
+              carefully curated selection ensures top-notch reads every time
             </p>
           </div>
-          <div className="feature ">
+          <div className="feature col-12  col-md-3">
             <div className="icon my-4">
               <img src="public/Icons/protection.png" />
             </div>
             <h5 className="my-3">Return Guarantee</h5>
             <p style={{ color: "gray", Opacity: "30%" }}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
-              maiores maxime dolorem atque in illo magni sed eveniet dolores
-              accusantium, .
+              Shop worry-free with BookShelf's return guarantee. If you're not
+              satisfied, we'll make it right. Your satisfaction is our priority
             </p>
           </div>
         </div>
@@ -701,8 +697,11 @@ const Home = () => {
       </div>
 
       {/* Featured Books */}
-      <div className="container col-12 col-lg-10" style={{ marginTop: "7%" }}>
-        <h2 className="my-5 col-10">Featured Books</h2>
+      <div
+        className="container col-12 col-lg-10 w-75   "
+        style={{ marginTop: "7%" }}
+      >
+        <h2 className="my-5 ms-4 col-10">Featured Books</h2>
 
         <div className="container d-flex flex-column flex-lg-row  ">
           <div
@@ -1045,59 +1044,107 @@ const Home = () => {
       >
         <h2>Latest News </h2>
         <p className="mt-3 text-center ">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident
-          libero porro esse excepturi accusamus exercitationem vel quisquam
-          ducimus rem neque ab earum, quas, eum molestiae inventore iste
-          perspiciatis, aperiam impedit.
+          Stay up-to-date with all things literary through BookShelf's
+          comprehensive latest news section. Delve into exclusive author
+          interviews, gain insight into upcoming book releases, and discover a
+          wealth of literary events to enrich your reading journey. From
+          behind-the-scenes looks at your favorite authors to in-depth analyses
+          of literary trends, our latest news section is your go-to destination
+          for all things book-related.
         </p>
       </div>
-      <div className="news d-flex flex-column flex-md-row justify-content-center align-items-center  mt-5 flex-wrap">
+      <div className="news d-flex flex-column flex-md-row justify-content-center align-items-center  mt-5 flex-wrap col-10 offset-1 ">
         <div className="new col-10 col-md-5 col-lg-3 d-flex flex-column justify-content-between mx-3 ">
           <img
             className="my-3"
-            src="https://images.unsplash.com/photo-1553729784-e91953dec042?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            src="https://deadline.com/wp-content/uploads/2020/08/wil-wheaton-ready-player-two-ernest-cline.jpg?w=681&h=383&crop=1"
             style={{ width: "100%", height: "200px", borderRadius: "10px" }}
           />
           <h6 className="my-3" style={{ fontWeight: "bold" }}>
-            Title of the news
+            Bestselling Author John Smith Announces Highly Anticipated Sequel
           </h6>
-          <p className="my-3" style={{ color: "#8f8f8f", overflow: "elepsis" }}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste harum
-            adipisci, rem magnam debitis commodi reprehenderit praesentium error
-            ad aperiam. Quidem temporibus deserunt exercitationem cum quae culpa
-            dolorem animi beatae.
+          <p
+            className="my-3"
+            style={{
+              color: "#8f8f8f",
+              overflow: "elepsis",
+              maxHeight: "144px",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+            }}
+          >
+            Renowned author John Smith has just revealed exciting news for fans
+            eagerly awaiting the next chapter in his bestselling series. The
+            much-anticipated sequel, titled "Echoes of Destiny," promises to
+            captivate readers once again with its gripping storyline and beloved
+            characters. Smith, known for his masterful storytelling and
+            intricate world-building, has hinted at new adventures and
+            unexpected twists in store for readers. Pre-orders for "Echoes of
+            Destiny" are now available exclusively on BookShelf, offering fans
+            the opportunity to secure their copy ahead of its official release
+            date
           </p>
         </div>
         <div className="new col-10 col-md-5 col-lg-3 d-flex flex-column justify-content-between mx-3">
           <img
             className="my-3"
-            src="https://images.unsplash.com/photo-1553729784-e91953dec042?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            src="https://static.wixstatic.com/media/831070_7fea663a090e43f1ac083ad696ed65e7~mv2.png/v1/fill/w_596,h_439,al_c/831070_7fea663a090e43f1ac083ad696ed65e7~mv2.png"
             style={{ width: "100%", height: "200px", borderRadius: "10px" }}
           />
           <h6 style={{ fontWeight: "bold" }} className="my-3">
-            Title of the news
+            Groundbreaking Debut Novel 'Whispers in the Wind' Wins Prestigious
+            Literary Award
           </h6>
-          <p className="my-3" style={{ color: "#8f8f8f", overflow: "elepsis" }}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste harum
-            adipisci, rem magnam debitis commodi reprehenderit praesentium error
-            ad aperiam. Quidem temporibus deserunt exercitationem cum quae culpa
-            dolorem animi beatae.
+          <p
+            className="my-3"
+            style={{
+              color: "#8f8f8f",
+              maxHeight: "144px",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+            }}
+          >
+            In a landmark moment for the literary world, debut author Emily
+            Johnson's novel "Whispers in the Wind" has been honored with the
+            prestigious Booker Prize for Fiction. Johnson's mesmerizing debut
+            has garnered widespread acclaim for its lyrical prose, nuanced
+            characters, and profound exploration of human resilience in the face
+            of adversity. "Whispers in the Wind" follows the journey of
+            protagonist Sarah as she navigates love, loss, and the complexities
+            of family against the backdrop of a small coastal town. BookShelf
+            celebrates this remarkable achievement and invites readers to
+            discover the magic of "Whispers in the Wind" for themselves.
           </p>
         </div>
         <div className="new col-10 col-md-5 col-lg-3 d-flex flex-column justify-content-between  mx-3">
           <img
             className="my-3"
-            src="https://images.unsplash.com/photo-1553729784-e91953dec042?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            src="https://i.cbc.ca/1.5639446.1707342319!/fileImage/httpImage/image.png_gen/derivatives/16x9_780/two-trees-make-a-forest-by-jessica-j-lee.png"
             style={{ width: "100%", height: "200px", borderRadius: "10px" }}
           />
           <h6 style={{ fontWeight: "bold" }} className="my-3">
-            Title of the news
+            Virtual Author Event: Join Bestselling Author Jessica Lee for an
+            Exclusive Book Discussion
           </h6>
-          <p className="my-3" style={{ color: "#8f8f8f", overflow: "elepsis" }}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste harum
-            adipisci, rem magnam debitis commodi reprehenderit praesentium error
-            ad aperiam. Quidem temporibus deserunt exercitationem cum quae culpa
-            dolorem animi beatae.
+          <p
+            className="my-3"
+            style={{
+              color: "#8f8f8f",
+              maxHeight: "144px",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+            }}
+          >
+            Calling all fans of bestselling author Jessica Lee! BookShelf is
+            thrilled to announce an exclusive virtual author event featuring Lee
+            herself. Join us for an engaging book discussion as Lee delves into
+            the inspiration behind her latest novel, "The Art of Letting Go," a
+            poignant tale of love, forgiveness, and second chances. Participants
+            will have the opportunity to interact with the author, ask
+            questions, and gain insight into Lee's creative process. Don't miss
+            this unique opportunity to connect with one of today's most
+            acclaimed authors. Reserve your spot today on BookShelf's Events
+            page
           </p>
         </div>
       </div>
@@ -1109,16 +1156,54 @@ const Home = () => {
       >
         <h2>Reviews </h2>
         <p className="mt-3 text-center ">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident
-          libero porro esse excepturi accusamus exercitationem vel quisquam
-          ducimus rem neque ab earum, quas, eum molestiae inventore iste
-          perspiciatis, aperiam impedit.
+          Whether you're seeking validation for your book choices or looking for
+          new recommendations, our curated collection of reviews offers valuable
+          insights to inform your literary journey. Join our community of avid
+          readers, share your own thoughts, and discover hidden literary gems
+          waiting to be uncovered.
         </p>
       </div>
-      <div className="reviews d-flex flex-column flex-md-row justify-content-center align-items-center  mt-5 flex-wrap">
-        <div
-          className="review col-10 col-lg-3 my-2 p-3 mx-2 "
-          style={{ border: "5px #ddddddy solid", borderRadius: "15px" ,boxShadow: "0 4px 8px rgba(0, 0, 0, 0.8)"}}
+      <div className="reviews d-flex flex-column flex-md-row justify-content-center align-items-center col-10 offset-1   mt-5 flex-wrap">
+        <div className="review col-10 col-lg-3 my-2 p-3 mx-1 "
+          style={{
+            border: "5px #ddddddy solid",
+            borderRadius: "15px",
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.8)",
+          }}
+        >
+          <Rating
+            name="simple-controlled "
+            className="my-3"
+            value={5}
+            readOnly
+          />
+          <div className="comment col-10 mb-3">
+            <p style={{ color: "#8f8f8f" }}>
+              BookShelf has completely changed the way I discover and enjoy
+              books! Highly recommend,The selection is good. 
+            </p>
+          </div>
+          <div className="contact-info d-flex justify-content-between ">
+            <div>
+              <h6>Gamila Ali</h6>
+              <p style={{ color: "#8f8f8f", fontSize: "smaller" }}>
+                Content Creator
+              </p>
+            </div>
+            <div>
+              <img
+                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                style={{ width: "60px", height: "60px", borderRadius: "50%" }}
+              />
+            </div>
+          </div>
+        </div>
+        <div className="review  col-10 col-lg-3 my-2 p-3 mx-1 "
+          style={{
+            border: "5px #ddddddy solid",
+            borderRadius: "15px",
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.8)",
+          }}
         >
           <Rating
             name="simple-controlled "
@@ -1128,27 +1213,32 @@ const Home = () => {
           />
           <div className="comment col-10 mb-3">
             <p style={{ color: "#8f8f8f" }}>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Provident libero porro esse excepturi accusamus exercitationem vel
-              quisquam
+              I love how easy it is to navigate BookShelf's website. Finding my
+              next read is a breeze, The quick delivery never fails to impress
+              me.
             </p>
           </div>
           <div className="contact-info d-flex justify-content-between ">
             <div>
-              <h6>User Name</h6>
-              <p style={{ color: "#8f8f8f", fontSize: "smaller" }}>His title</p>
+              <h6>Yousra Ahmed</h6>
+              <p style={{ color: "#8f8f8f", fontSize: "smaller" }}>
+                Web Developer
+              </p>
             </div>
             <div>
               <img
-                src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
+                src="https://media.istockphoto.com/id/819419874/photo/young-woman-summer-portrait-outdoors.webp?s=170667a&w=0&k=20&c=9SofNH7CyB0SrzLJTwca-o1tl5C07ORHbThgvRk5FHY="
                 style={{ width: "60px", height: "60px", borderRadius: "50%" }}
               />
             </div>
           </div>
         </div>
-        <div
-          className="review  col-10 col-lg-3 my-2 p-3 mx-2 "
-          style={{ border: "5px #ddddddy solid", borderRadius: "15px" ,boxShadow: "0 4px 8px rgba(0, 0, 0, 0.8)"}}
+        <div className="review  col-10 col-lg-3 my-2 p-3 mx-1 "
+          style={{
+            border: "5px #ddddddy solid",
+            borderRadius: "15px",
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.8)",
+          }}
         >
           <Rating
             name="simple-controlled "
@@ -1158,15 +1248,14 @@ const Home = () => {
           />
           <div className="comment col-10 mb-3">
             <p style={{ color: "#8f8f8f" }}>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Provident libero porro esse excepturi accusamus exercitationem vel
-              quisquam
+              Book Shelf's return guarantee gives me peace of mind when trying
+              out new authors. It's a game-changer I can't get enough of it .
             </p>
           </div>
           <div className="contact-info d-flex justify-content-between ">
             <div>
-              <h6>User Name</h6>
-              <p style={{ color: "#8f8f8f", fontSize: "smaller" }}>His title</p>
+              <h6>Ali Nasr</h6>
+              <p style={{ color: "#8f8f8f", fontSize: "smaller" }}>Sales Man</p>
             </div>
             <div>
               <img
@@ -1176,37 +1265,6 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div
-          className="review  col-10 col-lg-3 my-2 p-3 mx-2 "
-          style={{ border: "5px #ddddddy solid", borderRadius: "15px" ,boxShadow: "0 4px 8px rgba(0, 0, 0, 0.8)"}}
-        >
-          <Rating
-            name="simple-controlled "
-            className="my-3"
-            value={4}
-            readOnly
-          />
-          <div className="comment col-10 mb-3">
-            <p style={{ color: "#8f8f8f" }}>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Provident libero porro esse excepturi accusamus exercitationem vel
-              quisquam
-            </p>
-          </div>
-          <div className="contact-info d-flex justify-content-between ">
-            <div>
-              <h6>User Name</h6>
-              <p style={{ color: "#8f8f8f", fontSize: "smaller" }}>His title</p>
-            </div>
-            <div>
-              <img
-                src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
-                style={{ width: "60px", height: "60px", borderRadius: "50%" }}
-              />
-            </div>
-          </div>
-        </div>
-        
       </div>
     </>
   );
