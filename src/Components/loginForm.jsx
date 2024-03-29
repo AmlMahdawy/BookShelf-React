@@ -13,7 +13,7 @@ const LoginForm = () => {
   const [userData, setUserData] = useState({
     email: "",
     password: "",
-    gmail: true,
+    gmail: false,
   });
 
   const [emailError, setEmailError] = useState("");
@@ -23,8 +23,10 @@ const LoginForm = () => {
       event.preventDefault();
     }
     let res = await login(userData);
+    console.log(res)
     if (res) {
       navigate("/home");
+   
     } else {
       setEmailError("Invalid Email or Password");
     }
@@ -36,27 +38,30 @@ const LoginForm = () => {
       [event.target.name]: event.target.value,
     }));
   };
-
+  function handleBookOnClick(event){
+    event.preventDefault();
+navigate("/home")
+  }
   return (
     <>
-      <div className={styles.container}>
-        <div className={styles.overLay}></div>
+   
 
-        <div className={styles.mainContainer}>
+        
 
           <div className={styles.imgContainer}></div>
 
           <form autoComplete="off" className={styles.loginForm}>
+          <button style={{all:"unset"}} onClick={handleBookOnClick} title="home">
+        <div className={styles.headLine}><span>Book</span><span style={{color:"#8d27ae"}}>Shelf</span></div>
 
-            <div className={styles.welcomeMsg}>
-              <span> Welcome Back</span>
-            </div>
-
+        </button>
+            
             <div className={styles.inputContainer}>
-              <label htmlFor="email" className={styles.Labels}>
+              <label htmlFor="email" className={styles.labels}>
                 E-mail:
               </label>
               <input
+              required
                 className={styles.inputs}
                 type="email"
                 id="email"
@@ -67,7 +72,7 @@ const LoginForm = () => {
             </div>
 
             <div className={styles.inputContainer}>
-              <label htmlFor="password" className={styles.Labels}>
+              <label htmlFor="password" className={styles.labels}>
                 Password:
               </label>
               <input
@@ -85,6 +90,7 @@ const LoginForm = () => {
             <button onClick={handleLoginClick} className={styles.btnLogin}>
               Login
             </button>
+          
             <GoogleLogin
               onSuccess={async (credentialResponse) => {
                 let mail = await jwtDecode(credentialResponse.credential).email;
@@ -99,10 +105,11 @@ const LoginForm = () => {
                 console.log("Login Failed");
               }}
             />
+          
+           
             ;
           </form>
-        </div>
-      </div>
+        
     </>
   );
 };
