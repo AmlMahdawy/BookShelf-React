@@ -1,15 +1,26 @@
-.book-container {
+.bookContainer {
     position: relative;
     width: 200px; 
     margin: 10px;
 }
 
-.book-image-container {
+.bookImageContainer {
     position: relative;
     overflow: hidden;
+    border-radius: 5px;
 }
+.iconContainer {
+    width: 40px; 
+    height: 40px;
+    border-radius: 50%; 
+    background-color: #ccc;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
 
-.book-image {
+  }
+.bookImage {
     width: 200px;
     height: 249px;
     object-fit: cover;
@@ -17,7 +28,7 @@
     border-radius: 5px;
 }
 
-.book-image-container::before {
+.bookImageContainer::before {
     content: "";
     position: absolute;
     top: -5%; 
@@ -30,12 +41,12 @@
     z-index: 999;
 }
 
-.book-image-container:hover::before {
+.bookImageContainer:hover::before {
     opacity: 1; 
     border-radius: 5px;
 }
 
-.overlay-icons {
+.overlayIcons {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -50,20 +61,30 @@
     z-index: 9999999;
 }
 
-.overlay-icons .icon {
+.overlayIcons .icon {
     font-size: 24px;
     color: white;
     cursor: pointer;
-    margin-bottom: 10px;
+ 
     transition: transform 0.3s ease;
 }
 
-.book-image-container:hover .overlay-icons {
+.bookImageContainer:hover .overlayIcons {
     opacity: 1;
 }
 
-.book-image-container:hover .book-image {
+.bookImageContainer:hover .bookImage {
     transform: scale(1.1);
     border-radius: 5px;
 
 }
+.iconContainerAdded {
+    background-color: var(--bg-light)
+  }
+  
+  .iconActive {
+    color: var(--text-color);
+    font-size: 24px;
+    cursor: pointer;
+  }
+  

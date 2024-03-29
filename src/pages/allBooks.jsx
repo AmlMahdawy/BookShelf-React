@@ -1,5 +1,5 @@
 
-import Index from '../components/AllBooks';
+import Index from '../Components/AllBooks';
 
 const AllBooksPage = () => {
     return (
