@@ -1,7 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect, useRef } from "react";
+import { CartContext } from "../../Contexts/CartContext";
 
 const Paypal = ({ totalAmount }) => {
+  const paypalBtn = useRef(null);
+  const { checkout } = useContext(CartContext);
   useEffect(() => {
+    paypalBtn.current.textContent = "";
     window.paypal
       .Buttons({
         createOrder: (data, actions) => {
@@ -9,7 +13,7 @@ const Paypal = ({ totalAmount }) => {
             purchase_units: [
               {
                 amount: {
-                  value: totalAmount,
+                  value: 1 /* totalAmount */,
                   currency: "USD",
                 },
               },
@@ -17,20 +21,26 @@ const Paypal = ({ totalAmount }) => {
           });
         },
         onApprove: (data, actions) => {
-          return actions.order.capture().then((details) => {
-            alert("Payment Made Successfully " + details.payer.name.given_name);
+          return actions.order.capture().then(async (details) => {
+            await checkout();
+            alert(
+              "Payment Made Successfully " +
+                details.payer.name.given_name +
+                " !"
+            );
           });
         },
       })
       .render("#paypal-btn");
-  }, [totalAmount]);
+  }, [totalAmount, checkout]);
 
   return (
     <div
       id="paypal-btn"
+      ref={paypalBtn}
       onClick={(e) => {
-        e.preventDefault(); // Prevent default action
-        e.stopPropagation(); // Stop event propagation
+        e.preventDefault();
+        e.stopPropagation();
       }}
     ></div>
   );

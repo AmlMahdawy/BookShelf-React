@@ -52,7 +52,7 @@ export default function CartDisplay() {
   const applyCoupon = () => {
     if (couponCode === "BOOKSHELF") {
       setDiscount(10);
-      setCouponApplied(true); // Mark coupon as applied
+      setCouponApplied(true);
     }
   };
 
@@ -68,6 +68,7 @@ export default function CartDisplay() {
   const handleCheckout = () => {
     setShowPayPal(true);
   };
+
   return (
     <>
       <div className="my-5">
