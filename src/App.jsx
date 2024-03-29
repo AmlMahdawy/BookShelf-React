@@ -1,15 +1,25 @@
-import { useState } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import LoginPage from "./Pages/LoginPage";
 import RegisterPage from "./Pages/RegisterPage";
 import Home from "./Pages/Home";
-import Navbar from "./Components/Navbar/Navbar";
-import Footer from "./Components/Footer/Footer";
 import { AppProvider } from "./Contexts/appContext";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import SystemLayout from "./Layout/SystemLayout";
 
 function App() {
-  // const [count, setCount] = useState(0);
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <SystemLayout />,
+      children: [
+        { index: true, element: <Home /> },
+        { path: "/home", element: <Home /> },
+        { path: "/login", element: <LoginPage /> },
+        { path: "/register", element: <RegisterPage></RegisterPage> },
+        { path: "/register", element: <RegisterPage></RegisterPage> },
+      ],
+    },
+  ]);
   const theme = createTheme({
     breakpoints: {
       values: {
@@ -21,29 +31,38 @@ function App() {
         xxl: 1400,
       },
     },
+    palette: {
+      book: {
+        main: "#8d27ae",
+      },
+      button: {
+        main: "#8d27ae",
+        hover: "#8d27ae",
+        active: "#651c7d",
+      },
+    },
+    spacing: {
+      padding: {
+        extraSmall: "4px",
+        small: "8px",
+        medium: "16px",
+        large: "24px",
+      },
+      margin: {
+        small: "4px",
+        medium: "8px",
+        large: "16px",
+      },
+    },
   });
 
   return (
     <>
       <ThemeProvider theme={theme}>
         <AppProvider>
-          <BrowserRouter>
-            <Navbar />
-            <Routes>
-              <Route path="/" element={<Home></Home>}></Route>
-              <Route path="/home" element={<Home></Home>}></Route>
-              <Route
-                path="/register"
-                element={<RegisterPage></RegisterPage>}
-              ></Route>
-              <Route path="/login" element={<LoginPage></LoginPage>}></Route>
-            </Routes>
-            <Footer />
-          </BrowserRouter>
+          <RouterProvider router={router} />
         </AppProvider>
       </ThemeProvider>
-
-      {/* <Home></Home> */}
     </>
   );
 }
