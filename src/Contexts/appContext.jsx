@@ -8,19 +8,7 @@ export const useApp = () => {
 };
 
 export const AppProvider = ({ children }) => {
-  const [books, setBooks] = useState([]);
-
-  useEffect(() => {
-    api
-      .get("http://localhost:3000/book/all")
-      .then((response) => setBooks(response.data))
-      .catch((error) => console.error("Error fetching movies:", error));
-  }, []);
-
-  const getAllBooks = () => {
-    return books;
-  };
-
+  const  [loginActive,setLoginActive]= useState(true)
 
 
   //Authentication 
@@ -55,7 +43,7 @@ export const AppProvider = ({ children }) => {
 
   return (
     <AppContext.Provider
-      value={{ getAllBooks ,login,register}}
+      value={{ loginActive,setLoginActive ,login,register}}
     >
       {children}
     </AppContext.Provider>

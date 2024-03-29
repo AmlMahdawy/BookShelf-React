@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Home.css";
 import Carousel from "react-material-ui-carousel";
 import { Paper, Button, Typography } from "@mui/material";
-import LoginPage from "./LoginPage";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import BookCard from "./../Components/bookCard";
 import axios from "axios";
