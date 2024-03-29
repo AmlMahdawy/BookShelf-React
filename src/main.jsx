@@ -6,6 +6,7 @@ import "bootstrap/dist/js/bootstrap.min.js";
 import './index.css'
 import { GoogleOAuthProvider } from '@react-oauth/google';
 
+import "react-alice-carousel/lib/alice-carousel.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
