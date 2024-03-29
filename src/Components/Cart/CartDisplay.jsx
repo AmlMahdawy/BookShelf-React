@@ -5,7 +5,7 @@ import "hover.css";
 import "animate.css";
 import React, { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../Contexts/CartContext";
-// import PayPal from "../Paypal/PayPal";
+import Paypal from "../Paypal/PayPal";
 
 export default function CartDisplay() {
   const {
@@ -23,7 +23,7 @@ export default function CartDisplay() {
   const [discount, setDiscount] = useState(0);
   const taxAmount = 5;
   const [couponApplied, setCouponApplied] = useState(false);
-  // const [isCheckingOut, setIsCheckingOut] = useState(false);
+  const [showPayPal, setShowPayPal] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -65,21 +65,9 @@ export default function CartDisplay() {
     const totalPriceWithTaxes = discountedTotal + taxAmount;
     return totalPriceWithTaxes;
   };
-  /* const handleCheckout = () => {
-    setIsCheckingOut(true);
+  const handleCheckout = () => {
+    setShowPayPal(true);
   };
-
-  const handlePaymentSuccess = () => {
-    setIsCheckingOut(false);
-    // checkout();
-    fetchCart;
-  };
-  useEffect(() => {
-    if (isCheckingOut) {
-      checkout();
-    }
-  }, [isCheckingOut, checkout]); */
-
   return (
     <>
       <div className="my-5">
@@ -264,10 +252,22 @@ export default function CartDisplay() {
                     <span className="fw-bold">${calculateTotalPrice()}</span>
                   </div>
                   {/**********************/}
-
-                  <div className="btn-wrapper ">
-                    <button className="checkout-btn mt-5 ">Checkout</button>
+                  {!showPayPal && (
+                    <div className="btn-wrapper ">
+                      <button
+                        className="checkout-btn mt-5"
+                        onClick={handleCheckout}
+                      >
+                        Checkout
+                      </button>
+                    </div>
+                  )}
+                  <div className="mt-5">
+                    {showPayPal && (
+                      <Paypal totalAmount={calculateTotalPrice()} />
+                    )}
                   </div>
+
                   {/* total price wrapper end */}
                 </div>
               </div>
