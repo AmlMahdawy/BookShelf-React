@@ -5,6 +5,7 @@ import Home from "./Pages/Home";
 import { AppProvider } from "./Contexts/appContext";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import SystemLayout from "./Layout/SystemLayout";
+import ProtectedRoutes from "./Guard/authGuard";
 
 function App() {
   const router = createBrowserRouter([
@@ -12,12 +13,24 @@ function App() {
       path: "/",
       element: <SystemLayout />,
       children: [
-        { index: true, element: <Home /> },
-        { path: "/home", element: <Home /> },
-        { path: "/login", element: <LoginPage /> },
-        { path: "/register", element: <RegisterPage></RegisterPage> },
-        { path: "/register", element: <RegisterPage></RegisterPage> },
+        {
+          index: true,
+          element: <Home />,
+        },
+        {
+          path: "/home",
+          element: (
+            <ProtectedRoutes>
+              {" "}
+              <Home />{" "}
+            </ProtectedRoutes>
+          ),
+        },
       ],
+    },
+    {
+      path: "/login",
+      element: <LoginPage />,
     },
   ]);
   const theme = createTheme({
@@ -39,19 +52,6 @@ function App() {
         main: "#8d27ae",
         hover: "#8d27ae",
         active: "#651c7d",
-      },
-    },
-    spacing: {
-      padding: {
-        extraSmall: "4px",
-        small: "8px",
-        medium: "16px",
-        large: "24px",
-      },
-      margin: {
-        small: "4px",
-        medium: "8px",
-        large: "16px",
       },
     },
   });

@@ -1,12 +1,13 @@
 import { Button, useTheme } from "@mui/material";
 
-function BtnBg({ label, mr, ml, mt, mb, m, sx }) {
+function BtnBg({ label, mr, ml, mt, mb, m, sx, onClick: handleClick }) {
   const theme = useTheme();
 
   return (
     <>
       <Button
         variant="contained"
+        onClick={handleClick}
         sx={{
           bgcolor: theme.palette.button.main,
           p: `8px 16px

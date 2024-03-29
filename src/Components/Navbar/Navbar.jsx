@@ -8,11 +8,7 @@ import { Link } from "react-router-dom";
 
 const routes = [
   { name: "Home", path: "" },
-  { name: "Books", path: "" },
-  { name: "Magazine", path: "" },
-  { name: "Textbooks", path: "" },
-  { name: "Audiobooks", path: "" },
-  { name: "Recomonded", path: "" },
+  { name: "Books", path: "/books" },
 ];
 const logo = "Books";
 function Navbar() {
@@ -77,19 +73,11 @@ function Navbar() {
                   />
                 ) : (
                   <>
-                    <BtnTransBg
-                      label={"Login"}
-                      mr={"8px"}
+                    <BtnBg
                       onClick={() => {
                         navigate("/login");
                       }}
-                    />
-                    <BtnBg
-                      onClick={() => {
-                        navigate("/register");
-                      }}
-                      label={"Sign up"}
-                      navigate={"/login"}
+                      label={"Sign up/in"}
                     />
                   </>
                 )}
