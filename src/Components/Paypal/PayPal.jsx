@@ -13,7 +13,7 @@ const Paypal = ({ totalAmount }) => {
             purchase_units: [
               {
                 amount: {
-                  value: 1 /* totalAmount */,
+                  value: totalAmount,
                   currency: "USD",
                 },
               },
