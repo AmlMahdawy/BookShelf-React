@@ -1,0 +1,27 @@
+ sandbox when in pursache:
+
+Email: sb-6rqte29801544@personal.example.com
+
+pass: M=a=j3Jq
+
+_______________________________________
+
+debit card:
+
+Name
+John Doe
+
+Phone
+4082331988
+
+Expiration date
+04/2029
+_______________________________________
+
+sandbox in sandbox url:
+
+email: sb-mte47k29801517@business.example.com
+
+pass:_s_ee8>Y
+
+____________________________________

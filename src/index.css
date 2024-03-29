@@ -1,4 +1,4 @@
-body {
+/* body {
   margin: 0;
   padding: 0;
 }
@@ -9,9 +9,9 @@ body {
   font-style: normal;
   font-variation-settings: "slnt" 0;
 }
-* {
-  font-family: "Inter", sans-serif;
-}
+** {
+  font-family: sans-serif;
+}*/
 :root {
   --main-color: #a63fdc;
   --bg-purple: #9a24c1;
