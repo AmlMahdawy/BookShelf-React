@@ -13,7 +13,7 @@ const SearchBar = () => {
       
     }
     return (
-        <InputGroup className="mb-3 mt-3">
+        <InputGroup className="mb-3 mt-5">
         <FormControl
             placeholder="Find books here..."
             aria-label="Search books"

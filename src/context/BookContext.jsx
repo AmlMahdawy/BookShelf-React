@@ -14,11 +14,13 @@ const BookContextProvider = ({ children }) => {
   const [booksPerPage] = useState(20);
   const [checkedCategory, setCheckedCategory] = useState("");
   const [checkedAuthors, setCheckedAuthors] = useState("");
+  const[favCount,setFavCount]=useState(0);
 
   const lastBookIndex = currPage * booksPerPage;
   const firstBookIndex = lastBookIndex - booksPerPage;
 
   const fetchCategories = useCallback(async () => {
+
     try {
       const res = await api.get("http://localhost:3000/book/genre/all");
       setCategories(res.data);
@@ -27,6 +29,15 @@ const BookContextProvider = ({ children }) => {
       console.error("Error fetching categories:", error);
     }
   }, []);
+  const getFavNumbers=useCallback(async()=>{
+    console.log("hhhhhhhhhhhhhhhhhhhhhhhhhhhhh")
+    const res = await api.get("http://localhost:3000/user/favs");
+    console.log("res",res)
+    if(res.data.message==='success'){
+      console.log("res.data",res.data.data)
+      setFavCount(res.data.data)
+    }
+  },[])
 
   const fetchAuthors = useCallback(async () => {
     try {
@@ -68,11 +79,16 @@ const BookContextProvider = ({ children }) => {
       console.error("Error fetching books:", error);
     }
   }, []);
+  useEffect(() => {
+    getFavNumbers();
+  }, [getFavNumbers]);
+
 
   useEffect(() => {
     fetchData();
     fetchCategories();
     fetchAuthors();
+   
   }, [fetchData, fetchCategories, fetchAuthors]);
 
   useEffect(() => {
@@ -137,6 +153,9 @@ const BookContextProvider = ({ children }) => {
           fetchData,
           addReview,
           originalBooks,
+          favCount,
+          setFavCount,
+          getFavNumbers
         }}
       >
         {children}

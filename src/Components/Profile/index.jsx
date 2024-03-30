@@ -1,10 +1,11 @@
 import { Container, Table, Button, Modal, Box, Typography, TableCell, TableBody, TableRow, TableHead, TableContainer, Snackbar,  Alert } from '@mui/material';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import api from '../../Interceptors/Auth';
 import classes from './profile.module.css';
 import BubbleLoading from '../staticComponents/bubbleLoading';
-import One from '../../assets/imgs/One.jpg'; 
+ 
 import Review from './Review';
+import { BookContext } from '../../context/BookContext';
 
 const Profile = () => {
   
@@ -13,18 +14,37 @@ const Profile = () => {
   const [selectedBookId, setSelectedBookId] = useState(null); 
   const [showSnackbar, setShowSnackbar] = useState(false);
   const[bookName,setBookName]=useState();
+  const[allFavs,setAllFavs]=useState();
+  const { favCount,setFavCount } = useContext(BookContext);
+
   const handleCloseSnackbar = () => {
     setShowSnackbar(false);
   };
+  const fetchData = async () => {
+    const res = await api.get('http://localhost:3000/user/profile');
+    setUser(res.data);
+  };
   useEffect(() => {
-    const fetchData = async () => {
-      const res = await api.get('http://localhost:3000/user/profile');
-      setUser(res.data);
+ 
+    const fetchFavs = async () => {
+      const res = await api.get('http://localhost:3000/user/allfavs');
+      setAllFavs(res.data.data);
+    
     };
     fetchData();
+    fetchFavs();
   }, [setUser]);
   const handleCloseModal = () => {
     setShowReviewModal(false);
+  };
+  const removeFav = async (bookId) => {
+    console.log("book",bookId)
+    const res = await api.post('http://localhost:3000/user/delete-favourite',{bookId});
+    console.log(res)
+    if(res){
+setFavCount(favCount-1)
+setAllFavs(prevFavs => prevFavs.filter(item => item._id !== bookId));
+    } 
   };
   const addReview = (bookId,bookName) => {
     setSelectedBookId(bookId); 
@@ -48,31 +68,10 @@ const Profile = () => {
         </Alert>
         
       </Snackbar>
-        {/* <Snackbar
-        open={showSnackbar}
-        autoHideDuration={6000} 
-        onClose={handleCloseSnackbar}
-        message="Review added successfully!"
-        sx={{
-            backgroundColor: 'var(--profile) !important', 
-            color: '#ffffff !important', 
-        }}
-        action={
-          <IconButton 
-          
-          size="small" aria-label="close" color="inherit"
-          sx={{
-            backgroundColor: 'var(--profile) !important', 
-            color: '#ffffff !important', 
-        }}
-          onClick={handleCloseSnackbar}>
-            <CloseIcon fontSize="small" />
-          </IconButton>
-        }
-      /> */}
+      
       <div className={classes.profileHeader}>
         <div className={`mb-3 ${classes.userImage}`}>
-          <img src={One} alt="Profile Image" className={classes.profileImage} />
+          <img src={`http://localhost:3000/assets/${user.image}`} alt="Profile Image" className={classes.profileImage} />
         </div>
         <h1 className="user-name display-2">{user?.name}</h1>
         <p className="user-email fs-5">{user?.email}</p>
@@ -104,6 +103,45 @@ const Profile = () => {
                         onClick={() => addReview(item.book._id,item.book.title)}
                       >
                         Add Review
+                        
+                      </Button>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </div>
+      </div>
+      <div className="user-favs">
+        <h2 className="text-center mb-4 mt-5 fs-1">My Favorits</h2>
+        <div className="table-responsive">
+          <TableContainer>
+            <Table>
+              <TableHead>
+                <TableRow>
+                  <TableCell>Title</TableCell>
+                  <TableCell>Price</TableCell>
+                  <TableCell>Page Count</TableCell>
+
+                
+                  <TableCell></TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {allFavs?.map((item, index) => (
+                  <TableRow key={index}>
+                    <TableCell>{item.title}</TableCell>
+                    <TableCell>{item.price}</TableCell>
+                    <TableCell>{item.pageCount}</TableCell>
+                  
+                    <TableCell>
+                      <Button
+                        className={classes.reviewBtn}
+                        
+                        onClick={() => removeFav(item._id)}
+                      >
+                       Remove
                         
                       </Button>
                     </TableCell>

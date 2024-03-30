@@ -18,6 +18,9 @@ import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../Contexts/CartContext";
 import { grey } from "@mui/material/colors";
 
+import { BookContext } from "../../context/BookContext";
+import FavIcon from "./FavIcon";
+
 const routes = [
   { name: "Home", path: "" },
   { name: "Books", path: "/allBooks" },
@@ -25,23 +28,31 @@ const routes = [
 const logo = "BookShelf";
 function Navbar() {
   const { cartItems } = useContext(CartContext);
+  const { favCount ,getFavNumbers} = useContext(BookContext);
+
   const { logout } = useApp();
   const navigate = useNavigate();
   const theme = useTheme();
   const [user, setUser] = useState(null);
 
   const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
-
+console.log("favCount",favCount)
   const getToken = () => {
     return localStorage.getItem("token");
   };
+
   useEffect(() => {
     const fetchUser = async () => {
       const { data } = await api.get("http://localhost:3000/user/profile");
       setUser(data);
     };
+    // const fetchFavNumbers=async()=>{
+    //   await getFavNumbers()
+    // }
     fetchUser();
-  }, []);
+    // fetchFavNumbers();
+  }, [getFavNumbers]);
+  console.log(user)
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-primary-light shadow-sm fixed-top py-3">
@@ -142,7 +153,7 @@ function Navbar() {
                       >
                         <Avatar
                           alt="Mohamed"
-                          src="https://scontent-lhr8-1.xx.fbcdn.net/v/t1.6435-9/89740896_2528669554072512_8339425380305731584_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeFVE92s4CHVJh0PAFW5__UtdDuAuQj5zOd0O4C5CPnM55q9zzZ7RYPj9TdwA2aEyS9qETmZHpWXn3I78OgHD7ms&_nc_ohc=I8A1pmIM-WYAX83oVHk&_nc_ht=scontent-lhr8-1.xx&oh=00_AfASPEhMRvfv8p_O-vuOF3xDMXgwdzRCw7ZLuKJfG0ADbQ&oe=6627DE38"
+                          src={`http://localhost:3000/assets/${user.image}`}
                         />
                         <Typography
                           sx={{
@@ -174,6 +185,7 @@ function Navbar() {
               </Box>
             </div>
           </div>
+          
           <Box
             sx={{
               ml: "auto ",
@@ -181,6 +193,14 @@ function Navbar() {
             }}
           >
             <CartIcon count={cartCount} path={"/cart"} />
+          </Box>
+          <Box
+            sx={{
+              ml: "auto ",
+              mr: { xs: 1, sm: 2, md: 3 },
+            }}
+          >
+            <FavIcon count={favCount} path={"/profile"} />
           </Box>
           {user && (
             <Button

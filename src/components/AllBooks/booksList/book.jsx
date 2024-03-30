@@ -8,11 +8,13 @@ import classes from "./book.module.css";
 import api from "../../../Interceptors/Auth";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../../../Contexts/CartContext";
+import { BookContext } from "../../../context/BookContext";
 const Book = (props) => {
   const [showIcons, setShowIcons] = useState(false);
   const [isAddedToCart, setIsAddedToCart] = useState(false);
   const [isAddedToFav, setIsAddedToFav] = useState(false);
   const { fetchCart } = useContext(CartContext);
+  const { favCount,setFavCount } = useContext(BookContext);
   const navigate = useNavigate();
   const checkFav = useCallback(async () => {
     try {
@@ -62,6 +64,7 @@ const Book = (props) => {
       try {
         await api.post("http://localhost:3000/user/add-favourite", { bookId });
         setIsAddedToFav(true);
+        setFavCount(favCount+1)
       } catch (error) {
         console.error("Error adding item to favorite", error);
       }
@@ -70,6 +73,7 @@ const Book = (props) => {
         await api.post("http://localhost:3000/user/delete-favourite", {
           bookId,
         });
+        setFavCount(favCount-1)
         setIsAddedToFav(false);
       } catch (error) {
         console.error("Error removing item to favorite", error);
