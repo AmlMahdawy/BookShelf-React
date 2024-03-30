@@ -1,5 +1,6 @@
-import Pagination from '@mui/material/Pagination';
 
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
 import { useContext } from 'react';
 import { BookContext } from '../../../context/BookContext';
 import './pagination.css';
@@ -15,9 +16,8 @@ export default function PaginationOutlined() {
   };
 
   return (
-    <div className="pagination-container">
-        <Pagination sx={{marginBottom:'20px'}} size='large' variant="outlined"  shape="rounded"  count={totalPages} page={currPage} onChange={handlePageChange} color="secondary" />
-
-    </div>
+    <Stack spacing={2}>
+      <Pagination count={totalPages} page={currPage} onChange={handlePageChange} />
+    </Stack>
   );
 }

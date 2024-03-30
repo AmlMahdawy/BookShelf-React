@@ -16,8 +16,8 @@ export const CartProvider = ({ children }) => {
   
   const fetchCart = async () => {
     try {
-      const response = await api.get("http://localhost:3000/cart");
-      console.log(response, "test");
+      const response = await api.get(api_url +"/cart");
+      
       setCartItems(response.data.cart);
       setTotalPrice(response.data.totalPrice);
     } catch (error) {
