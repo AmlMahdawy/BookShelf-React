@@ -4,8 +4,6 @@ import api from "../Interceptors/Auth";
 const api_url = "http://localhost:3000";
 export const CartContext = createContext();
 
-
-
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
@@ -13,11 +11,11 @@ export const CartProvider = ({ children }) => {
   useEffect(() => {
     fetchCart();
   }, []);
-  
+
   const fetchCart = async () => {
     try {
-      const response = await api.get(api_url +"/cart");
-      
+      const response = await api.get(api_url + "/cart");
+
       setCartItems(response.data.cart);
       setTotalPrice(response.data.totalPrice);
     } catch (error) {

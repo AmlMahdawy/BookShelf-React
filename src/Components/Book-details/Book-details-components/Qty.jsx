@@ -2,15 +2,28 @@ import { Box, IconButton, Stack, Typography, useTheme } from "@mui/material";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
 import { grey } from "@mui/material/colors";
-function Qty({ qty, setQty, price, bookQty }) {
+function Qty({
+  qty,
+  setQty,
+  price,
+  bookQty,
+  decrementFromCart,
+  addToCart,
+  id,
+}) {
   const theme = useTheme();
   const decreamentCart = () => {
-    setQty((qty) => (qty > 0 ? qty - 1 : qty));
+    if (qty > 0) {
+      setQty((qty) => qty - 1);
+      decrementFromCart(id);
+    }
   };
   const increamentCart = () => {
-    setQty((qty) => (qty < bookQty ? qty + 1 : qty));
+    if (qty < bookQty) {
+      setQty((qty) => qty + 1);
+      addToCart(id);
+    }
   };
-  console.log(qty);
 
   return (
     <>

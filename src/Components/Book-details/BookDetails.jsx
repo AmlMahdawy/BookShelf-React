@@ -23,8 +23,7 @@ function BookDetails() {
   useEffect(() => {
     getBookById(id).then((data) => setBook(data));
   }, []);
-  console.log(book);
-  console.log(id);
+
   if (!book) return <div>Loading....</div>;
   return (
     <>

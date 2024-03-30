@@ -10,6 +10,7 @@ import CartPage from "./Pages/CartPage";
 import { CartProvider } from "./Contexts/CartContext";
 import { ThemeProvider, createTheme } from "@mui/material";
 import AdminPage from "./Pages/adminPage.jsx";
+import BookDetails from "./Components/Book-details/BookDetails.jsx";
 function App() {
   const theme = createTheme({
     breakpoints: {
@@ -70,6 +71,7 @@ function App() {
                       path="/allBooks"
                       element={<AllBooksPage></AllBooksPage>}
                     ></Route>
+                    <Route path="/book/:id" element={<BookDetails />}></Route>
                     <Route
                       path="/profile"
                       element={<ProfilePage></ProfilePage>}

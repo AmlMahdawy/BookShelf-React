@@ -31,7 +31,7 @@ function Navbar() {
   const [user, setUser] = useState(null);
 
   const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
-  console.log(cartCount);
+
   const getToken = () => {
     return localStorage.getItem("token");
   };
@@ -39,7 +39,6 @@ function Navbar() {
     const fetchUser = async () => {
       const { data } = await api.get("http://localhost:3000/user/profile");
       setUser(data);
-      console.log(data);
     };
     fetchUser();
   }, []);

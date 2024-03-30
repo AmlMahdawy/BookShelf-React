@@ -1,13 +1,19 @@
 import { Box, Chip, Stack, Typography, useTheme } from "@mui/material";
 import Qty from "./Qty";
 import BtnBg from "../../Generic-components/BtnBg";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { CartContext } from "../../../Contexts/CartContext";
 
 function BookInfo({ book }) {
+  const { decrementFromCart, addToCart, cartItems } = useContext(CartContext);
   const theme = useTheme();
-  const [qty, setQty] = useState(0);
+  const foundBook = cartItems.filter((item) => item.book._id === book._id);
+  const [qty, setQty] = useState(foundBook[0]?.quantity || 0);
   const handleClick = () => {
-    if (!qty) setQty((qty) => qty + 1);
+    if (!qty) {
+      setQty((qty) => qty + 1);
+      addToCart(book._id);
+    }
   };
 
   return (
@@ -119,13 +125,18 @@ function BookInfo({ book }) {
         {/* Quantity buttons */}
         {!!qty && (
           <Qty
+            id={book._id}
+            decrementFromCart={decrementFromCart}
+            addToCart={addToCart}
             qty={qty}
             price={book.price}
             setQty={setQty}
             bookQty={book.quantity}
           />
         )}
-        <BtnBg onClick={handleClick} label={"Add To Cart"} sx={{ mt: 1 }} />
+        {!qty && (
+          <BtnBg onClick={handleClick} label={"Add To Cart"} sx={{ mt: 1 }} />
+        )}
       </Box>
     </>
   );
