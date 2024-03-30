@@ -15,7 +15,7 @@ import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import ButtonMui from "@mui/material/Button";
 import { Link } from "react-router-dom";
-import api from "./../Interceptors/Auth";
+import api from './../Interceptors/Auth'
 
 const Home = () => {
   const responsive = {
@@ -91,7 +91,7 @@ const Home = () => {
       <div className="container">
         <div className="img">
           <img
-            className="imgOmar"
+          className="imgOmar"
             src={books[0]?.thumbnailUrl}
             style={{
               maxHeight: "350px",
@@ -125,11 +125,11 @@ const Home = () => {
               marginTop: "15%",
             }}
           >
-            <p className="mt-3">$ {books[0]?.price} </p>
+            <p className="mt-3">{books[0]?.price} $</p>
             <div className="icon d-flex justify-content-end  align-items-center">
               <Link to={"book/" + books[0]?._id}>
                 <img
-                  className="imgOmar"
+                className="imgOmar"
                   src="./../../public/Icons/more.png"
                   style={{
                     maxWidth: "46px",
@@ -147,7 +147,7 @@ const Home = () => {
       <div className="container">
         <div className="img">
           <img
-            className="imgOmar"
+          className="imgOmar"
             src={books[1]?.thumbnailUrl}
             style={{
               maxHeight: "350px",
@@ -181,11 +181,11 @@ const Home = () => {
               marginTop: "15%",
             }}
           >
-            <p className="mt-3">$ {books[1]?.price} </p>
+            <p className="mt-3">{books[1]?.price} $</p>
             <div className="icon d-flex justify-content-end  align-items-center">
               <Link to={"book/" + books[1]?._id}>
                 <img
-                  className="imgOmar"
+                className="imgOmar"
                   src="./../../public/Icons/more.png"
                   style={{
                     maxWidth: "46px",
@@ -203,7 +203,7 @@ const Home = () => {
       <div className="container">
         <div className="img">
           <img
-            className="imgOmar"
+          className="imgOmar"
             src={books[2]?.thumbnailUrl}
             style={{
               maxHeight: "350px",
@@ -237,11 +237,11 @@ const Home = () => {
               marginTop: "15%",
             }}
           >
-            <p className="mt-3">$ {books[2]?.price} </p>
+            <p className="mt-3">{books[2]?.price} $</p>
             <div className="icon d-flex justify-content-end  align-items-center">
               <Link to={"book/" + books[2]?._id}>
                 <img
-                  className="imgOmar"
+                className="imgOmar"
                   src="./../../public/Icons/more.png"
                   style={{
                     maxWidth: "46px",
@@ -259,7 +259,7 @@ const Home = () => {
       <div className="container">
         <div className="img">
           <img
-            className="imgOmar"
+          className="imgOmar"
             src={books[3]?.thumbnailUrl}
             style={{
               maxHeight: "350px",
@@ -293,11 +293,11 @@ const Home = () => {
               marginTop: "15%",
             }}
           >
-            <p className="mt-3">$ {books[3]?.price} </p>
+            <p className="mt-3">{books[3]?.price} $</p>
             <div className="icon d-flex justify-content-end  align-items-center">
               <Link to={"book/" + books[3]?._id}>
                 <img
-                  className="imgOmar"
+                className="imgOmar"
                   src="./../../public/Icons/more.png"
                   style={{
                     maxWidth: "46px",
@@ -315,7 +315,7 @@ const Home = () => {
       <div className="container">
         <div className="img">
           <img
-            className="imgOmar"
+          className="imgOmar"
             src={books[4]?.thumbnailUrl}
             style={{
               maxHeight: "350px",
@@ -349,11 +349,11 @@ const Home = () => {
               marginTop: "15%",
             }}
           >
-            <p className="mt-3">$ {books[4]?.price}</p>
+            <p className="mt-3">{books[4]?.price} $</p>
             <div className="icon d-flex justify-content-end  align-items-center">
               <Link to={"book/" + books[4]?._id}>
                 <img
-                  className="imgOmar"
+                className="imgOmar"
                   src="./../../public/Icons/more.png"
                   style={{
                     maxWidth: "46px",
@@ -379,7 +379,7 @@ const Home = () => {
       </Carousel>
 
       {/* Book Cards Part */}
-      <div className="books-container text-center" style={{ marginTop: "4%" }}>
+      <div className="books-container text-center" style={{ marginTop: "7%" }}>
         <div className="container d-flex flex-column  justify-content-center align-items-center w-50">
           <h1>Trending This Week </h1>
           <p className="mt-3">
@@ -453,8 +453,7 @@ const Home = () => {
         <div className="container d-flex flex-wrap  col-10 offset-1 ">
           <div className="div book-display-card col-12 col-lg-6 mt-4 mt-lg-0 d-flex justify-content-center ">
             <div className="book-cover-con  mx-2">
-              <img
-                className="imgOmar"
+              <img className="imgOmar"
                 src={books[0]?.thumbnailUrl}
                 style={{
                   width: "200px",
@@ -494,7 +493,7 @@ const Home = () => {
                   className="col-6 col-lg-3"
                 >
                   <img
-                    className="imgOmar"
+                  className="imgOmar"
                     src="./../../public/Icons/star.png"
                     style={{ width: "18px", height: "18px" }}
                   />
@@ -506,7 +505,7 @@ const Home = () => {
                 <p style={{ color: "#8f8f8f" }}>{books[0]?.authors[0]}</p>
               </div>
               <div className="data-con w-100 ms-lg-4 ">
-                <h2 style={{ color: "#9436b2" }}>$ {books[0]?.price} </h2>
+                <h2 style={{ color: "#9436b2" }}>{books[0]?.price} $</h2>
               </div>
               <div className="ms-4">
                 <Link
@@ -524,7 +523,7 @@ const Home = () => {
           <div className="div book-display-card col-12 col-lg-6 mt-4 mt-lg-0 d-flex justify-content-center ">
             <div className="book-cover-con  mx-2">
               <img
-                className="imgOmar"
+              className="imgOmar"
                 src={books[1]?.thumbnailUrl}
                 style={{
                   width: "200px",
@@ -564,7 +563,7 @@ const Home = () => {
                   className="col-6 col-lg-3"
                 >
                   <img
-                    className="imgOmar"
+                  className="imgOmar"
                     src="./../../public/Icons/star.png"
                     style={{ width: "18px", height: "18px" }}
                   />
@@ -576,7 +575,7 @@ const Home = () => {
                 <p style={{ color: "#8f8f8f" }}>{books[1]?.authors[0]}</p>
               </div>
               <div className="data-con w-100 ms-lg-4 ">
-                <h2 style={{ color: "#9436b2" }}>$ {books[1]?.price} </h2>
+                <h2 style={{ color: "#9436b2" }}>{books[1]?.price} $</h2>
               </div>
               <div className="ms-4">
                 <Link
@@ -594,7 +593,7 @@ const Home = () => {
           <div className="div  book-display-card col-12 col-lg-6 mt-4 mt-lg-2 d-flex justify-content-center ">
             <div className="book-cover-con  mx-2">
               <img
-                className="imgOmar"
+              className="imgOmar"
                 src={books[2]?.thumbnailUrl}
                 style={{
                   width: "200px",
@@ -634,7 +633,7 @@ const Home = () => {
                   className="col-6 col-lg-3"
                 >
                   <img
-                    className="imgOmar"
+                  className="imgOmar"
                     src="./../../public/Icons/star.png"
                     style={{ width: "18px", height: "18px" }}
                   />
@@ -646,7 +645,7 @@ const Home = () => {
                 <p style={{ color: "#8f8f8f" }}>{books[2]?.authors[0]}</p>
               </div>
               <div className="data-con w-100 ms-lg-4 ">
-                <h2 style={{ color: "#9436b2" }}>$ {books[2]?.price} </h2>
+                <h2 style={{ color: "#9436b2" }}>{books[2]?.price} $</h2>
               </div>
               <div className="ms-4">
                 <Link
@@ -664,7 +663,7 @@ const Home = () => {
           <div className="div  book-display-card col-12 col-lg-6 mt-4  d-flex justify-content-center ">
             <div className="book-cover-con  mx-2">
               <img
-                className="imgOmar"
+              className="imgOmar"
                 src={books[3]?.thumbnailUrl}
                 style={{
                   width: "200px",
@@ -704,7 +703,7 @@ const Home = () => {
                   className="col-6 col-lg-3"
                 >
                   <img
-                    className="imgOmar"
+                  className="imgOmar"
                     src="./../../public/Icons/star.png"
                     style={{ width: "18px", height: "18px" }}
                   />
@@ -716,7 +715,7 @@ const Home = () => {
                 <p style={{ color: "#8f8f8f" }}>{books[3]?.authors[0]}</p>
               </div>
               <div className="data-con w-100 ms-lg-4 ">
-                <h2 style={{ color: "#9436b2" }}>$ {books[3]?.price} </h2>
+                <h2 style={{ color: "#9436b2" }}>{books[3]?.price} $</h2>
               </div>
               <div className="ms-4">
                 <Link
@@ -776,7 +775,7 @@ const Home = () => {
           >
             <div className="book-cover-con  mx-2">
               <img
-                className="imgOmar"
+              className="imgOmar"
                 src={books[2]?.thumbnailUrl}
                 style={{
                   width: "200px",
@@ -820,7 +819,7 @@ const Home = () => {
                 <p style={{ color: "#8f8f8f" }}>{books[2]?.authors[0]}</p>
               </div>
               <div className="data-con w-100 ms-lg-4 ">
-                <h2 style={{ color: "#9436b2" }}>$ {books[2]?.price} </h2>
+                <h2 style={{ color: "#9436b2" }}>{books[2]?.price} $</h2>
               </div>
               <div>
                 <div className="d-flex flex-column flex-lg-row justify-content-center ">
@@ -830,6 +829,7 @@ const Home = () => {
                     onClick={() => addToCart(books[2]._id)}
                   >
                     <img
+
                       className="me-2 imgOmar"
                       src="./../../public/Icons/shopping-cart (2).png"
                       style={{ width: "25px", height: "23px" }}
@@ -840,7 +840,7 @@ const Home = () => {
                   <Link to={"/book/" + books[2]?._id}>
                     <ButtonMui variant="outlined" className="ms-2  ">
                       <img
-                        className="imgOmar"
+                      className="imgOmar"
                         src="./../../public/Icons/more2.png"
                         style={{ width: "25px", height: "25px" }}
                       ></img>
@@ -860,7 +860,7 @@ const Home = () => {
           >
             <div className="book-cover-con  mx-2">
               <img
-                className="imgOmar"
+              className="imgOmar"
                 src={books[1]?.thumbnailUrl}
                 style={{
                   width: "200px",
@@ -904,7 +904,7 @@ const Home = () => {
                 <p style={{ color: "#8f8f8f" }}>{books[1]?.authors[0]}</p>
               </div>
               <div className="data-con w-100 ms-lg-4 ">
-                <h2 style={{ color: "#9436b2" }}>$ {books[1]?.price} </h2>
+                <h2 style={{ color: "#9436b2" }}>{books[1]?.price} $</h2>
               </div>
               <div>
                 <div className="d-flex flex-column flex-lg-row justify-content-center ">
@@ -924,7 +924,7 @@ const Home = () => {
                   <Link to={"/book/" + books[1]?._id}>
                     <ButtonMui variant="outlined" className="ms-2  ">
                       <img
-                        className="imgOmar"
+                      className="imgOmar"
                         src="./../../public/Icons/more2.png"
                         style={{ width: "25px", height: "25px" }}
                       ></img>
@@ -936,7 +936,7 @@ const Home = () => {
           </div>
         </div>
         <div className="container d-flex flex-column flex-lg-row  mt-3 ">
-          <div
+        <div
             className=" book-display-card col-12 me-2 col-lg-6 mt-4 mt-lg-0 d-flex justify-content-center"
             style={{
               backgroundColor: "#fafafa",
@@ -946,7 +946,7 @@ const Home = () => {
           >
             <div className="book-cover-con  mx-2">
               <img
-                className="imgOmar"
+              className="imgOmar"
                 src={books[4]?.thumbnailUrl}
                 style={{
                   width: "200px",
@@ -990,7 +990,7 @@ const Home = () => {
                 <p style={{ color: "#8f8f8f" }}>{books[4]?.authors[0]}</p>
               </div>
               <div className="data-con w-100 ms-lg-4 ">
-                <h2 style={{ color: "#9436b2" }}>$ {books[4]?.price}</h2>
+                <h2 style={{ color: "#9436b2" }}>{books[4]?.price} $</h2>
               </div>
               <div>
                 <div className="d-flex flex-column flex-lg-row justify-content-center ">
@@ -1010,7 +1010,7 @@ const Home = () => {
                   <Link to={"/book/" + books[4]?._id}>
                     <ButtonMui variant="outlined" className="ms-2  ">
                       <img
-                        className="imgOmar"
+                      className="imgOmar"
                         src="./../../public/Icons/more2.png"
                         style={{ width: "25px", height: "25px" }}
                       ></img>
@@ -1030,7 +1030,7 @@ const Home = () => {
           >
             <div className="book-cover-con  mx-2">
               <img
-                className="imgOmar"
+              className="imgOmar"
                 src={books[0]?.thumbnailUrl}
                 style={{
                   width: "200px",
@@ -1094,7 +1094,7 @@ const Home = () => {
                   <Link to={"/book/" + books[0]?._id}>
                     <ButtonMui variant="outlined" className="ms-2  ">
                       <img
-                        className="imgOmar"
+                      className="imgOmar"
                         src="./../../public/Icons/more2.png"
                         style={{ width: "25px", height: "25px" }}
                       ></img>
@@ -1133,15 +1133,13 @@ const Home = () => {
           <h6 className="my-3" style={{ fontWeight: "bold" }}>
             Bestselling Author John Smith Announces Highly Anticipated Sequel
           </h6>
-          <p
-            className="my-3"
-            style={{
-              color: "#8f8f8f",
-              maxHeight: "144px",
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-            }}
-          >
+          <p className="my-3"
+           style={{
+            color: "#8f8f8f",
+            maxHeight: "144px",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+          }}>
             Renowned author John Smith has just revealed exciting news for fans
             eagerly awaiting the next chapter in his bestselling series. The
             much-anticipated sequel, titled "Echoes of Destiny," promises to
@@ -1262,7 +1260,7 @@ const Home = () => {
             </div>
             <div>
               <img
-                className="imgOmar"
+              className="imgOmar"
                 src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 style={{ width: "60px", height: "60px", borderRadius: "50%" }}
               />
@@ -1299,7 +1297,7 @@ const Home = () => {
             </div>
             <div>
               <img
-                className="imgOmar"
+              className="imgOmar"
                 src="https://media.istockphoto.com/id/819419874/photo/young-woman-summer-portrait-outdoors.webp?s=170667a&w=0&k=20&c=9SofNH7CyB0SrzLJTwca-o1tl5C07ORHbThgvRk5FHY="
                 style={{ width: "60px", height: "60px", borderRadius: "50%" }}
               />
@@ -1333,7 +1331,7 @@ const Home = () => {
             </div>
             <div>
               <img
-                className="imgOmar"
+              className="imgOmar"
                 src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
                 style={{ width: "60px", height: "60px", borderRadius: "50%" }}
               />
