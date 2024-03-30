@@ -59,7 +59,7 @@ const Book = (props) => {
 
   const handleAddFav = async () => {
     const bookId = props._id;
-    console.log(bookId);
+  
     if (!isAddedToFav) {
       try {
         await api.post("http://localhost:3000/user/add-favourite", { bookId });
@@ -82,7 +82,7 @@ const Book = (props) => {
   };
   const handleAddCart = async () => {
     const bookId = props._id;
-    console.log(bookId);
+    
     if (!isAddedToCart) {
       try {
         await api.post("http://localhost:3000/cart/add-book", { bookId });
@@ -98,7 +98,7 @@ const Book = (props) => {
           "http://localhost:3000/cart/decrement-book",
           { bookId }
         );
-        console.log("res", res);
+        
         setIsAddedToCart(false);
         fetchCart();
       } catch (error) {
@@ -165,10 +165,8 @@ const Book = (props) => {
         >
           <StarIcon sx={{ color: "#fe7a01", fontSize: "22px" }} />
           <span style={{ margin: "0 10px", fontSize: "12px" }}>
-            {(
-              props.review.reduce((acc, curr) => acc + curr.stars, 0) /
-              props.review.length
-            ).toFixed(1)}
+           {isNaN((props.review.reduce((acc, curr) => acc + curr.stars, 0) / props.review.length).toFixed(1)) ? 0 : (props.review.reduce((acc, curr) => acc + curr.stars, 0) / props.review.length).toFixed(1)}
+
           </span>
           <span>|</span>
           <span style={{ margin: "0 10px", fontSize: "12px" }}>
