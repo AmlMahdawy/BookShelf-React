@@ -42,15 +42,17 @@ const RegisterForm = () => {
   async function handleSignUpClick(event) {
     event.preventDefault();
 
-    let res = await register(userData);
-    if (res) {
-      setLoginActive(true);
-    }else{
-    
-      setServerError(true)
- 
+  let res = await register(userData);
+  if (res) {
+    setLoginActive(true);
+  }else{
+  
+    setServerError(true)
 
-    }
+
+  }
+
+   
   }
   function handleOnChange(event) {
     setUserData((oldUser) => ({
@@ -77,7 +79,7 @@ navigate("/home")
     <>
 
       <form onSubmit={handleSignUpClick} className={styles.registerForm} autoComplete="off">
-        <button style={{all:"unset"}} onClick={handleBookOnClick} title="home">
+        <button style={{all:"unset"}} onClick={handleBookOnClick} title="home" type="button">
         <div className={styles.headLine}><span>Book</span><span style={{color:"#8d27ae"}}>Shelf</span></div>
 
         </button>
