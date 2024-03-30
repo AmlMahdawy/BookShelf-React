@@ -12,6 +12,7 @@ import { CartContext, CartProvider } from "./Contexts/CartContext";
 import { ThemeProvider, createTheme } from "@mui/material";
 import Navbar from "./Components/Navbar/Navbar.jsx";
 import Footer from "./Components/Footer/Footer.jsx";
+import AdminPage from "./Pages/adminPage.jsx";
 function App() {
   const theme = createTheme({
     breakpoints: {
@@ -61,22 +62,6 @@ function App() {
           <CartProvider>
             <BookContextProvider>
               <BrowserRouter>
-                {/* <Navbar />
-                <Routes>
-                  <Route path="/" element={<Home></Home>}></Route>
-                  <Route path="/home" element={<Home></Home>}></Route>
-                  <Route path="/login" element={<Join></Join>}></Route>
-                  <Route path="/cart" element={<CartPage></CartPage>}></Route>
-                  <Route
-                    path="/allBooks"
-                    element={<AllBooksPage></AllBooksPage>}
-                  ></Route>
-                  <Route
-                    path="/profile"
-                    element={<ProfilePage></ProfilePage>}
-                  ></Route>
-                </Routes>
-                <Footer /> */}
                 <Routes>
                   <Route path="/" element={<SystemLayout />}>
                     <Route index element={<Home />}></Route>
@@ -92,6 +77,7 @@ function App() {
                       element={<ProfilePage></ProfilePage>}
                     ></Route>
                   </Route>
+                  <Route path="/admin" element={<AdminPage />}></Route>
                   <Route path="/login" element={<Join></Join>}></Route>
                 </Routes>
               </BrowserRouter>
