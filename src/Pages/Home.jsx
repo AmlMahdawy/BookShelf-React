@@ -27,21 +27,21 @@ const Home = () => {
   var items = [
     {
       img: "eliabe-costa-tzsUJD0TGkk-unsplash.jpg",
-      header: "Find over 100 K Books on Clever.",
+      header: "Find over 100 K Books on Book Shelf.",
       paragraph:
-        "Join the community of readers at Clever and discover the joy of losing yourself in a good book.",
+        "Join the community of readers at Book Shelf and discover the joy of losing yourself in a good book.",
     },
     {
       img: " https://plus.unsplash.com/premium_photo-1661964153042-56211a8e2d0b?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      header: "Find Inspiration on Every Page at Clever .",
+      header: "Find Inspiration on Every Page at Book Shelf .",
       paragraph:
-        "Step into Clever Bookstore and immerse yourself in a world of literature. ",
+        "Step into Book Shelf Bookstore and immerse yourself in a world of literature. ",
     },
     {
       img: " https://images.unsplash.com/photo-1573712926064-296255051fbd?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      header: "Dive into a World of Knowledge with Clever.",
+      header: "Dive into a World of Knowledge with Book Shelf.",
       paragraph:
-        " Clever, where every book is a doorway to adventure, knowledge, and inspiration. Explore our vast collection and embark on journeys beyond imagination",
+        " Book Shelf, where every book is a doorway to adventure, knowledge, and inspiration. Explore our vast collection and embark on journeys beyond imagination",
     },
   ];
   var categories = [
