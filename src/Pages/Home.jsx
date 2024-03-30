@@ -379,7 +379,7 @@ const Home = () => {
       </Carousel>
 
       {/* Book Cards Part */}
-      <div className="books-container text-center" style={{ marginTop: "7%" }}>
+      <div className="books-container text-center" style={{ marginTop: "4%" }}>
         <div className="container d-flex flex-column  justify-content-center align-items-center w-50">
           <h1>Trending This Week </h1>
           <p className="mt-3">
