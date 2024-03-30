@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Home.css";
 import Carousel from "react-material-ui-carousel";
 import { Paper, Button, Typography } from "@mui/material";
@@ -16,6 +16,8 @@ import "react-alice-carousel/lib/alice-carousel.css";
 import ButtonMui from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import api from "./../Interceptors/Auth";
+import BubbleLoading from "../Components/staticComponents/bubbleLoading";
+import { CartContext } from "../Contexts/CartContext";
 
 const Home = () => {
   const responsive = {
@@ -75,16 +77,17 @@ const Home = () => {
     });
   }, []);
 
-  let addToCart = (bookId) => {
-    api
-      .post("http://localhost:3000/cart/add-book", { bookId })
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log("error is +" + error);
-      });
-  };
+  // let addToCart = (bookId) => {
+  //   api
+  //     .post("http://localhost:3000/cart/add-book", { bookId })
+  //     .then((response) => {
+  //       console.log(response);
+  //     })
+  //     .catch((error) => {
+  //       console.log("error is +" + error);
+  //     });
+  // };
+  const { addToCart } = useContext(CartContext);
 
   const items2 = [
     <div className="item" data-value="1">
@@ -112,7 +115,16 @@ const Home = () => {
             }
             readOnly
           />
-          <h5>{books[0]?.title}</h5>
+
+          <h5
+            style={{
+              overflow: "hidden",
+              whiteSpace: "nowrap",
+              textOverflow: "ellipsis",
+            }}
+          >
+            {books[0]?.title}
+          </h5>
           <p style={{ color: "#8f8f8f" }}>{books[0]?.authors[0]}</p>
         </div>
         <div className="container">
@@ -173,7 +185,15 @@ const Home = () => {
             }
             readOnly
           />
-          <h5>{books[1]?.title}</h5>
+          <h5
+            style={{
+              overflow: "hidden",
+              whiteSpace: "nowrap",
+              textOverflow: "ellipsis",
+            }}
+          >
+            {books[1]?.title}
+          </h5>
           <p style={{ color: "#8f8f8f" }}>{books[1]?.authors[0]}</p>
         </div>
         <div className="container">
@@ -234,7 +254,15 @@ const Home = () => {
             }
             readOnly
           />
-          <h5>{books[2]?.title}</h5>
+          <h5
+            style={{
+              overflow: "hidden",
+              whiteSpace: "nowrap",
+              textOverflow: "ellipsis",
+            }}
+          >
+            {books[2]?.title}
+          </h5>
           <p style={{ color: "#8f8f8f" }}>{books[2]?.authors[0]}</p>
         </div>
         <div className="container">
@@ -295,7 +323,15 @@ const Home = () => {
             }
             readOnly
           />
-          <h5>{books[3]?.title}</h5>
+          <h5
+            style={{
+              overflow: "hidden",
+              whiteSpace: "nowrap",
+              textOverflow: "ellipsis",
+            }}
+          >
+            {books[3]?.title}
+          </h5>
           <p style={{ color: "#8f8f8f" }}>{books[3]?.authors[0]}</p>
         </div>
         <div className="container">
@@ -356,7 +392,15 @@ const Home = () => {
             }
             readOnly
           />
-          <h5>{books[4]?.title}</h5>
+          <h5
+            style={{
+              overflow: "hidden",
+              whiteSpace: "nowrap",
+              textOverflow: "ellipsis",
+            }}
+          >
+            {books[4]?.title}
+          </h5>
           <p style={{ color: "#8f8f8f" }}>{books[4]?.authors[0]}</p>
         </div>
         <div className="container">
@@ -394,6 +438,7 @@ const Home = () => {
     </div>,
   ];
 
+  if (books.length === 0) return <BubbleLoading />;
   return (
     <>
       {/* Carousel Part */}
@@ -858,7 +903,7 @@ const Home = () => {
                   {books[2]?.categories[0]}
                 </p>
                 <h2 style={{ fontSize: "small", color: "#8f8f8f" }}>
-                  Reviews : 150{" "}
+                  Reviews : {books[2].review.length}{" "}
                 </h2>
               </div>
               <div
@@ -905,7 +950,14 @@ const Home = () => {
                   </ButtonMui>
 
                   <Link to={"/book/" + books[2]?._id}>
-                    <ButtonMui variant="outlined" className="ms-2  ">
+                    <ButtonMui
+                      variant="outlined"
+                      className="ms-2  "
+                      sx={{
+                        borderColor: "#8e67ae",
+                        "&:hover": { borderColor: "#8e67ae" },
+                      }}
+                    >
                       <img
                         className="imgOmar"
                         src="./../../public/Icons/more2.png"
@@ -953,7 +1005,7 @@ const Home = () => {
                   {books[1]?.categories[0]}
                 </p>
                 <h2 style={{ fontSize: "small", color: "#8f8f8f" }}>
-                  Reviews : 150{" "}
+                  Reviews : {books[2].review.length}{" "}
                 </h2>
               </div>
               <div
@@ -1000,7 +1052,14 @@ const Home = () => {
                   </ButtonMui>
 
                   <Link to={"/book/" + books[1]?._id}>
-                    <ButtonMui variant="outlined" className="ms-2  ">
+                    <ButtonMui
+                      variant="outlined"
+                      className="ms-2  "
+                      sx={{
+                        borderColor: "#8e67ae",
+                        "&:hover": { borderColor: "#8e67ae" },
+                      }}
+                    >
                       <img
                         className="imgOmar"
                         src="./../../public/Icons/more2.png"
@@ -1050,7 +1109,7 @@ const Home = () => {
                   {books[4]?.categories[0]}
                 </p>
                 <h2 style={{ fontSize: "small", color: "#8f8f8f" }}>
-                  Reviews : 150{" "}
+                  Reviews : {books[2].review.length}{" "}
                 </h2>
               </div>
               <div
@@ -1097,7 +1156,14 @@ const Home = () => {
                   </ButtonMui>
 
                   <Link to={"/book/" + books[4]?._id}>
-                    <ButtonMui variant="outlined" className="ms-2  ">
+                    <ButtonMui
+                      variant="outlined"
+                      className="ms-2  "
+                      sx={{
+                        borderColor: "#8e67ae",
+                        "&:hover": { borderColor: "#8e67ae" },
+                      }}
+                    >
                       <img
                         className="imgOmar"
                         src="./../../public/Icons/more2.png"
@@ -1145,7 +1211,7 @@ const Home = () => {
                   {books[0]?.categories[0]}
                 </p>
                 <h2 style={{ fontSize: "small", color: "#8f8f8f" }}>
-                  Reviews : 150{" "}
+                  Reviews : {books[2].review.length}{" "}
                 </h2>
               </div>
               <div
@@ -1192,7 +1258,14 @@ const Home = () => {
                   </ButtonMui>
 
                   <Link to={"/book/" + books[0]?._id}>
-                    <ButtonMui variant="outlined" className="ms-2  ">
+                    <ButtonMui
+                      variant="outlined"
+                      className="ms-2  "
+                      sx={{
+                        borderColor: "#8e67ae",
+                        "&:hover": { borderColor: "#8e67ae" },
+                      }}
+                    >
                       <img
                         className="imgOmar"
                         src="./../../public/Icons/more2.png"
@@ -1346,15 +1419,15 @@ const Home = () => {
           <Rating
             name="simple-controlled "
             className="my-3"
-            value={+books[1]?.review[0].stars}
+            value={+books[1]?.review[0]?.stars}
             readOnly
           />
           <div className="comment col-10 mb-3">
-            <p style={{ color: "#8f8f8f" }}>{books[1]?.review[0].comment}</p>
+            <p style={{ color: "#8f8f8f" }}>{books[1]?.review[0]?.comment}</p>
           </div>
           <div className="contact-info d-flex justify-content-between ">
             <div>
-              <h6>{books[1]?.review[0].userName}</h6>
+              <h6>{books[1]?.review[0]?.userName}</h6>
               <p style={{ color: "#8f8f8f", fontSize: "smaller" }}>
                 Content Creator
               </p>
@@ -1381,15 +1454,15 @@ const Home = () => {
           <Rating
             name="simple-controlled "
             className="my-3"
-            value={+books[2]?.review[1].stars}
+            value={+books[2]?.review[1]?.stars}
             readOnly
           />
           <div className="comment col-10 mb-3">
-            <p style={{ color: "#8f8f8f" }}>{books[2]?.review[1].comment}</p>
+            <p style={{ color: "#8f8f8f" }}>{books[2]?.review[1]?.comment}</p>
           </div>
           <div className="contact-info d-flex justify-content-between ">
             <div>
-              <h6>{books[2]?.review[1].userName}</h6>
+              <h6>{books[2]?.review[1]?.userName}</h6>
               <p style={{ color: "#8f8f8f", fontSize: "smaller" }}>
                 Web Developer
               </p>
@@ -1416,15 +1489,15 @@ const Home = () => {
           <Rating
             name="simple-controlled "
             className="my-3"
-            value={+books[2]?.review[0].stars}
+            value={+books[2]?.review[0]?.stars}
             readOnly
           />
           <div className="comment col-10 mb-3">
-            <p style={{ color: "#8f8f8f" }}>{books[2]?.review[0].comment}</p>
+            <p style={{ color: "#8f8f8f" }}>{books[2]?.review[0]?.comment}</p>
           </div>
           <div className="contact-info d-flex justify-content-between ">
             <div>
-              <h6>{books[2]?.review[0].userName}</h6>
+              <h6>{books[2]?.review[0]?.userName}</h6>
               <p style={{ color: "#8f8f8f", fontSize: "smaller" }}>
                 Web Developer
               </p>

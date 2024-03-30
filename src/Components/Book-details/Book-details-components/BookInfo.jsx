@@ -3,16 +3,24 @@ import Qty from "./Qty";
 import BtnBg from "../../Generic-components/BtnBg";
 import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../../Contexts/CartContext";
+import { BookContext } from "../../../context/BookContext";
+import { useNavigate } from "react-router-dom";
 
 function BookInfo({ book }) {
   const { decrementFromCart, addToCart, cartItems } = useContext(CartContext);
   const theme = useTheme();
   const foundBook = cartItems.filter((item) => item.book._id === book._id);
   const [qty, setQty] = useState(foundBook[0]?.quantity || 0);
+  let { getToken } = useContext(BookContext);
+  const navigate = useNavigate();
   const handleClick = () => {
-    if (!qty) {
-      setQty((qty) => qty + 1);
-      addToCart(book._id);
+    if (!getToken()) {
+      navigate("/login");
+    } else {
+      if (!qty) {
+        setQty((qty) => qty + 1);
+        addToCart(book._id);
+      }
     }
   };
 

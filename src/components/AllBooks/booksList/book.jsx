@@ -14,7 +14,7 @@ const Book = (props) => {
   const [isAddedToCart, setIsAddedToCart] = useState(false);
   const [isAddedToFav, setIsAddedToFav] = useState(false);
   const { fetchCart } = useContext(CartContext);
-  const { favCount,setFavCount } = useContext(BookContext);
+  const { favCount, setFavCount, getToken } = useContext(BookContext);
   const navigate = useNavigate();
   const checkFav = useCallback(async () => {
     try {
@@ -58,13 +58,17 @@ const Book = (props) => {
   };
 
   const handleAddFav = async () => {
+    if (!getToken()) {
+      navigate("/login");
+      return;
+    }
     const bookId = props._id;
-  
+
     if (!isAddedToFav) {
       try {
         await api.post("http://localhost:3000/user/add-favourite", { bookId });
         setIsAddedToFav(true);
-        setFavCount(favCount+1)
+        setFavCount(favCount + 1);
       } catch (error) {
         console.error("Error adding item to favorite", error);
       }
@@ -73,7 +77,7 @@ const Book = (props) => {
         await api.post("http://localhost:3000/user/delete-favourite", {
           bookId,
         });
-        setFavCount(favCount-1)
+        setFavCount(favCount - 1);
         setIsAddedToFav(false);
       } catch (error) {
         console.error("Error removing item to favorite", error);
@@ -81,8 +85,12 @@ const Book = (props) => {
     }
   };
   const handleAddCart = async () => {
+    if (!getToken()) {
+      navigate("/login");
+      return;
+    }
     const bookId = props._id;
-    
+
     if (!isAddedToCart) {
       try {
         await api.post("http://localhost:3000/cart/add-book", { bookId });
@@ -98,7 +106,7 @@ const Book = (props) => {
           "http://localhost:3000/cart/decrement-book",
           { bookId }
         );
-        
+
         setIsAddedToCart(false);
         fetchCart();
       } catch (error) {
@@ -106,9 +114,13 @@ const Book = (props) => {
       }
     }
   };
-  ///////////////////////////////////////////////////To Mounir Section//////////////////
+
   const handleView = () => {
-    navigate(`/book/${props._id}`);
+    if (!getToken()) {
+      navigate("/login");
+    } else {
+      navigate(`/book/${props._id}`);
+    }
   };
   return (
     <div
@@ -165,8 +177,17 @@ const Book = (props) => {
         >
           <StarIcon sx={{ color: "#fe7a01", fontSize: "22px" }} />
           <span style={{ margin: "0 10px", fontSize: "12px" }}>
-           {isNaN((props.review.reduce((acc, curr) => acc + curr.stars, 0) / props.review.length).toFixed(1)) ? 0 : (props.review.reduce((acc, curr) => acc + curr.stars, 0) / props.review.length).toFixed(1)}
-
+            {isNaN(
+              (
+                props.review.reduce((acc, curr) => acc + curr.stars, 0) /
+                props.review.length
+              ).toFixed(1)
+            )
+              ? 0
+              : (
+                  props.review.reduce((acc, curr) => acc + curr.stars, 0) /
+                  props.review.length
+                ).toFixed(1)}
           </span>
           <span>|</span>
           <span style={{ margin: "0 10px", fontSize: "12px" }}>

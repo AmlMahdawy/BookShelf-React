@@ -14,13 +14,16 @@ const BookContextProvider = ({ children }) => {
   const [booksPerPage] = useState(20);
   const [checkedCategory, setCheckedCategory] = useState("");
   const [checkedAuthors, setCheckedAuthors] = useState("");
-  const[favCount,setFavCount]=useState(0);
+  const [favCount, setFavCount] = useState(0);
 
   const lastBookIndex = currPage * booksPerPage;
   const firstBookIndex = lastBookIndex - booksPerPage;
 
-  const fetchCategories = useCallback(async () => {
+  const getToken = () => {
+    return localStorage.getItem("token");
+  };
 
+  const fetchCategories = useCallback(async () => {
     try {
       const res = await api.get("http://localhost:3000/book/genre/all");
       setCategories(res.data);
@@ -29,15 +32,13 @@ const BookContextProvider = ({ children }) => {
       console.error("Error fetching categories:", error);
     }
   }, []);
-  const getFavNumbers=useCallback(async()=>{
-   
+  const getFavNumbers = useCallback(async () => {
     const res = await api.get("http://localhost:3000/user/favs");
-   
-    if(res.data.message==='success'){
-      
-      setFavCount(res.data.data)
+
+    if (res.data.message === "success") {
+      setFavCount(res.data.data);
     }
-  },[])
+  }, []);
 
   const fetchAuthors = useCallback(async () => {
     try {
@@ -73,7 +74,7 @@ const BookContextProvider = ({ children }) => {
   const fetchData = useCallback(async () => {
     try {
       const res = await api.get("http://localhost:3000/book/all");
-      
+
       setOriginalBooks(res.data);
       setBooksPages(res.data);
     } catch (error) {
@@ -84,12 +85,10 @@ const BookContextProvider = ({ children }) => {
   //   getFavNumbers();
   // }, [getFavNumbers]);
 
-
   useEffect(() => {
     fetchData();
     fetchCategories();
     fetchAuthors();
-   
   }, [fetchData, fetchCategories, fetchAuthors]);
 
   useEffect(() => {
@@ -128,7 +127,6 @@ const BookContextProvider = ({ children }) => {
       comment,
       stars,
     });
-   
   };
 
   return (
@@ -156,7 +154,8 @@ const BookContextProvider = ({ children }) => {
           originalBooks,
           favCount,
           setFavCount,
-          getFavNumbers
+          getFavNumbers,
+          getToken,
         }}
       >
         {children}

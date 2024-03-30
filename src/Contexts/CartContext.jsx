@@ -7,7 +7,7 @@ export const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
-
+  const [cartCount, setCartCount] = useState(0);
   // useEffect(() => {
   //   fetchCart();
   // }, []);
@@ -20,6 +20,9 @@ export const CartProvider = ({ children }) => {
     try {
       const response = await api.get(api_url + "/cart");
 
+      setCartCount(
+        response.data.cart.reduce((acc, item) => acc + item.quantity, 0)
+      );
       setCartItems(response.data.cart);
       setTotalPrice(response.data.totalPrice);
     } catch (error) {
@@ -73,6 +76,8 @@ export const CartProvider = ({ children }) => {
         removeFromCart,
         decrementFromCart,
         checkout,
+        cartCount,
+        setCartCount,
       }}
     >
       {children}

@@ -13,7 +13,6 @@ function Footer() {
     { name: "Favourite", path: "/profile" },
     { name: "Profile", path: "/profile" },
     { name: "Cart", path: "/cart" },
-    { name: "Login", path: "/login" },
   ];
   let items2 = [
     "45B MiddleTown St., Cairo",

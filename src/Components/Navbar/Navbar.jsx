@@ -27,7 +27,7 @@ const routes = [
 ];
 const logo = "BookShelf";
 function Navbar() {
-  const { cartItems } = useContext(CartContext);
+  const { cartCount, setCartCount, fetchCart } = useContext(CartContext);
   const { setFavCount, favCount, getFavNumbers } = useContext(BookContext);
 
   const { logout } = useApp();
@@ -35,11 +35,14 @@ function Navbar() {
   const theme = useTheme();
   const [user, setUser] = useState(null);
 
-  const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+  // const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
   const getToken = () => {
     return localStorage.getItem("token");
   };
+  useEffect(() => {
+    fetchCart();
+  }, []);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -77,7 +80,10 @@ function Navbar() {
               Book
               <span>Shelf</span>
             </Typography> */}
-            <img src="./../../../public/new logo.png" style={{maxHeight:'50px',width:'150px',borderRadius:'5px'}}/>
+            <img
+              src="./../../../public/new logo.png"
+              style={{ maxHeight: "50px", width: "150px", borderRadius: "5px" }}
+            />
           </a>
 
           <div
@@ -124,7 +130,8 @@ function Navbar() {
                     onClick={() => {
                       logout();
                       setUser(null);
-                      setFav;
+                      setFavCount(0);
+                      setCartCount(0);
                       navigate("/");
                     }}
                   >
@@ -210,6 +217,7 @@ function Navbar() {
             <Button
               variant="contained"
               onClick={() => {
+                setCartCount(0);
                 logout();
                 setUser(null);
                 setFavCount(0);
