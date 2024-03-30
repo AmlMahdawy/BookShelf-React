@@ -75,3 +75,14 @@
   outline: 0;
   box-shadow: 0 0 0 0.25rem #8d27ae !important;
 }
+.nav-link {
+  margin-right: 8px;
+  color: #8d27ae !important;
+  font-weight: 700;
+}
+a.nav-link.active {
+  color: #fff !important;
+  background-color: #8d27ae !important;
+  border-radius: 7px !important;
+  padding: 8px 19px !important;
+}

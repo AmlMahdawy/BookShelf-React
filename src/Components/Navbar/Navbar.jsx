@@ -2,7 +2,6 @@ import {
   Avatar,
   Box,
   Button,
-  Chip,
   Stack,
   Typography,
   useTheme,
@@ -12,7 +11,7 @@ import "./Navbar.css";
 import BtnBg from "../Generic-components/BtnBg";
 
 import { useNavigate } from "react-router";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useApp } from "../../Contexts/appContext";
 import api from "../../Interceptors/Auth";
 import { useEffect, useState } from "react";
@@ -73,16 +72,24 @@ function Navbar() {
               <ul className="navbar-nav justify-content-center flex-grow-1 pe-3">
                 {routes.map((route) => (
                   <li className="nav-item" key={route.name}>
-                    <Link className="nav-link" to={route.path}>
+                    <NavLink
+                      className={`${({ isActive, isPending }) =>
+                        isPending
+                          ? "pending"
+                          : isActive
+                          ? "active"
+                          : ""} nav-link`}
+                      to={route.path}
+                    >
                       {route.name}
-                    </Link>
+                    </NavLink>
                   </li>
                 ))}
                 {getToken() && (
                   <li className="nav-item d-lg-none ">
-                    <Link className="nav-link" to={"/"}>
+                    <NavLink className="nav-link" to={"/"}>
                       Log out
-                    </Link>
+                    </NavLink>
                   </li>
                 )}
               </ul>
@@ -130,7 +137,7 @@ function Navbar() {
               mr: { xs: 1, sm: 2, md: 3 },
             }}
           >
-            <CartIcon count={favCount} />
+            <CartIcon count={favCount} path={"/cart"} />
           </Box>
           <Button
             variant="contained"
