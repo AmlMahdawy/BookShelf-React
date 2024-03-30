@@ -2,6 +2,7 @@ import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+
 import {
   FormControl,
   RadioGroup,
@@ -69,6 +70,7 @@ export default function CustomAccordion() {
     : authors.slice(0, numDisplayedAuthors);
   return (
     <div>
+     
            <Button
                 variant="outlined"
                 onClick={handleClearFilters}

@@ -15,7 +15,7 @@ function Footer() {
   ];
   return (
     <>
-      <Box className="shadow-lg" sx={{}} component={"footer"}>
+      <Box className="shadow-lg" sx={{ mt: 5 }} component={"footer"}>
         <div className="container">
           <Grid container>
             <Grid item md={6} lg={4}>

@@ -1,5 +1,5 @@
-import axios from "axios";
 import { createContext, useCallback, useEffect, useState } from "react";
+import api from "../Interceptors/Auth";
 
 export const BookContext = createContext();
 
@@ -18,66 +18,55 @@ const BookContextProvider = ({ children }) => {
   const lastBookIndex = currPage * booksPerPage;
   const firstBookIndex = lastBookIndex - booksPerPage;
 
-  const fetchCategories = useCallback(() => {
-    axios
-      .get("http://localhost:3000/book/genre/all")
-      .then((res) => {
-        setCategories(res.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching categories:", error);
-      });
+  const fetchCategories = useCallback(async () => {
+    try {
+      const res = await api.get("http://localhost:3000/book/genre/all");
+      setCategories(res.data);
+      res.data;
+    } catch (error) {
+      console.error("Error fetching categories:", error);
+    }
   }, []);
 
-  const fetchAuthors = useCallback(() => {
-    axios
-      .get("http://localhost:3000/book/author/all")
-      .then((res) => {
-        setAuthors(res.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching authors:", error);
-      });
+  const fetchAuthors = useCallback(async () => {
+    try {
+      const res = await api.get("http://localhost:3000/book/author/all");
+      setAuthors(res.data);
+    } catch (error) {
+      console.error("Error fetching authors:", error);
+    }
   }, []);
 
-  const fetchDataByCategory = useCallback((cat) => {
-    axios
-      .get(`http://localhost:3000/book/genre/${cat}`)
-      .then((res) => {
-        setOriginalBooks(res.data);
-        setBooksPages(res.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching books by category:", error);
-      });
+  const fetchDataByCategory = useCallback(async (cat) => {
+    try {
+      const res = await api.get(`http://localhost:3000/book/genre/${cat}`);
+      setOriginalBooks(res.data);
+      setBooksPages(res.data);
+    } catch (error) {
+      console.error("Error fetching books by category:", error);
+    }
   }, []);
 
-  const fetchDataByAuthor = useCallback((selectedAuthor) => {
-    axios
-      .get(`http://localhost:3000/book/author/${selectedAuthor}`)
-      .then((res) => {
-        setOriginalBooks(res.data);
-        setBooksPages(res.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching books by author:", error);
-      });
+  const fetchDataByAuthor = useCallback(async (selectedAuthor) => {
+    try {
+      const res = await api.get(
+        `http://localhost:3000/book/author/${selectedAuthor}`
+      );
+      setOriginalBooks(res.data);
+      setBooksPages(res.data);
+    } catch (error) {
+      console.error("Error fetching books by author:", error);
+    }
   }, []);
 
-  const fetchData = useCallback(() => {
-    axios
-      .get("http://localhost:3000/book/all", {
-        headers: {
-          "x-book-store-authentication": "your-auth-token",
-        },
-      })
-      .then((res) => {
-        setOriginalBooks(res.data);
-        setBooksPages(res.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching books:", error);
-      });
+  const fetchData = useCallback(async () => {
+    try {
+      const res = await api.get("http://localhost:3000/book/all");
+      setOriginalBooks(res.data);
+      setBooksPages(res.data);
+    } catch (error) {
+      console.error("Error fetching books:", error);
+    }
   }, []);
 
   useEffect(() => {
@@ -116,6 +105,14 @@ const BookContextProvider = ({ children }) => {
       setBooksPages(originalBooks);
     }
   }, [originalBooks, search]);
+  const addReview = async (comment, stars, bookId) => {
+    const res = await api.post("http://localhost:3000/book/add-review", {
+      bookId,
+      comment,
+      stars,
+    });
+    console.log(res);
+  };
 
   return (
     <div>
@@ -138,6 +135,8 @@ const BookContextProvider = ({ children }) => {
           currPage,
           categories,
           fetchData,
+          addReview,
+          originalBooks,
         }}
       >
         {children}

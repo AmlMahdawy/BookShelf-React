@@ -1,44 +1,19 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import LoginPage from "./Pages/LoginPage";
-import RegisterPage from "./Pages/RegisterPage";
+import { useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home";
 import { AppProvider } from "./Contexts/appContext";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-import SystemLayout from "./Layout/SystemLayout";
-import ProtectedRoutes from "./Guard/authGuard";
-import BookDetails from "./Components/Book-details/BookDetails";
+import AllBooksPage from "./Pages/allBooks";
 import BookContextProvider from "./context/BookContext";
-
+import ProfilePage from "./Pages/profile";
+import Join from "./Pages/Join.jsx";
+import SystemLayout from "./Layout/SystemLayout.jsx";
+import CartPage from "./Pages/CartPage";
+import { CartContext, CartProvider } from "./Contexts/CartContext";
+import { ThemeProvider, createTheme } from "@mui/material";
+import Navbar from "./Components/Navbar/Navbar.jsx";
+import Footer from "./Components/Footer/Footer.jsx";
+import AdminPage from "./Pages/adminPage.jsx";
 function App() {
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <SystemLayout />,
-      children: [
-        {
-          index: true,
-          element: <Home />,
-        },
-        {
-          path: "/home",
-          element: (
-            <ProtectedRoutes>
-              {" "}
-              <Home />{" "}
-            </ProtectedRoutes>
-          ),
-        },
-        {
-          path: "/books/:id",
-          element: <BookDetails />,
-        },
-      ],
-    },
-    {
-      path: "/login",
-      element: <LoginPage />,
-    },
-  ]);
   const theme = createTheme({
     breakpoints: {
       values: {
@@ -84,9 +59,30 @@ function App() {
     <>
       <ThemeProvider theme={theme}>
         <AppProvider>
-          <BookContextProvider>
-            <RouterProvider router={router} />
-          </BookContextProvider>
+          <CartProvider>
+            <BookContextProvider>
+              <BrowserRouter>
+                <Routes>
+                  <Route path="/" element={<SystemLayout />}>
+                    <Route index element={<Home />}></Route>
+                    <Route path="/home" element={<Home></Home>}></Route>
+
+                    <Route path="/cart" element={<CartPage></CartPage>}></Route>
+                    <Route
+                      path="/allBooks"
+                      element={<AllBooksPage></AllBooksPage>}
+                    ></Route>
+                    <Route
+                      path="/profile"
+                      element={<ProfilePage></ProfilePage>}
+                    ></Route>
+                  </Route>
+                  <Route path="/admin" element={<AdminPage />}></Route>
+                  <Route path="/login" element={<Join></Join>}></Route>
+                </Routes>
+              </BrowserRouter>
+            </BookContextProvider>
+          </CartProvider>
         </AppProvider>
       </ThemeProvider>
     </>
