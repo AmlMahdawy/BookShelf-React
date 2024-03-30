@@ -12,6 +12,10 @@ export const CartProvider = ({ children }) => {
     fetchCart();
   }, []);
 
+  // useEffect(() => {
+  //   fetchCart();
+  // }, []);
+
   const fetchCart = async () => {
     try {
       const response = await api.get(api_url + "/cart");
