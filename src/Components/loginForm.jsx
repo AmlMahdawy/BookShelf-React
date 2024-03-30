@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useApp } from "../Contexts/appContext";
 import styles from "../Styles/LoginForm.module.css";
 import { useNavigate } from "react-router-dom";
-import { jwtDecode } from 'jwt-decode'
+import { jwtDecode } from "jwt-decode";
 const LoginForm = () => {
   const { login } = useApp();
   const navigate = useNavigate();
@@ -18,19 +18,18 @@ const LoginForm = () => {
   const [emailError, setEmailError] = useState("");
 
   const handleLoginClick = async (event) => {
-    if(event){
+    if (event) {
       event.preventDefault();
     }
-  
-   
+
     let res = await login(userData);
-    
+
     if (res.data.message) {
-      const  decodedToken  = jwtDecode(res.data.token);
-      if (decodedToken.isAdmin=='admin') {
-        navigate("/admin"); 
+      const decodedToken = jwtDecode(res.data.token);
+      if (decodedToken.isAdmin == "admin") {
+        navigate("/admin");
       } else {
-        navigate("/home"); 
+        navigate("/home");
       }
     } else {
       setEmailError("Invalid Email or Password");
@@ -45,24 +44,28 @@ const LoginForm = () => {
   };
   function handleBookOnClick(event) {
     event.preventDefault();
-    navigate("/home");
+    navigate("/");
   }
   return (
     <>
       <div className={styles.imgContainer}></div>
 
-    
       <form
         autoComplete="off"
         className={styles.loginForm}
         onSubmit={handleLoginClick}
       >
-          <button type="button"style={{ all: "unset" }} onClick={handleBookOnClick} title="home">
-        <div className={styles.headLine}>
-          <span>Book</span>
-          <span style={{ color: "#8d27ae" }}>Shelf</span>
-        </div>
-      </button>
+        <button
+          type="button"
+          style={{ all: "unset" }}
+          onClick={handleBookOnClick}
+          title="home"
+        >
+          <div className={styles.headLine}>
+            <span>Book</span>
+            <span style={{ color: "#8d27ae" }}>Shelf</span>
+          </div>
+        </button>
         <div className={styles.inputContainer}>
           <label htmlFor="email" className={styles.labels}>
             E-mail:
