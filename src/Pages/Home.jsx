@@ -15,8 +15,11 @@ import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import ButtonMui from "@mui/material/Button";
 import { Link } from "react-router-dom";
+import { useHistory } from 'react-router-dom';
 
 const Home = () => {
+  const history = useHistory();
+
   const responsive = {
     0: { items: 1 },
     568: { items: 2 },
@@ -66,6 +69,10 @@ const Home = () => {
       title: "Mystrey",
     },
   ];
+
+  const goToSingleBook = (bookId) => {
+    history.push('/other'+bookId); 
+  };
 
   //Getting data from API in useEffext
   useEffect(() => {
@@ -816,7 +823,7 @@ const Home = () => {
                     ></img>
                     Add to cart
                   </ButtonMui>
-                 <Link to={'/book/'+books[2]._id}>
+                
                  <ButtonMui
                     variant="outlined"
                     className="ms-2 mt-lg-2 "
@@ -825,7 +832,7 @@ const Home = () => {
                       src="./../../public/Icons/heart.png"
                       style={{ width: "25px", height: "23px" }}
                     ></img>
-                  </ButtonMui></Link>
+                  </ButtonMui>
                 </div>
               </div>
             </div>
@@ -1109,13 +1116,7 @@ const Home = () => {
           </h6>
           <p
             className="my-3"
-            style={{
-              color: "#8f8f8f",
-              overflow: "elepsis",
-              maxHeight: "144px",
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-            }}
+            
           >
             Renowned author John Smith has just revealed exciting news for fans
             eagerly awaiting the next chapter in his bestselling series. The
