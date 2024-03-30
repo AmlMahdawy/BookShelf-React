@@ -2,6 +2,7 @@
   font-family: sans-serif;
 }
 /*********************************/
+
 .empty-cart {
   border: 2px solid #f6eff8;
   border-radius: 20px;
@@ -11,11 +12,7 @@
   justify-content: center;
   margin-top: 200px;
 }
-@media (max-width: 600px) {
-  .empty-cart {
-    margin: 10px;
-  }
-}
+
 @media (max-width: 400px) {
   .empty-cart-text {
     text-align: center;
@@ -188,11 +185,6 @@
 }
 
 .promo-code-wrapper {
-  background-color: #d4c0db;
-  border: 2px solid #d4c0db;
-  border-radius: 10px;
-  width: 280px;
-
   input {
     background-color: #d4c0db;
     border: 2px solid #d4c0db;
@@ -200,8 +192,11 @@
   }
 }
 .promo-code-content {
+  background-color: #d4c0db;
+  border: 2px solid #d4c0db;
   padding-left: 20px;
   padding-block: 5px;
+  border-radius: 10px;
 }
 .coupon-img {
   width: 30px;
@@ -209,6 +204,7 @@
 .promo-input:focus {
   outline: none;
   border-color: transparent;
+  caret-color: #8d28ad;
 }
 
 @media (max-width: 460px) {
