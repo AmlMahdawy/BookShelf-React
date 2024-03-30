@@ -5,7 +5,9 @@ import { Link } from "react-router-dom";
 
 function BookCard(props) {
   let { props: book } = props;
-
+  
+  let stars = (book.review.length==0)?0:book.review.reduce((acc, curr) => acc + curr.stars, 0) /book.review.length;
+  
   return (
     <Link style={{ textDecoration: "none" }} to={"/book/" + book._id}>
       <div>
@@ -21,7 +23,7 @@ function BookCard(props) {
           <Rating
             name="simple-controlled "
             className="mt-2"
-            value={book.rating || 4}
+            value={ stars}
             readOnly
           />
           <div

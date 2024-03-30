@@ -64,7 +64,7 @@ function Navbar() {
             href="#"
             onClick={() => navigate("/")}
           >
-            <Typography
+            {/* <Typography
               sx={{
                 fontWeight: 700,
                 fontSize: "1.8rem",
@@ -76,7 +76,8 @@ function Navbar() {
             >
               Book
               <span>Shelf</span>
-            </Typography>
+            </Typography> */}
+            <img src="./../../../public/new logo.png" style={{maxHeight:'50px',width:'150px',borderRadius:'5px'}}/>
           </a>
 
           <div
