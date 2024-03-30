@@ -54,7 +54,7 @@ function Navbar() {
 
     // fetchFavNumbers();
   }, [getFavNumbers]);
-  console.log(user)
+  
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-primary-light shadow-sm fixed-top py-3">

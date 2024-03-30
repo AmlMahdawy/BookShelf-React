@@ -30,11 +30,11 @@ const BookContextProvider = ({ children }) => {
     }
   }, []);
   const getFavNumbers=useCallback(async()=>{
-    console.log("hhhhhhhhhhhhhhhhhhhhhhhhhhhhh")
+   
     const res = await api.get("http://localhost:3000/user/favs");
-    console.log("res",res)
+   
     if(res.data.message==='success'){
-      console.log("res.data",res.data.data)
+      
       setFavCount(res.data.data)
     }
   },[])
@@ -73,6 +73,7 @@ const BookContextProvider = ({ children }) => {
   const fetchData = useCallback(async () => {
     try {
       const res = await api.get("http://localhost:3000/book/all");
+      
       setOriginalBooks(res.data);
       setBooksPages(res.data);
     } catch (error) {
@@ -127,7 +128,7 @@ const BookContextProvider = ({ children }) => {
       comment,
       stars,
     });
-    console.log(res);
+   
   };
 
   return (

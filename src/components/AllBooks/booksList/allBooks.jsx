@@ -8,6 +8,7 @@ import Index from '../pagination';
 
 const AllBooks = () => {
     const { books, search, originalBooks } = useContext(BookContext);
+    
     if (!books) return <div><BubbleLoading></BubbleLoading></div>;
 
     let booksToRender = books;
