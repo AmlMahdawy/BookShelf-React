@@ -164,4 +164,5 @@ navigate("/home")
     </>
   );
 };
+}
 export default RegisterForm;
