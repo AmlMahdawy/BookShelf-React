@@ -29,7 +29,7 @@
   padding: 0px 30px;
   /* padding-top: 40px; */
   width: 52%;
-  height: 90%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -84,7 +84,7 @@
   animation: animate 8s linear infinite;
   border: 1px solid rgb(83, 7, 104);
   width: 30%;
-  height: 40px;
+  height: 70px;
   text-align: center;
   color: #fff;
   box-sizing: border-box;
@@ -92,13 +92,14 @@
   background-size: 400%;
   border-radius: 30px !important;
   opacity: 80%;
+  margin-top: 10px;
+  padding:5px 20px;
 }
 .btnRegisterDisabled{
   all: unset;
-  
   border: 1px solid rgb(96, 95, 96);
   width: 30%;
-  height: 40px;
+  height: 70px;
   text-align: center;
   color: #fff;
   box-sizing: border-box;
@@ -106,6 +107,8 @@
   background-size: 400%;
   border-radius: 30px !important;
   opacity: 80%;
+  padding:5px 10px;
+  margin-top: 10px;
 }
 
 @keyframes animate {
@@ -123,6 +126,11 @@
   }
   .btnRegister{
     width: 90%;
+    height: 50px;
+  }
+  .btnRegisterDisabled{
+    width: 90%;
+    height: 50px;
   }
   .inputContainer{
     width:100%
@@ -134,13 +142,15 @@
     .imgContainer{
       width:50% ;
       height:75% ;
-    
 
     }
     .btnRegister{
       width: 90%;
-    
-
+      height: 50px;
+    }
+    .btnRegisterDisabled{
+      width: 90%;
+      height: 50px;
     }
     .inputContainer{
       width:100%
@@ -155,13 +165,12 @@
   .imgContainer{
     width:50% ;
     height:75% ;
-  
-
   }
   .btnRegister{
     width: 90%;
-  
-
+  }
+  .btnRegisterDisabled{
+    width: 90%;
   }
   .inputContainer{
     width:100%

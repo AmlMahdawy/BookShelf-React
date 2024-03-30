@@ -27,6 +27,7 @@ export const AppProvider = ({ children }) => {
      return res
   }
   const register= async(userData)=>{
+    console.log(userData.get('email'))
     let res
    await  axios
        .post("http://localhost:3000/auth/register",{data:userData})

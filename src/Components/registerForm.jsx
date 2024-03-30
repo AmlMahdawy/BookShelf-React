@@ -26,6 +26,7 @@ const RegisterForm = () => {
     "Password must be 8 char of letters & nums"
   );
   const [serverError, setServerError] = useState(false)
+  const[image,setImage]=useState()
 
   // regex
   const nameRegex = /^[a-zA-Z\s]{3,15}$/
@@ -40,14 +41,31 @@ const RegisterForm = () => {
 
   // handeling events
   async function handleSignUpClick(event) {
+    const formData = new FormData();
+    console.log(userData)
+    formData.append("email", userData.email);
+    formData.append("password", userData.password);
+    formData.append("name", userData.name);
+    if (image) {
+      formData.append("image", image);
+    }
+
     event.preventDefault();
-    let res = await register(userData);
-    if (res) {
+    
+    // let res = await register(formData);
+
+    const response = await fetch(`http://localhost:3000/auth/register`, {
+      method: "POST",
+      body: formData,
+    });
+    console.log(response)
+
+    if (response) {
       setLoginActive(true);
     }else{
     
       setServerError(true)
- 
+
 
     }
   }
@@ -60,6 +78,12 @@ const RegisterForm = () => {
       ...oldEdit,
       [event.target.name]: false,
     }));
+  }
+    function handleImageChange(event) {
+      console.log(event.target.files[0])
+    setImage(
+       event.target.files[0], 
+    );
   }
   function handleOnBLur(event) {
     setDidEdit((oldEdit) => ({
@@ -145,6 +169,18 @@ navigate("/home")
         {serverError ? (
             <div className={styles.error}>Email already registered </div>
           ) : null}
+            <div className={styles.inputContainer}>
+    <label htmlFor="image" className={styles.labels}>Upload Image:</label>
+    <input
+      type="file"
+      id="image"
+      name="image"
+      onChange={handleImageChange} 
+      accept="image/*" 
+      className={styles.inputs}
+    />
+    {/* Add any error handling for image upload if necessary */}
+  </div>
         <button className={emailInvalid || passwordInvalid || nameInvalid?styles.btnRegisterDisabled:styles.btnRegister} disabled={emailInvalid || passwordInvalid || nameInvalid}>Register</button>
       </form>
      

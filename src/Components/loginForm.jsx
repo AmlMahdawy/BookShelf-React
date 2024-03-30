@@ -26,7 +26,7 @@ const LoginForm = () => {
     let res = await login(userData);
     if (res.data.message) {
       const  decodedToken  = jwtDecode(res.data.token);
-      if (decodedToken.isAdmin) {
+      if (decodedToken.isAdmin=='admin') {
         navigate("/admin"); 
       } else {
         navigate("/home"); 
