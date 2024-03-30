@@ -3,24 +3,24 @@ import { useState } from "react";
 import Review from "./Review";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 function ReviewDescription({ theme, book }) {
-  const [route, setRout] = useState("review");
-  book.review = [
-    {
-      userName: "mounir",
-      comment: "lorem tetste lorem tetste lorem tetste lorem tetste",
-      stars: 3,
-    },
-    {
-      userName: "mounir",
-      comment: "lorem tetste lorem tetste lorem tetste lorem tetste",
-      stars: 3,
-    },
-    {
-      userName: "mounir",
-      comment: "lorem tetste lorem tetste lorem tetste lorem tetste",
-      stars: 3,
-    },
-  ];
+  const [route, setRout] = useState("desc");
+  // book.review = [
+  //   {
+  //     userName: "mounir",
+  //     comment: "lorem tetste lorem tetste lorem tetste lorem tetste",
+  //     stars: 3,
+  //   },
+  //   {
+  //     userName: "mounir",
+  //     comment: "lorem tetste lorem tetste lorem tetste lorem tetste",
+  //     stars: 3,
+  //   },
+  //   {
+  //     userName: "mounir",
+  //     comment: "lorem tetste lorem tetste lorem tetste lorem tetste",
+  //     stars: 3,
+  //   },
+  // ];
   return (
     <>
       <div className="container">
@@ -40,7 +40,6 @@ function ReviewDescription({ theme, book }) {
             item
             xs={12}
             lg={3}
-            xl={2}
             sx={{
               [theme.breakpoints.up("xs")]: {
                 borderBottom: `1px solid ${theme.colors.text.light}`,
@@ -112,7 +111,6 @@ function ReviewDescription({ theme, book }) {
             item
             xs={12}
             lg={9}
-            xl={10}
             p={4}
             sx={{
               [theme.breakpoints.down("lg")]: {

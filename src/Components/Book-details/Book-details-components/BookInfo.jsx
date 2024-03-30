@@ -26,7 +26,8 @@ function BookInfo({ book }) {
             fontWeight: 700,
             color: theme.colors.text.dark,
             mb: 3,
-            fontSize: "3.2rem",
+            transition: "all .15s ease-in-out",
+            fontSize: { xs: "2.5rem", xl: "3rem" },
           }}
           component="h2"
         >
