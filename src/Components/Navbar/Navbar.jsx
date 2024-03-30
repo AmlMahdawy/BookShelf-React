@@ -28,7 +28,7 @@ const routes = [
 const logo = "BookShelf";
 function Navbar() {
   const { cartItems } = useContext(CartContext);
-  const { setFavCount,favCount ,getFavNumbers} = useContext(BookContext);
+  const { setFavCount, favCount, getFavNumbers } = useContext(BookContext);
 
   const { logout } = useApp();
   const navigate = useNavigate();
@@ -46,18 +46,18 @@ function Navbar() {
       const { data } = await api.get("http://localhost:3000/user/profile");
       setUser(data);
     };
-    const fetchFavNumbers=async()=>{
-      await getFavNumbers()
-    }
+    const fetchFavNumbers = async () => {
+      await getFavNumbers();
+    };
     fetchFavNumbers();
     fetchUser();
 
     // fetchFavNumbers();
   }, [getFavNumbers]);
-  
+
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-primary-light shadow-sm fixed-top py-3">
+      <nav className="navbar navbar-expand-lg bg-primary-light shadow-sm fixed-top py-1">
         <div className="container-lg">
           <a
             className="navbar-brand color-main fw-semibold"
@@ -123,7 +123,7 @@ function Navbar() {
                     onClick={() => {
                       logout();
                       setUser(null);
-                      setFav
+                      setFav;
                       navigate("/");
                     }}
                   >
@@ -188,7 +188,7 @@ function Navbar() {
               </Box>
             </div>
           </div>
-          
+
           <Box
             sx={{
               ml: "auto ",
@@ -211,7 +211,7 @@ function Navbar() {
               onClick={() => {
                 logout();
                 setUser(null);
-                setFavCount(0)
+                setFavCount(0);
                 navigate("/");
               }}
               sx={{

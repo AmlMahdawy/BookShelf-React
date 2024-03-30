@@ -3,16 +3,24 @@ import { Box, Button, Grid, Stack, Typography, useTheme } from "@mui/material";
 import "./Footer.css";
 import FooterIcons from "./FooterIcons";
 import { grey } from "@mui/material/colors";
+import { useNavigate } from "react-router-dom";
 function Footer() {
   const theme = useTheme();
-  let items1 = ["About us", "Contact us", "Products", "Login", "Sign up"];
+  const navigate = useNavigate();
+  let items1 = [
+    { name: "Home", path: "/" },
+    { name: "Books", path: "/allBooks" },
+    { name: "Favourite", path: "/profile" },
+    { name: "Profile", path: "/profile" },
+    { name: "Cart", path: "/cart" },
+    { name: "Login", path: "/login" },
+  ];
   let items2 = [
-    "My Account",
-    "Orders",
-    "Tracking List",
+    "45B MiddleTown St., Cairo",
+    " 67890, cairo",
+    "123-456-7890",
     "Terms",
     "Privecy Policy",
-    "FAQ",
   ];
 
   return (
@@ -40,11 +48,15 @@ function Footer() {
                 <span>Shelf</span>
               </Typography>
 
-              <Typography variant="body2" component="h2">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
-                voluptate qui aliquam esse laboriosam vel accusamus, deleniti,
-                cupiditate nesciunt iusto ea harum corporis aspernatur!
-                Excepturi
+              <Typography
+                variant="body2"
+                component="h2"
+                sx={{ "&>span": { color: theme.colors.text.main } }}
+              >
+                Millions of books at your fingertips! <span>BookShelf</span>'s
+                website lets you browse by genre, search for favorites, and get
+                personalized picks. Secure checkout and speedy delivery bring
+                your next literary escape right to your door.
               </Typography>
               <Typography
                 variant="subtitle2"
@@ -56,13 +68,7 @@ function Footer() {
               <FooterIcons />
             </Grid>
 
-            <Grid
-              item
-              xs={12}
-              md={6}
-              lg={4}
-              sx={{ px: { lg: 3, xs: 0 }, pt: 5 }}
-            >
+            <Grid item xs={12} md={6} lg={4} sx={{ px: { lg: 3, xs: 0 } }}>
               {/* Links grid */}
               <Grid container>
                 <Grid item xs={6}>
@@ -72,15 +78,23 @@ function Footer() {
                       sx={{ fontWeight: 700 }}
                       component="h2"
                     >
-                      Follow Us
+                      Explore
                     </Typography>
                     {items1.map((item) => (
                       <Typography
-                        key={item}
+                        key={item.name}
+                        onClick={() => navigate(item.path)}
                         variant="subtitle2"
-                        sx={{ mb: "4px" }}
+                        sx={{
+                          mb: "4px",
+                          cursor: "pointer",
+                          "&:hover": {
+                            textDecoration: "underline",
+                            color: theme.colors.text.main,
+                          },
+                        }}
                       >
-                        {item}
+                        {item.name}
                       </Typography>
                     ))}
                   </Stack>
@@ -92,7 +106,7 @@ function Footer() {
                       sx={{ fontWeight: 700 }}
                       component="h2"
                     >
-                      Customer Area
+                      BookShelf
                     </Typography>
                     {items2.map((item) => (
                       <Typography
@@ -109,14 +123,12 @@ function Footer() {
             </Grid>
             <Grid item md={12} lg={4}>
               <Box>
-                <Typography variant="h6" sx={{ fontWeight: 700, mt: 5, mb: 2 }}>
+                <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
                   Don't miss the newest books
                 </Typography>
                 <Typography variant="body2">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Alias voluptate qui aliquam esse laboriosam vel accusamus,
-                  deleniti, cupiditate nesciunt iusto ea harum corporis
-                  aspernatur! Excepturi
+                  Get the latest news and information about your favorite
+                  authors or books
                 </Typography>
               </Box>
 
