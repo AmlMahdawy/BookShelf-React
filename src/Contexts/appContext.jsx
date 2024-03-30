@@ -23,22 +23,23 @@ export const AppProvider = ({ children }) => {
         res = response;
       })
       .catch((error) => {
-        res = error.response.data.message;
-      });
-    return res;
-  };
-  const register = async (userData) => {
-    let res;
-    await axios
-      .post("http://localhost:3000/auth/register", { data: userData })
-      .then((response) => {
-        res = response.data.message;
-      })
-      .catch((error) => {
-        res = error.response.data.message;
-      });
-    return res;
-  };
+        res=error.response.data.message});
+     return res
+  }
+  const register= async(userData)=>{
+    let res
+   await  axios
+       .post("http://localhost:3000/auth/register",{data:userData})
+       .then((response) => {
+        res=response.data.message
+ 
+       })
+       .catch((error) => {
+         res=error.response.data.message});
+      return res
+   }
+
+
 
   return (
     <AppContext.Provider

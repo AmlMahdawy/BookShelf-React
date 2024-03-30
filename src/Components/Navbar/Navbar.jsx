@@ -28,7 +28,7 @@ const routes = [
 const logo = "BookShelf";
 function Navbar() {
   const { cartItems } = useContext(CartContext);
-  const { favCount ,getFavNumbers} = useContext(BookContext);
+  const { setFavCount,favCount ,getFavNumbers} = useContext(BookContext);
 
   const { logout } = useApp();
   const navigate = useNavigate();
@@ -36,7 +36,7 @@ function Navbar() {
   const [user, setUser] = useState(null);
 
   const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
-console.log("favCount",favCount)
+
   const getToken = () => {
     return localStorage.getItem("token");
   };
@@ -46,10 +46,12 @@ console.log("favCount",favCount)
       const { data } = await api.get("http://localhost:3000/user/profile");
       setUser(data);
     };
-    // const fetchFavNumbers=async()=>{
-    //   await getFavNumbers()
-    // }
+    const fetchFavNumbers=async()=>{
+      await getFavNumbers()
+    }
+    fetchFavNumbers();
     fetchUser();
+
     // fetchFavNumbers();
   }, [getFavNumbers]);
   console.log(user)
@@ -121,6 +123,7 @@ console.log("favCount",favCount)
                     onClick={() => {
                       logout();
                       setUser(null);
+                      setFav
                       navigate("/");
                     }}
                   >
@@ -208,6 +211,7 @@ console.log("favCount",favCount)
               onClick={() => {
                 logout();
                 setUser(null);
+                setFavCount(0)
                 navigate("/");
               }}
               sx={{

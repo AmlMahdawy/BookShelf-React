@@ -79,9 +79,9 @@ const BookContextProvider = ({ children }) => {
       console.error("Error fetching books:", error);
     }
   }, []);
-  useEffect(() => {
-    getFavNumbers();
-  }, [getFavNumbers]);
+  // useEffect(() => {
+  //   getFavNumbers();
+  // }, [getFavNumbers]);
 
 
   useEffect(() => {
