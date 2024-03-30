@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home";
 import { AppProvider } from "./Contexts/appContext";
@@ -8,10 +7,8 @@ import ProfilePage from "./Pages/profile";
 import Join from "./Pages/Join.jsx";
 import SystemLayout from "./Layout/SystemLayout.jsx";
 import CartPage from "./Pages/CartPage";
-import { CartContext, CartProvider } from "./Contexts/CartContext";
+import { CartProvider } from "./Contexts/CartContext";
 import { ThemeProvider, createTheme } from "@mui/material";
-import Navbar from "./Components/Navbar/Navbar.jsx";
-import Footer from "./Components/Footer/Footer.jsx";
 import AdminPage from "./Pages/adminPage.jsx";
 function App() {
   const theme = createTheme({
@@ -45,6 +42,7 @@ function App() {
       bg: {
         main: "#8d27ae",
         light: "#f0e3f4",
+        light2: "#ddc3e6",
       },
       text: {
         main: "#8d27ae",

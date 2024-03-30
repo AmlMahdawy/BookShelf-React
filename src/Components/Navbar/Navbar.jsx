@@ -14,7 +14,9 @@ import { useNavigate } from "react-router";
 import { NavLink } from "react-router-dom";
 import { useApp } from "../../Contexts/appContext";
 import api from "../../Interceptors/Auth";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { CartContext } from "../../Contexts/CartContext";
+import { grey } from "@mui/material/colors";
 
 const routes = [
   { name: "Home", path: "" },
@@ -22,12 +24,14 @@ const routes = [
 ];
 const logo = "BookShelf";
 function Navbar() {
+  const { cartItems } = useContext(CartContext);
   const { logout } = useApp();
   const navigate = useNavigate();
   const theme = useTheme();
   const [user, setUser] = useState(null);
 
-  let favCount = 10;
+  const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+  console.log(cartCount);
   const getToken = () => {
     return localStorage.getItem("token");
   };
@@ -41,10 +45,26 @@ function Navbar() {
   }, []);
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top py-3">
+      <nav className="navbar navbar-expand-lg bg-primary-light shadow-sm fixed-top py-3">
         <div className="container-lg">
-          <a className="navbar-brand color-main fw-semibold" href="#">
-            {logo}
+          <a
+            className="navbar-brand color-main fw-semibold"
+            href="#"
+            onClick={() => navigate("/")}
+          >
+            <Typography
+              sx={{
+                fontWeight: 700,
+                fontSize: "1.8rem",
+                "&>span": {
+                  color: grey[800],
+                  fontSize: "1.2rem",
+                },
+              }}
+            >
+              Book
+              <span>Shelf</span>
+            </Typography>
           </a>
 
           <div
@@ -55,7 +75,7 @@ function Navbar() {
           >
             <div className="offcanvas-header">
               <h5
-                className="offcanvas-title color-main"
+                className="offcanvas-title color-main fw-semibold"
                 id="offcanvasNavbarLabel"
               >
                 {logo}
@@ -71,25 +91,30 @@ function Navbar() {
               {/* Routes */}
               <ul className="navbar-nav justify-content-center flex-grow-1 pe-3">
                 {routes.map((route) => (
-                  <li className="nav-item" key={route.name}>
+                  <li className="nav-item " key={route.name}>
                     <NavLink
                       className={`${({ isActive, isPending }) =>
                         isPending
                           ? "pending"
                           : isActive
                           ? "active"
-                          : ""} nav-link`}
+                          : ""} nav-link `}
                       to={route.path}
                     >
                       {route.name}
                     </NavLink>
                   </li>
                 ))}
-                {getToken() && (
-                  <li className="nav-item d-lg-none ">
-                    <NavLink className="nav-link" to={"/"}>
-                      Log out
-                    </NavLink>
+                {user && (
+                  <li
+                    className="nav-item d-lg-none "
+                    onClick={() => {
+                      logout();
+                      setUser(null);
+                      navigate("/");
+                    }}
+                  >
+                    <a className="nav-link">Log out</a>
                   </li>
                 )}
               </ul>
@@ -101,6 +126,20 @@ function Navbar() {
                         direction={"row"}
                         alignItems={"center"}
                         spacing={1}
+                        onClick={() => {
+                          navigate("/profile");
+                        }}
+                        sx={{
+                          mr: 1,
+                          cursor: "pointer",
+                          padding: " 4px 8px",
+
+                          borderRadius: " 7px",
+                          "&:hover": {
+                            backgroundColor: theme.colors.bg.light2,
+                            border: `1px solid b ${theme.colors.bg.main}`,
+                          },
+                        }}
                       >
                         <Avatar
                           alt="Mohamed"
@@ -120,12 +159,17 @@ function Navbar() {
                   </>
                 ) : (
                   <>
-                    <BtnBg
-                      onClick={() => {
-                        navigate("/login");
-                      }}
-                      label={"Sign in"}
-                    />
+                    {!user && (
+                      <BtnBg
+                        sx={{
+                          mt: { xs: 2, lg: 0 },
+                        }}
+                        onClick={() => {
+                          navigate("/login");
+                        }}
+                        label={"Sign in"}
+                      />
+                    )}
                   </>
                 )}
               </Box>
@@ -137,35 +181,40 @@ function Navbar() {
               mr: { xs: 1, sm: 2, md: 3 },
             }}
           >
-            <CartIcon count={favCount} path={"/cart"} />
+            <CartIcon count={cartCount} path={"/cart"} />
           </Box>
-          <Button
-            variant="contained"
-            onClick={() => {
-              logout();
-              navigate("/");
-            }}
-            sx={{
-              bgcolor: theme.palette.button.main,
-              p: `5px 11px
+          {user && (
+            <Button
+              variant="contained"
+              onClick={() => {
+                logout();
+                setUser(null);
+                navigate("/");
+              }}
+              sx={{
+                bgcolor: theme.palette.button.main,
+                p: `5px 11px
           `,
-              mr: 1,
-              borderRadius: "7px",
-              "&:hover": { backgroundColor: "#8d27ae" },
-              "&:active": { backgroundColor: "#651c7d" },
 
-              [theme.breakpoints.down("sm")]: {
-                padding: "12px 11px",
+                mr: 1,
                 borderRadius: "7px",
+                "&:hover": { backgroundColor: "#8d27ae" },
+                "&:active": { backgroundColor: "#651c7d" },
 
-                fontSize: "0.8rem",
-              },
-            }}
-            disableElevation
-            disableRipple
-          >
-            Log out
-          </Button>
+                [theme.breakpoints.down("lg")]: {
+                  // padding: "12px 11px",
+                  // borderRadius: "7px",
+
+                  // fontSize: "0.8rem",
+                  display: "none",
+                },
+              }}
+              disableElevation
+              disableRipple
+            >
+              Log out
+            </Button>
+          )}
           <button
             className="navbar-toggler"
             type="button"

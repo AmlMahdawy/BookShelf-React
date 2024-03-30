@@ -2,6 +2,7 @@ import { Box, Button, Grid, Stack, Typography, useTheme } from "@mui/material";
 
 import "./Footer.css";
 import FooterIcons from "./FooterIcons";
+import { grey } from "@mui/material/colors";
 function Footer() {
   const theme = useTheme();
   let items1 = ["About us", "Contact us", "Products", "Login", "Sign up"];
@@ -13,18 +14,31 @@ function Footer() {
     "Privecy Policy",
     "FAQ",
   ];
+
   return (
     <>
-      <Box className="shadow-lg" sx={{ mt: 5 }} component={"footer"}>
+      <Box
+        className="shadow-lg"
+        sx={{ mt: 5, pt: 5, pb: 4, bgcolor: theme.colors.bg.light }}
+        component={"footer"}
+      >
         <div className="container">
           <Grid container>
             <Grid item md={6} lg={4}>
-              <Stack sx={{ alignItems: "center" }} direction="row" spacing={2}>
-                <Box>
-                  <img src="images/logo.png" alt="" />
-                </Box>
-                <h3>Books</h3>
-              </Stack>
+              <Typography
+                sx={{
+                  fontWeight: 700,
+                  fontSize: "1.8rem",
+                  color: theme.colors.text.main,
+                  "&>span": {
+                    color: grey[800],
+                    fontSize: "1.2rem",
+                  },
+                }}
+              >
+                Book
+                <span>Shelf</span>
+              </Typography>
 
               <Typography variant="body2" component="h2">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
