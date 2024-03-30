@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import { useApp } from "../Contexts/appContext";
 import { useNavigate } from "react-router-dom";
-import { CleaningServices } from "@mui/icons-material";
 import styles from "../Styles/register.module.css";
 const RegisterForm = () => {
   const { register } = useApp();
   const navigate = useNavigate();
-  const {loginActive,setLoginActive} = useApp();
+  const { loginActive, setLoginActive } = useApp();
 
   // states
   const [userData, setUserData] = useState({
@@ -19,6 +18,7 @@ const RegisterForm = () => {
     password: false,
     name: false,
   });
+
   const [singUpClicked, setSignUpClicked] = useState(false);
   const [emailError, setEmailError] = useState("please enter a valid email ");
   const [nameError, setNameError] = useState("Name must be at least 3 letters");
@@ -29,7 +29,7 @@ const RegisterForm = () => {
   const[image,setImage]=useState()
 
   // regex
-  const nameRegex = /^[a-zA-Z\s]{3,15}$/
+  const nameRegex = /^[a-zA-Z\s]{3,15}$/;
   const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -96,77 +96,87 @@ const RegisterForm = () => {
 navigate("/home")
   }
 
-  return (
-    <>
+    return (
+      <>
+        <form
+          onSubmit={handleSignUpClick}
+          className={styles.registerForm}
+          autoComplete="off"
+        >
+          <button
+            style={{ all: "unset" }}
+            onClick={handleBookOnClick}
+            title="home"
+            type="button"
+          >
+            <div className={styles.headLine}>
+              <span>Book</span>
+              <span style={{ color: "#8d27ae" }}>Shelf</span>
+            </div>
+          </button>
 
-      <form onSubmit={handleSignUpClick} className={styles.registerForm} autoComplete="off">
-        <button style={{all:"unset"}} onClick={handleBookOnClick} title="home">
-        <div className={styles.headLine}><span>Book</span><span style={{color:"#8d27ae"}}>Shelf</span></div>
+          <div className={styles.inputContainer}>
+            <label htmlFor="name" className={styles.labels}>
+              Name :
+            </label>
+            <input
+              required
+              type="name"
+              id="name"
+              name="name"
+              onChange={handleOnChange}
+              onBlur={handleOnBLur}
+              value={userData.name}
+              className={styles.inputs}
+              placeholder="Your full name"
+            ></input>
+            {nameInvalid ? (
+              <div className={styles.error}>{nameError}</div>
+            ) : null}
+            <br></br>
+          </div>
+          <div className={styles.inputContainer}>
+            <label htmlFor="email" className={styles.labels}>
+              E-mail :
+            </label>
+            <input
+              required
+              type="email"
+              id="email"
+              name="email"
+              value={userData.email}
+              onChange={handleOnChange}
+              onBlur={handleOnBLur}
+              className={styles.inputs}
+              placeholder="Your Email address"
+            ></input>
+            {emailInvalid ? (
+              <div className={styles.error}>{emailError}</div>
+            ) : null}
+            <br></br>
+          </div>
 
-        </button>
-
-        <div className={styles.inputContainer}>
-          <label htmlFor="name" className={styles.labels}>
-            Name :
-          </label>
-          <input
-          required
-            type="name"
-            id="name"
-            name="name"
-            onChange={handleOnChange}
-            onBlur={handleOnBLur}
-            value={userData.name}
-            className={styles.inputs}
-            placeholder="Your full name"
-          ></input>
-          {nameInvalid ? <div className={styles.error}>{nameError}</div> : null}
-          <br></br>
-        </div>
-        <div className={styles.inputContainer}>
-          <label htmlFor="email" className={styles.labels}>
-            E-mail :
-          </label>
-          <input
-          required
-
-            type="email"
-            id="email"
-            name="email"
-            value={userData.email}
-            onChange={handleOnChange}
-            onBlur={handleOnBLur}
-            className={styles.inputs}
-            placeholder="Your Email address"
-          ></input>
-          {emailInvalid ? (
-            <div className={styles.error}>{emailError}</div>
-          ) : null}
-          <br></br>
-        </div>
-
-        <div className={styles.inputContainer}>
-          <label htmlFor="password" className={styles.labels}>
-            Password :
-          </label>
-          <input
-          required
-
-            type="password"
-            id="password"
-            name="password"
-            onChange={handleOnChange}
-            onBlur={handleOnBLur}
-            value={userData.password}
-            className={styles.inputs}
-            placeholder="Your password"
-          ></input>
-          {passwordInvalid ? (
-            <div className={styles.error}>{passwordError}</div>
-          ) : null}
-          <br></br>
-        </div>
-        {serverError ? (
+          <div className={styles.inputContainer}>
+            <label htmlFor="password" className={styles.labels}>
+              Password :
+            </label>
+            <input
+              required
+              type="password"
+              id="password"
+              name="password"
+              onChange={handleOnChange}
+              onBlur={handleOnBLur}
+              value={userData.password}
+              className={styles.inputs}
+              placeholder="Your password"
+            ></input>
+            {passwordInvalid ? (
+              <div className={styles.error}>{passwordError}</div>
+            ) : null}
+            <br></br>
+          </div>
+          {serverError ? (
             <div className={styles.error}>Email already registered </div>
           ) : null}
             <div className={styles.inputContainer}>
@@ -190,4 +200,5 @@ navigate("/home")
     </>
   );
 };
+
 export default RegisterForm;

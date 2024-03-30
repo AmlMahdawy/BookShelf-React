@@ -24,6 +24,7 @@ const LoginForm = () => {
   
    
     let res = await login(userData);
+    
     if (res.data.message) {
       const  decodedToken  = jwtDecode(res.data.token);
       if (decodedToken.isAdmin=='admin') {
