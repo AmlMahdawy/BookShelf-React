@@ -1,8 +1,8 @@
 import { Avatar, Box, Chip } from "@mui/material";
 import CartIcon from "./CartIcon";
 import "./Navbar.css";
-import BtnBg from "./BtnBg";
-import BtnTransBg from "./BtnTransBg";
+import BtnBg from "../Generic-components/BtnBg";
+
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 

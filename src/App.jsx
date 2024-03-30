@@ -6,6 +6,8 @@ import { AppProvider } from "./Contexts/appContext";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import SystemLayout from "./Layout/SystemLayout";
 import ProtectedRoutes from "./Guard/authGuard";
+import BookDetails from "./Components/Book-details/BookDetails";
+import BookContextProvider from "./context/BookContext";
 
 function App() {
   const router = createBrowserRouter([
@@ -25,6 +27,10 @@ function App() {
               <Home />{" "}
             </ProtectedRoutes>
           ),
+        },
+        {
+          path: "/books/:id",
+          element: <BookDetails />,
         },
       ],
     },
@@ -53,6 +59,24 @@ function App() {
         hover: "#8d27ae",
         active: "#651c7d",
       },
+      bg: {
+        main: "#8d27ae",
+      },
+      text: {
+        main: "#414082",
+      },
+    },
+    colors: {
+      bg: {
+        main: "#8d27ae",
+        light: "#f0e3f4",
+      },
+      text: {
+        main: "#8d27ae",
+        dark: "#414082",
+        light: "#a9a8c7",
+        light2: "#7e7da9",
+      },
     },
   });
 
@@ -60,7 +84,9 @@ function App() {
     <>
       <ThemeProvider theme={theme}>
         <AppProvider>
-          <RouterProvider router={router} />
+          <BookContextProvider>
+            <RouterProvider router={router} />
+          </BookContextProvider>
         </AppProvider>
       </ThemeProvider>
     </>
