@@ -1,10 +1,10 @@
 import { GoogleLogin } from "@react-oauth/google";
-import { jwtDecode } from "jwt-decode";
+
 import { useState } from "react";
 import { useApp } from "../Contexts/appContext";
 import styles from "../Styles/LoginForm.module.css";
 import { useNavigate } from "react-router-dom";
-
+import { jwtDecode } from 'jwt-decode'
 const LoginForm = () => {
   const { login } = useApp();
   const navigate = useNavigate();
@@ -24,8 +24,13 @@ const LoginForm = () => {
   
    
     let res = await login(userData);
-    if (res) {
-      navigate("/home");
+    if (res.data.message) {
+      const  decodedToken  = jwtDecode(res.data.token);
+      if (decodedToken.isAdmin) {
+        navigate("/admin"); 
+      } else {
+        navigate("/home"); 
+      }
     } else {
       setEmailError("Invalid Email or Password");
     }

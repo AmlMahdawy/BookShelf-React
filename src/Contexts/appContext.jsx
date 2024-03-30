@@ -17,11 +17,9 @@ export const AppProvider = ({ children }) => {
   await  axios
       .post("http://localhost:3000/auth/login",{data:userData})
       .then((response) => {
-        if(response.data.token){
-          localStorage.setItem("token",response.data.token)
-        res=response.data.message
-        }
-        
+
+        localStorage.setItem("token",response.data.token)
+        res=response
 
       })
       .catch((error) => {

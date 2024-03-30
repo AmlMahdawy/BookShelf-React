@@ -9,6 +9,7 @@ import Join from "./Pages/Join.jsx";
 import SystemLayout from "./Layout/SystemLayout.jsx";
 import CartPage from "./Pages/CartPage";
 import { CartContext, CartProvider } from "./Contexts/CartContext";
+import AdminPage from "./Pages/adminPage.jsx";
 function App() {
   return (
     <>
@@ -23,6 +24,7 @@ function App() {
               <Route path="/cart" element={<CartPage></CartPage>}></Route>
             <Route path="/allBooks" element={<AllBooksPage></AllBooksPage>}></Route>
             <Route path="/profile" element={<ProfilePage></ProfilePage>}></Route>
+            <Route path="/admin" element={<AdminPage/>}></Route>
           </Routes>
         </BrowserRouter>
         </BookContextProvider>

@@ -48,6 +48,13 @@ const RegisterForm = () => {
   }else{
   
     setServerError(true)
+    let res = await register(userData);
+    if (res) {
+      setLoginActive(true);
+    }else{
+    
+      setServerError(true)
+ 
 
 
   }

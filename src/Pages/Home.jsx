@@ -125,7 +125,7 @@ const Home = () => {
               marginTop: "15%",
             }}
           >
-            <p className="mt-3">{books[0]?.price} L.E.</p>
+            <p className="mt-3">{books[0]?.price} $</p>
             <div className="icon d-flex justify-content-end  align-items-center">
               <Link to={"book/" + books[0]?._id}>
                 <img
@@ -181,7 +181,7 @@ const Home = () => {
               marginTop: "15%",
             }}
           >
-            <p className="mt-3">{books[1]?.price} L.E.</p>
+            <p className="mt-3">{books[1]?.price} $</p>
             <div className="icon d-flex justify-content-end  align-items-center">
               <Link to={"book/" + books[1]?._id}>
                 <img
@@ -237,7 +237,7 @@ const Home = () => {
               marginTop: "15%",
             }}
           >
-            <p className="mt-3">{books[2]?.price} L.E.</p>
+            <p className="mt-3">{books[2]?.price} $</p>
             <div className="icon d-flex justify-content-end  align-items-center">
               <Link to={"book/" + books[2]?._id}>
                 <img
@@ -293,7 +293,7 @@ const Home = () => {
               marginTop: "15%",
             }}
           >
-            <p className="mt-3">{books[3]?.price} L.E.</p>
+            <p className="mt-3">{books[3]?.price} $</p>
             <div className="icon d-flex justify-content-end  align-items-center">
               <Link to={"book/" + books[3]?._id}>
                 <img
@@ -349,7 +349,7 @@ const Home = () => {
               marginTop: "15%",
             }}
           >
-            <p className="mt-3">{books[4]?.price} L.E.</p>
+            <p className="mt-3">{books[4]?.price} $</p>
             <div className="icon d-flex justify-content-end  align-items-center">
               <Link to={"book/" + books[4]?._id}>
                 <img
@@ -379,7 +379,7 @@ const Home = () => {
       </Carousel>
 
       {/* Book Cards Part */}
-      <div className="books-container text-center" style={{ marginTop: "4%" }}>
+      <div className="books-container text-center" style={{ marginTop: "7%" }}>
         <div className="container d-flex flex-column  justify-content-center align-items-center w-50">
           <h1>Trending This Week </h1>
           <p className="mt-3">
@@ -505,7 +505,7 @@ const Home = () => {
                 <p style={{ color: "#8f8f8f" }}>{books[0]?.authors[0]}</p>
               </div>
               <div className="data-con w-100 ms-lg-4 ">
-                <h2 style={{ color: "#9436b2" }}>{books[0]?.price} L.E</h2>
+                <h2 style={{ color: "#9436b2" }}>{books[0]?.price} $</h2>
               </div>
               <div className="ms-4">
                 <Link
@@ -575,7 +575,7 @@ const Home = () => {
                 <p style={{ color: "#8f8f8f" }}>{books[1]?.authors[0]}</p>
               </div>
               <div className="data-con w-100 ms-lg-4 ">
-                <h2 style={{ color: "#9436b2" }}>{books[1]?.price} L.E</h2>
+                <h2 style={{ color: "#9436b2" }}>{books[1]?.price} $</h2>
               </div>
               <div className="ms-4">
                 <Link
@@ -645,7 +645,7 @@ const Home = () => {
                 <p style={{ color: "#8f8f8f" }}>{books[2]?.authors[0]}</p>
               </div>
               <div className="data-con w-100 ms-lg-4 ">
-                <h2 style={{ color: "#9436b2" }}>{books[2]?.price} L.E</h2>
+                <h2 style={{ color: "#9436b2" }}>{books[2]?.price} $</h2>
               </div>
               <div className="ms-4">
                 <Link
@@ -715,7 +715,7 @@ const Home = () => {
                 <p style={{ color: "#8f8f8f" }}>{books[3]?.authors[0]}</p>
               </div>
               <div className="data-con w-100 ms-lg-4 ">
-                <h2 style={{ color: "#9436b2" }}>{books[3]?.price} L.E</h2>
+                <h2 style={{ color: "#9436b2" }}>{books[3]?.price} $</h2>
               </div>
               <div className="ms-4">
                 <Link
@@ -819,7 +819,7 @@ const Home = () => {
                 <p style={{ color: "#8f8f8f" }}>{books[2]?.authors[0]}</p>
               </div>
               <div className="data-con w-100 ms-lg-4 ">
-                <h2 style={{ color: "#9436b2" }}>{books[2]?.price} L.E</h2>
+                <h2 style={{ color: "#9436b2" }}>{books[2]?.price} $</h2>
               </div>
               <div>
                 <div className="d-flex flex-column flex-lg-row justify-content-center ">
@@ -904,7 +904,7 @@ const Home = () => {
                 <p style={{ color: "#8f8f8f" }}>{books[1]?.authors[0]}</p>
               </div>
               <div className="data-con w-100 ms-lg-4 ">
-                <h2 style={{ color: "#9436b2" }}>{books[1]?.price} L.E</h2>
+                <h2 style={{ color: "#9436b2" }}>{books[1]?.price} $</h2>
               </div>
               <div>
                 <div className="d-flex flex-column flex-lg-row justify-content-center ">
@@ -990,7 +990,7 @@ const Home = () => {
                 <p style={{ color: "#8f8f8f" }}>{books[4]?.authors[0]}</p>
               </div>
               <div className="data-con w-100 ms-lg-4 ">
-                <h2 style={{ color: "#9436b2" }}>{books[4]?.price} L.E</h2>
+                <h2 style={{ color: "#9436b2" }}>{books[4]?.price} $</h2>
               </div>
               <div>
                 <div className="d-flex flex-column flex-lg-row justify-content-center ">
@@ -1074,7 +1074,7 @@ const Home = () => {
                 <p style={{ color: "#8f8f8f" }}>{books[0]?.authors[0]}</p>
               </div>
               <div className="data-con w-100 ms-lg-4 ">
-                <h2 style={{ color: "#9436b2" }}>{books[0]?.price} L.E</h2>
+                <h2 style={{ color: "#9436b2" }}>{books[0]?.price} $</h2>
               </div>
               <div>
                 <div className="d-flex flex-column flex-lg-row justify-content-center ">
