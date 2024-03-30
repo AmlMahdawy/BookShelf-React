@@ -19,7 +19,7 @@ export const AppProvider = ({ children }) => {
       .then((response) => {
 
         localStorage.setItem("token",response.data.token)
-        res=response.data.message
+        res=response
 
       })
       .catch((error) => {

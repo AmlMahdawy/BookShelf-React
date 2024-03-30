@@ -1,10 +1,10 @@
 import { GoogleLogin } from "@react-oauth/google";
-import { jwtDecode } from "jwt-decode";
+
 import { useState } from "react";
 import { useApp } from "../Contexts/appContext";
 import styles from "../Styles/LoginForm.module.css";
 import { useNavigate } from "react-router-dom";
-
+import { jwtDecode } from 'jwt-decode'
 const LoginForm = () => {
 
   const { login } = useApp();
@@ -23,10 +23,13 @@ const LoginForm = () => {
       event.preventDefault();
     }
     let res = await login(userData);
-    console.log(res)
-    if (res) {
-      navigate("/home");
-   
+    if (res.data.message) {
+      const  decodedToken  = jwtDecode(res.data.token);
+      if (decodedToken.isAdmin) {
+        navigate("/admin"); 
+      } else {
+        navigate("/home"); 
+      }
     } else {
       setEmailError("Invalid Email or Password");
     }
@@ -50,7 +53,7 @@ navigate("/home")
 
           <div className={styles.imgContainer}></div>
 
-          <form autoComplete="off" className={styles.loginForm}>
+          <form onSubmit={handleLoginClick} autoComplete="off" className={styles.loginForm}>
           <button style={{all:"unset"}} onClick={handleBookOnClick} title="home">
         <div className={styles.headLine}><span>Book</span><span style={{color:"#8d27ae"}}>Shelf</span></div>
 
@@ -87,7 +90,7 @@ navigate("/home")
 
             {emailError && <div className={styles.error}>{emailError}</div>}
 
-            <button onClick={handleLoginClick} className={styles.btnLogin}>
+            <button  className={styles.btnLogin}>
               Login
             </button>
           

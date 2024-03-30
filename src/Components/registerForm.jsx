@@ -41,7 +41,6 @@ const RegisterForm = () => {
   // handeling events
   async function handleSignUpClick(event) {
     event.preventDefault();
-
     let res = await register(userData);
     if (res) {
       setLoginActive(true);
