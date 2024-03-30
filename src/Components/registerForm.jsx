@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useApp } from "../Contexts/appContext";
 import { useNavigate } from "react-router-dom";
-import { CleaningServices } from "@mui/icons-material";
 import styles from "../Styles/register.module.css";
 const RegisterForm = () => {
   const { register } = useApp();
@@ -19,6 +18,7 @@ const RegisterForm = () => {
     password: false,
     name: false,
   });
+
   const [singUpClicked, setSignUpClicked] = useState(false);
   const [emailError, setEmailError] = useState("please enter a valid email ");
   const [nameError, setNameError] = useState("Name must be at least 3 letters");
@@ -54,6 +54,7 @@ const RegisterForm = () => {
         setServerError(true);
       }
     }
+  }
     function handleOnChange(event) {
       setUserData((oldUser) => ({
         ...oldUser,
@@ -175,7 +176,8 @@ const RegisterForm = () => {
         </div>
       </>
     );
-  }
+  
+  
 };
 
 export default RegisterForm;

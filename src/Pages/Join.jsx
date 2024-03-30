@@ -9,6 +9,7 @@ const Join = () => {
 
  function handleOnclick(event){
     setLoginActive(event.target.value=="true")
+   
 
   }
 
@@ -20,6 +21,7 @@ const Join = () => {
       <button className={ loginActive?styles.btnsActive:styles.btns} onClick={handleOnclick} value={true} >Sign In</button>
       <button className={ loginActive?styles.btns:styles.btnsActive} onClick={handleOnclick} value={false}>Sign Up</button>
       </div>
+      
       {loginActive ? <LoginForm></LoginForm>:<RegisterForm></RegisterForm>}
 
 
