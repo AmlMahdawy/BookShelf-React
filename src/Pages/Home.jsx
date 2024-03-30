@@ -14,6 +14,7 @@ import CategorieCard from "../Components/CategorieCard";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import ButtonMui from "@mui/material/Button";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const responsive = {
@@ -73,6 +74,17 @@ const Home = () => {
     });
   }, []);
 
+  let addToCart = (bookId) => {
+    axios
+      .post("http://localhost:3000/cart/add-book", { bookId })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log("error is +" + error);
+      });
+  };
+
   const items2 = [
     <div className="item" data-value="1">
       <div className="container">
@@ -80,7 +92,7 @@ const Home = () => {
           <img
             src={books[0]?.thumbnailUrl}
             style={{
-              maxHeight: "300px",
+              maxHeight: "350px",
               maxWidth: "1250px",
               borderRadius: "10px",
             }}
@@ -113,18 +125,16 @@ const Home = () => {
           >
             <p className="mt-3">{books[0]?.price} L.E.</p>
             <div className="icon d-flex justify-content-end  align-items-center">
-              <img
-                src="./../../public/Icons/shopping-basket.png"
-                style={{ width: "38px", height: "38px", borderRaduis: "50%" }}
-              />
-              <img
-                src="./../../public/Icons/more.png"
-                style={{
-                  maxWidth: "46px",
-                  maxHeight: "46px",
-                  borderRaduis: "50%",
-                }}
-              />
+              <Link to={"book/" + books[0]?._id}>
+                <img
+                  src="./../../public/Icons/more.png"
+                  style={{
+                    maxWidth: "46px",
+                    maxHeight: "46px",
+                    borderRaduis: "50%",
+                  }}
+                />
+              </Link>
             </div>
           </div>
         </div>
@@ -136,7 +146,7 @@ const Home = () => {
           <img
             src={books[1]?.thumbnailUrl}
             style={{
-              maxHeight: "300px",
+              maxHeight: "350px",
               maxWidth: "1250px",
               borderRadius: "10px",
             }}
@@ -169,18 +179,16 @@ const Home = () => {
           >
             <p className="mt-3">{books[1]?.price} L.E.</p>
             <div className="icon d-flex justify-content-end  align-items-center">
-              <img
-                src="./../../public/Icons/shopping-basket.png"
-                style={{ width: "38px", height: "38px", borderRaduis: "50%" }}
-              />
-              <img
-                src="./../../public/Icons/more.png"
-                style={{
-                  maxWidth: "46px",
-                  maxHeight: "46px",
-                  borderRaduis: "50%",
-                }}
-              />
+              <Link to={"book/" + books[1]?._id}>
+                <img
+                  src="./../../public/Icons/more.png"
+                  style={{
+                    maxWidth: "46px",
+                    maxHeight: "46px",
+                    borderRaduis: "50%",
+                  }}
+                />
+              </Link>
             </div>
           </div>
         </div>
@@ -192,7 +200,7 @@ const Home = () => {
           <img
             src={books[2]?.thumbnailUrl}
             style={{
-              maxHeight: "300px",
+              maxHeight: "350px",
               maxWidth: "1250px",
               borderRadius: "10px",
             }}
@@ -225,18 +233,16 @@ const Home = () => {
           >
             <p className="mt-3">{books[2]?.price} L.E.</p>
             <div className="icon d-flex justify-content-end  align-items-center">
-              <img
-                src="./../../public/Icons/shopping-basket.png"
-                style={{ width: "38px", height: "38px", borderRaduis: "50%" }}
-              />
-              <img
-                src="./../../public/Icons/more.png"
-                style={{
-                  maxWidth: "46px",
-                  maxHeight: "46px",
-                  borderRaduis: "50%",
-                }}
-              />
+              <Link to={"book/" + books[2]?._id}>
+                <img
+                  src="./../../public/Icons/more.png"
+                  style={{
+                    maxWidth: "46px",
+                    maxHeight: "46px",
+                    borderRaduis: "50%",
+                  }}
+                />
+              </Link>
             </div>
           </div>
         </div>
@@ -248,7 +254,7 @@ const Home = () => {
           <img
             src={books[3]?.thumbnailUrl}
             style={{
-              maxHeight: "300px",
+              maxHeight: "350px",
               maxWidth: "1250px",
               borderRadius: "10px",
             }}
@@ -261,7 +267,7 @@ const Home = () => {
             value={4}
             readOnly
           />
-          <h5 style={{overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis'}}>{books[3]?.title}</h5>
+          <h5>{books[3]?.title}</h5>
           <p style={{ color: "#8f8f8f" }}>{books[3]?.authors[0]}</p>
         </div>
         <div className="container">
@@ -281,18 +287,16 @@ const Home = () => {
           >
             <p className="mt-3">{books[3]?.price} L.E.</p>
             <div className="icon d-flex justify-content-end  align-items-center">
-              <img
-                src="./../../public/Icons/shopping-basket.png"
-                style={{ width: "38px", height: "38px", borderRaduis: "50%" }}
-              />
-              <img
-                src="./../../public/Icons/more.png"
-                style={{
-                  maxWidth: "46px",
-                  maxHeight: "46px",
-                  borderRaduis: "50%",
-                }}
-              />
+              <Link to={"book/" + books[3]?._id}>
+                <img
+                  src="./../../public/Icons/more.png"
+                  style={{
+                    maxWidth: "46px",
+                    maxHeight: "46px",
+                    borderRaduis: "50%",
+                  }}
+                />
+              </Link>
             </div>
           </div>
         </div>
@@ -304,7 +308,7 @@ const Home = () => {
           <img
             src={books[4]?.thumbnailUrl}
             style={{
-              maxHeight: "300px",
+              maxHeight: "350px",
               maxWidth: "1250px",
               borderRadius: "10px",
             }}
@@ -337,18 +341,16 @@ const Home = () => {
           >
             <p className="mt-3">{books[4]?.price} L.E.</p>
             <div className="icon d-flex justify-content-end  align-items-center">
-              <img
-                src="./../../public/Icons/shopping-basket.png"
-                style={{ width: "38px", height: "38px", borderRaduis: "50%" }}
-              />
-              <img
-                src="./../../public/Icons/more.png"
-                style={{
-                  maxWidth: "46px",
-                  maxHeight: "46px",
-                  borderRaduis: "50%",
-                }}
-              />
+              <Link to={"book/" + books[4]?._id}>
+                <img
+                  src="./../../public/Icons/more.png"
+                  style={{
+                    maxWidth: "46px",
+                    maxHeight: "46px",
+                    borderRaduis: "50%",
+                  }}
+                />
+              </Link>
             </div>
           </div>
         </div>
@@ -449,7 +451,7 @@ const Home = () => {
                 }}
               />
             </div>
-            <div className="data-con w-50 mx-2 d-flex flex-column justify-content-between h-75 ">
+            <div className="data-con w-50 mx-2 d-flex flex-column justify-content-evenly  h-100 ">
               <div className="d-flex justify-content-evenly ">
                 <p
                   style={{
@@ -493,10 +495,20 @@ const Home = () => {
               <div className="data-con w-100 ms-lg-4 ">
                 <h2 style={{ color: "#9436b2" }}>{books[0]?.price} L.E</h2>
               </div>
+              <div className="ms-4">
+                <Link
+                  style={{ textDecoration: "none" }}
+                  to={"/book/" + books[0]?._id}
+                  className="col-6 align-self-end  "
+                >
+                  <p className="price mt-4 col-8  text-center  ">
+                    see more details
+                  </p>
+                </Link>
+              </div>
             </div>
           </div>
-
-          <div className="div book-display-card col-12 col-lg-6 mt-4 mt-lg-0 d-flex justify-content-center">
+          <div className="div book-display-card col-12 col-lg-6 mt-4 mt-lg-0 d-flex justify-content-center ">
             <div className="book-cover-con  mx-2">
               <img
                 src={books[1]?.thumbnailUrl}
@@ -507,7 +519,7 @@ const Home = () => {
                 }}
               />
             </div>
-            <div className="data-con w-50 mx-2 d-flex flex-column justify-content-between h-75 ">
+            <div className="data-con w-50 mx-2 d-flex flex-column justify-content-evenly  h-100 ">
               <div className="d-flex justify-content-evenly ">
                 <p
                   style={{
@@ -551,10 +563,20 @@ const Home = () => {
               <div className="data-con w-100 ms-lg-4 ">
                 <h2 style={{ color: "#9436b2" }}>{books[1]?.price} L.E</h2>
               </div>
+              <div className="ms-4">
+                <Link
+                  style={{ textDecoration: "none" }}
+                  to={"/book/" + books[1]?._id}
+                  className="col-6 align-self-end  "
+                >
+                  <p className="price mt-4 col-8  text-center  ">
+                    see more details
+                  </p>
+                </Link>
+              </div>
             </div>
           </div>
-
-          <div className="div book-display-card col-12 col-lg-6 mt-4  d-flex justify-content-center">
+          <div className="div  book-display-card col-12 col-lg-6 mt-4 mt-lg-2 d-flex justify-content-center ">
             <div className="book-cover-con  mx-2">
               <img
                 src={books[2]?.thumbnailUrl}
@@ -565,7 +587,7 @@ const Home = () => {
                 }}
               />
             </div>
-            <div className="data-con w-50 mx-2 d-flex flex-column justify-content-between h-75 ">
+            <div className="data-con w-50 mx-2 d-flex flex-column justify-content-evenly  h-100 ">
               <div className="d-flex justify-content-evenly ">
                 <p
                   style={{
@@ -609,10 +631,20 @@ const Home = () => {
               <div className="data-con w-100 ms-lg-4 ">
                 <h2 style={{ color: "#9436b2" }}>{books[2]?.price} L.E</h2>
               </div>
+              <div className="ms-4">
+                <Link
+                  style={{ textDecoration: "none" }}
+                  to={"/book/" + books[2]?._id}
+                  className="col-6 align-self-end  "
+                >
+                  <p className="price mt-4 col-8  text-center  ">
+                    see more details
+                  </p>
+                </Link>
+              </div>
             </div>
           </div>
-
-          <div className="div book-display-card col-12 col-lg-6 mt-4  d-flex justify-content-center">
+          <div className="div  book-display-card col-12 col-lg-6 mt-4  d-flex justify-content-center ">
             <div className="book-cover-con  mx-2">
               <img
                 src={books[3]?.thumbnailUrl}
@@ -623,7 +655,7 @@ const Home = () => {
                 }}
               />
             </div>
-            <div className="data-con w-50 mx-2 d-flex flex-column justify-content-between h-75 ">
+            <div className="data-con w-50 mx-2 d-flex flex-column justify-content-evenly  h-100 ">
               <div className="d-flex justify-content-evenly ">
                 <p
                   style={{
@@ -667,6 +699,17 @@ const Home = () => {
               <div className="data-con w-100 ms-lg-4 ">
                 <h2 style={{ color: "#9436b2" }}>{books[3]?.price} L.E</h2>
               </div>
+              <div className="ms-4">
+                <Link
+                  style={{ textDecoration: "none" }}
+                  to={"/book/" + books[3]?._id}
+                  className="col-6 align-self-end  "
+                >
+                  <p className="price mt-4 col-8  text-center  ">
+                    see more details
+                  </p>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -687,7 +730,7 @@ const Home = () => {
 
       {/* Books Slider */}
       <div className="container w-75" style={{ marginTop: "7%" }}>
-        <h2 className="my-5 col-10">Top 5 rated books</h2>
+        <h2 className="my-5 col-10">Top 5 Rated Books</h2>
         <AliceCarousel
           mouseTracking
           items={items2}
@@ -764,6 +807,7 @@ const Home = () => {
                   <ButtonMui
                     variant="contained"
                     style={{ backgroundColor: "#8e67ae" }}
+                    onClick={() => addToCart(books[2]._id)}
                   >
                     <img
                       className="me-2"
@@ -772,16 +816,16 @@ const Home = () => {
                     ></img>
                     Add to cart
                   </ButtonMui>
-                  <ButtonMui
+                 <Link to={'/book/'+books[2]._id}>
+                 <ButtonMui
                     variant="outlined"
-                    href="#outlined-buttons"
                     className="ms-2 mt-lg-2 "
                   >
                     <img
                       src="./../../public/Icons/heart.png"
                       style={{ width: "25px", height: "23px" }}
                     ></img>
-                  </ButtonMui>
+                  </ButtonMui></Link>
                 </div>
               </div>
             </div>
@@ -1164,7 +1208,8 @@ const Home = () => {
         </p>
       </div>
       <div className="reviews d-flex flex-column flex-md-row justify-content-center align-items-center col-10 offset-1   mt-5 flex-wrap">
-        <div className="review col-10 col-lg-3 my-2 p-3 mx-1 "
+        <div
+          className="review col-10 col-lg-3 my-2 p-3 mx-1 "
           style={{
             border: "5px #ddddddy solid",
             borderRadius: "15px",
@@ -1180,7 +1225,7 @@ const Home = () => {
           <div className="comment col-10 mb-3">
             <p style={{ color: "#8f8f8f" }}>
               BookShelf has completely changed the way I discover and enjoy
-              books! Highly recommend,The selection is good. 
+              books! Highly recommend,The selection is good.
             </p>
           </div>
           <div className="contact-info d-flex justify-content-between ">
@@ -1198,7 +1243,8 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="review  col-10 col-lg-3 my-2 p-3 mx-1 "
+        <div
+          className="review  col-10 col-lg-3 my-2 p-3 mx-1 "
           style={{
             border: "5px #ddddddy solid",
             borderRadius: "15px",
@@ -1233,7 +1279,8 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="review  col-10 col-lg-3 my-2 p-3 mx-1 "
+        <div
+          className="review  col-10 col-lg-3 my-2 p-3 mx-1 "
           style={{
             border: "5px #ddddddy solid",
             borderRadius: "15px",
@@ -1249,7 +1296,7 @@ const Home = () => {
           <div className="comment col-10 mb-3">
             <p style={{ color: "#8f8f8f" }}>
               Book Shelf's return guarantee gives me peace of mind when trying
-              out new authors. It's a game-changer I can't get enough of it .
+              out new authors. It's a game I can't get enough of it .
             </p>
           </div>
           <div className="contact-info d-flex justify-content-between ">
@@ -1297,7 +1344,9 @@ function Item(props) {
             </div>
             <h1>{props.item.header}</h1>
             <p>{props.item.paragraph}</p>
-            <Button className="CheckButton">Go to Collection </Button>
+            <Link to="/allBooks" className="col-8">
+              <Button className="CheckButton">Go to Collection </Button>
+            </Link>
           </div>
         </div>
       </Paper>
