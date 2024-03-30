@@ -15,6 +15,7 @@ import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import ButtonMui from "@mui/material/Button";
 import { Link } from "react-router-dom";
+import api from './../Interceptors/Auth'
 
 const Home = () => {
   const responsive = {
@@ -75,7 +76,7 @@ const Home = () => {
   }, []);
 
   let addToCart = (bookId) => {
-    axios
+    api
       .post("http://localhost:3000/cart/add-book", { bookId })
       .then((response) => {
         console.log(response);
@@ -90,6 +91,7 @@ const Home = () => {
       <div className="container">
         <div className="img">
           <img
+          className="imgOmar"
             src={books[0]?.thumbnailUrl}
             style={{
               maxHeight: "350px",
@@ -127,6 +129,7 @@ const Home = () => {
             <div className="icon d-flex justify-content-end  align-items-center">
               <Link to={"book/" + books[0]?._id}>
                 <img
+                className="imgOmar"
                   src="./../../public/Icons/more.png"
                   style={{
                     maxWidth: "46px",
@@ -144,6 +147,7 @@ const Home = () => {
       <div className="container">
         <div className="img">
           <img
+          className="imgOmar"
             src={books[1]?.thumbnailUrl}
             style={{
               maxHeight: "350px",
@@ -181,6 +185,7 @@ const Home = () => {
             <div className="icon d-flex justify-content-end  align-items-center">
               <Link to={"book/" + books[1]?._id}>
                 <img
+                className="imgOmar"
                   src="./../../public/Icons/more.png"
                   style={{
                     maxWidth: "46px",
@@ -198,6 +203,7 @@ const Home = () => {
       <div className="container">
         <div className="img">
           <img
+          className="imgOmar"
             src={books[2]?.thumbnailUrl}
             style={{
               maxHeight: "350px",
@@ -235,6 +241,7 @@ const Home = () => {
             <div className="icon d-flex justify-content-end  align-items-center">
               <Link to={"book/" + books[2]?._id}>
                 <img
+                className="imgOmar"
                   src="./../../public/Icons/more.png"
                   style={{
                     maxWidth: "46px",
@@ -252,6 +259,7 @@ const Home = () => {
       <div className="container">
         <div className="img">
           <img
+          className="imgOmar"
             src={books[3]?.thumbnailUrl}
             style={{
               maxHeight: "350px",
@@ -289,6 +297,7 @@ const Home = () => {
             <div className="icon d-flex justify-content-end  align-items-center">
               <Link to={"book/" + books[3]?._id}>
                 <img
+                className="imgOmar"
                   src="./../../public/Icons/more.png"
                   style={{
                     maxWidth: "46px",
@@ -306,6 +315,7 @@ const Home = () => {
       <div className="container">
         <div className="img">
           <img
+          className="imgOmar"
             src={books[4]?.thumbnailUrl}
             style={{
               maxHeight: "350px",
@@ -343,6 +353,7 @@ const Home = () => {
             <div className="icon d-flex justify-content-end  align-items-center">
               <Link to={"book/" + books[4]?._id}>
                 <img
+                className="imgOmar"
                   src="./../../public/Icons/more.png"
                   style={{
                     maxWidth: "46px",
@@ -393,7 +404,7 @@ const Home = () => {
         <div className="content my-3 w-75 d-flex   flex-column  flex-lg-row justify-content-lg-between align-items-center justify-content-center  ">
           <div className="feature col-12  col-md-3 ">
             <div className="icon my-4">
-              <img src="public/Icons/on-time.png" />
+              <img className="imgOmar" src="public/Icons/on-time.png" />
             </div>
             <h5 className="my-3">Quick Delivery</h5>
             <p style={{ color: "gray", Opacity: "30%" }}>
@@ -403,7 +414,7 @@ const Home = () => {
           </div>
           <div className="feature col-12  col-md-3 ">
             <div className="icon my-4">
-              <img src="public/Icons/credit-card.png" />
+              <img className="imgOmar" src="public/Icons/credit-card.png" />
             </div>
             <h5 className="my-3">Secure Payment</h5>
             <p style={{ color: "gray", Opacity: "30%" }}>
@@ -413,7 +424,7 @@ const Home = () => {
           </div>
           <div className="feature col-12  col-md-3">
             <div className="icon my-4">
-              <img src="public/Icons/exclusive.png" />
+              <img className="imgOmar" src="public/Icons/exclusive.png" />
             </div>
             <h5 className="my-3">Best Quality</h5>
             <p style={{ color: "gray", Opacity: "30%" }}>
@@ -423,7 +434,7 @@ const Home = () => {
           </div>
           <div className="feature col-12  col-md-3">
             <div className="icon my-4">
-              <img src="public/Icons/protection.png" />
+              <img className="imgOmar" src="public/Icons/protection.png" />
             </div>
             <h5 className="my-3">Return Guarantee</h5>
             <p style={{ color: "gray", Opacity: "30%" }}>
@@ -442,7 +453,7 @@ const Home = () => {
         <div className="container d-flex flex-wrap  col-10 offset-1 ">
           <div className="div book-display-card col-12 col-lg-6 mt-4 mt-lg-0 d-flex justify-content-center ">
             <div className="book-cover-con  mx-2">
-              <img
+              <img className="imgOmar"
                 src={books[0]?.thumbnailUrl}
                 style={{
                   width: "200px",
@@ -482,6 +493,7 @@ const Home = () => {
                   className="col-6 col-lg-3"
                 >
                   <img
+                  className="imgOmar"
                     src="./../../public/Icons/star.png"
                     style={{ width: "18px", height: "18px" }}
                   />
@@ -511,6 +523,7 @@ const Home = () => {
           <div className="div book-display-card col-12 col-lg-6 mt-4 mt-lg-0 d-flex justify-content-center ">
             <div className="book-cover-con  mx-2">
               <img
+              className="imgOmar"
                 src={books[1]?.thumbnailUrl}
                 style={{
                   width: "200px",
@@ -550,6 +563,7 @@ const Home = () => {
                   className="col-6 col-lg-3"
                 >
                   <img
+                  className="imgOmar"
                     src="./../../public/Icons/star.png"
                     style={{ width: "18px", height: "18px" }}
                   />
@@ -579,6 +593,7 @@ const Home = () => {
           <div className="div  book-display-card col-12 col-lg-6 mt-4 mt-lg-2 d-flex justify-content-center ">
             <div className="book-cover-con  mx-2">
               <img
+              className="imgOmar"
                 src={books[2]?.thumbnailUrl}
                 style={{
                   width: "200px",
@@ -618,6 +633,7 @@ const Home = () => {
                   className="col-6 col-lg-3"
                 >
                   <img
+                  className="imgOmar"
                     src="./../../public/Icons/star.png"
                     style={{ width: "18px", height: "18px" }}
                   />
@@ -647,6 +663,7 @@ const Home = () => {
           <div className="div  book-display-card col-12 col-lg-6 mt-4  d-flex justify-content-center ">
             <div className="book-cover-con  mx-2">
               <img
+              className="imgOmar"
                 src={books[3]?.thumbnailUrl}
                 style={{
                   width: "200px",
@@ -686,6 +703,7 @@ const Home = () => {
                   className="col-6 col-lg-3"
                 >
                   <img
+                  className="imgOmar"
                     src="./../../public/Icons/star.png"
                     style={{ width: "18px", height: "18px" }}
                   />
@@ -757,6 +775,7 @@ const Home = () => {
           >
             <div className="book-cover-con  mx-2">
               <img
+              className="imgOmar"
                 src={books[2]?.thumbnailUrl}
                 style={{
                   width: "200px",
@@ -810,7 +829,8 @@ const Home = () => {
                     onClick={() => addToCart(books[2]._id)}
                   >
                     <img
-                      className="me-2"
+
+                      className="me-2 imgOmar"
                       src="./../../public/Icons/shopping-cart (2).png"
                       style={{ width: "25px", height: "23px" }}
                     ></img>
@@ -820,6 +840,7 @@ const Home = () => {
                   <Link to={"/book/" + books[2]?._id}>
                     <ButtonMui variant="outlined" className="ms-2  ">
                       <img
+                      className="imgOmar"
                         src="./../../public/Icons/more2.png"
                         style={{ width: "25px", height: "25px" }}
                       ></img>
@@ -839,6 +860,7 @@ const Home = () => {
           >
             <div className="book-cover-con  mx-2">
               <img
+              className="imgOmar"
                 src={books[1]?.thumbnailUrl}
                 style={{
                   width: "200px",
@@ -892,7 +914,7 @@ const Home = () => {
                     onClick={() => addToCart(books[1]._id)}
                   >
                     <img
-                      className="me-2"
+                      className="me-2 imgOmar"
                       src="./../../public/Icons/shopping-cart (2).png"
                       style={{ width: "25px", height: "23px" }}
                     ></img>
@@ -902,6 +924,7 @@ const Home = () => {
                   <Link to={"/book/" + books[1]?._id}>
                     <ButtonMui variant="outlined" className="ms-2  ">
                       <img
+                      className="imgOmar"
                         src="./../../public/Icons/more2.png"
                         style={{ width: "25px", height: "25px" }}
                       ></img>
@@ -923,6 +946,7 @@ const Home = () => {
           >
             <div className="book-cover-con  mx-2">
               <img
+              className="imgOmar"
                 src={books[4]?.thumbnailUrl}
                 style={{
                   width: "200px",
@@ -976,7 +1000,7 @@ const Home = () => {
                     onClick={() => addToCart(books[4]._id)}
                   >
                     <img
-                      className="me-2"
+                      className="me-2 imgOmar"
                       src="./../../public/Icons/shopping-cart (2).png"
                       style={{ width: "25px", height: "23px" }}
                     ></img>
@@ -986,6 +1010,7 @@ const Home = () => {
                   <Link to={"/book/" + books[4]?._id}>
                     <ButtonMui variant="outlined" className="ms-2  ">
                       <img
+                      className="imgOmar"
                         src="./../../public/Icons/more2.png"
                         style={{ width: "25px", height: "25px" }}
                       ></img>
@@ -1005,6 +1030,7 @@ const Home = () => {
           >
             <div className="book-cover-con  mx-2">
               <img
+              className="imgOmar"
                 src={books[0]?.thumbnailUrl}
                 style={{
                   width: "200px",
@@ -1058,7 +1084,7 @@ const Home = () => {
                     onClick={() => addToCart(books[0]._id)}
                   >
                     <img
-                      className="me-2"
+                      className="me-2 imgOmar"
                       src="./../../public/Icons/shopping-cart (2).png"
                       style={{ width: "25px", height: "23px" }}
                     ></img>
@@ -1068,6 +1094,7 @@ const Home = () => {
                   <Link to={"/book/" + books[0]?._id}>
                     <ButtonMui variant="outlined" className="ms-2  ">
                       <img
+                      className="imgOmar"
                         src="./../../public/Icons/more2.png"
                         style={{ width: "25px", height: "25px" }}
                       ></img>
@@ -1099,7 +1126,7 @@ const Home = () => {
       <div className="news d-flex flex-column flex-md-row justify-content-center align-items-center  mt-5 flex-wrap col-10 offset-1 ">
         <div className="new col-10 col-md-5 col-lg-3 d-flex flex-column justify-content-between mx-3 ">
           <img
-            className="my-3"
+            className="my-3 imgOmar"
             src="https://deadline.com/wp-content/uploads/2020/08/wil-wheaton-ready-player-two-ernest-cline.jpg?w=681&h=383&crop=1"
             style={{ width: "100%", height: "200px", borderRadius: "10px" }}
           />
@@ -1127,7 +1154,7 @@ const Home = () => {
         </div>
         <div className="new col-10 col-md-5 col-lg-3 d-flex flex-column justify-content-between mx-3">
           <img
-            className="my-3"
+            className="my-3 imgOmar"
             src="https://static.wixstatic.com/media/831070_7fea663a090e43f1ac083ad696ed65e7~mv2.png/v1/fill/w_596,h_439,al_c/831070_7fea663a090e43f1ac083ad696ed65e7~mv2.png"
             style={{ width: "100%", height: "200px", borderRadius: "10px" }}
           />
@@ -1158,7 +1185,7 @@ const Home = () => {
         </div>
         <div className="new col-10 col-md-5 col-lg-3 d-flex flex-column justify-content-between  mx-3">
           <img
-            className="my-3"
+            className="my-3 imgOmar"
             src="https://i.cbc.ca/1.5639446.1707342319!/fileImage/httpImage/image.png_gen/derivatives/16x9_780/two-trees-make-a-forest-by-jessica-j-lee.png"
             style={{ width: "100%", height: "200px", borderRadius: "10px" }}
           />
@@ -1233,6 +1260,7 @@ const Home = () => {
             </div>
             <div>
               <img
+              className="imgOmar"
                 src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 style={{ width: "60px", height: "60px", borderRadius: "50%" }}
               />
@@ -1269,6 +1297,7 @@ const Home = () => {
             </div>
             <div>
               <img
+              className="imgOmar"
                 src="https://media.istockphoto.com/id/819419874/photo/young-woman-summer-portrait-outdoors.webp?s=170667a&w=0&k=20&c=9SofNH7CyB0SrzLJTwca-o1tl5C07ORHbThgvRk5FHY="
                 style={{ width: "60px", height: "60px", borderRadius: "50%" }}
               />
@@ -1302,6 +1331,7 @@ const Home = () => {
             </div>
             <div>
               <img
+              className="imgOmar"
                 src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
                 style={{ width: "60px", height: "60px", borderRadius: "50%" }}
               />
@@ -1320,7 +1350,7 @@ function Item(props) {
       <Paper>
         <div className={"containerItems "}>
           <div className="img-container">
-            <img src={props.item.img}></img>
+            <img className="imgOmar" src={props.item.img}></img>
             <div className="overlay"></div>
           </div>
           <div className="container-items col-lg-4 col-md-6 col-10 ">

@@ -22,7 +22,7 @@ export const CartProvider = ({ children }) => {
   console.log(api_url + "/cart");
   const fetchCart = async () => {
     try {
-      const response = await api.get("/cart");
+      const response = await api.get(api_url +"/cart");
       console.log(response, "test");
       setCartItems(response.data.cart);
       setTotalPrice(response.data.totalPrice);
