@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { CartContext } from "../../Contexts/CartContext";
 
 const Paypal = ({ totalAmount }) => {
@@ -8,7 +8,7 @@ const Paypal = ({ totalAmount }) => {
     paypalBtn.current.textContent = "";
     window.paypal
       .Buttons({
-        createOrder: (data, actions) => {
+        createOrder: (order, actions) => {
           return actions.order.create({
             purchase_units: [
               {
