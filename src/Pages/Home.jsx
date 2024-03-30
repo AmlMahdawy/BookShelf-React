@@ -15,7 +15,7 @@ import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import ButtonMui from "@mui/material/Button";
 import { Link } from "react-router-dom";
-import api from './../Interceptors/Auth'
+import api from "./../Interceptors/Auth";
 
 const Home = () => {
   const responsive = {
@@ -91,7 +91,7 @@ const Home = () => {
       <div className="container">
         <div className="img">
           <img
-          className="imgOmar"
+            className="imgOmar"
             src={books[0]?.thumbnailUrl}
             style={{
               maxHeight: "350px",
@@ -104,7 +104,12 @@ const Home = () => {
           <Rating
             name="simple-controlled "
             style={{ marginTop: "10%" }}
-            value={4}
+            value={
+              books[0]?.review.length == 0
+                ? 0
+                : books[0]?.review.reduce((acc, curr) => acc + curr.stars, 0) /
+                  books[0]?.review.length
+            }
             readOnly
           />
           <h5>{books[0]?.title}</h5>
@@ -129,7 +134,7 @@ const Home = () => {
             <div className="icon d-flex justify-content-end  align-items-center">
               <Link to={"book/" + books[0]?._id}>
                 <img
-                className="imgOmar"
+                  className="imgOmar"
                   src="./../../public/Icons/more.png"
                   style={{
                     maxWidth: "46px",
@@ -147,7 +152,7 @@ const Home = () => {
       <div className="container">
         <div className="img">
           <img
-          className="imgOmar"
+            className="imgOmar"
             src={books[1]?.thumbnailUrl}
             style={{
               maxHeight: "350px",
@@ -160,7 +165,12 @@ const Home = () => {
           <Rating
             name="simple-controlled "
             style={{ marginTop: "10%" }}
-            value={4}
+            value={
+              books[1]?.review.length == 0
+                ? 0
+                : books[1]?.review.reduce((acc, curr) => acc + curr.stars, 0) /
+                  books[1]?.review.length
+            }
             readOnly
           />
           <h5>{books[1]?.title}</h5>
@@ -185,7 +195,7 @@ const Home = () => {
             <div className="icon d-flex justify-content-end  align-items-center">
               <Link to={"book/" + books[1]?._id}>
                 <img
-                className="imgOmar"
+                  className="imgOmar"
                   src="./../../public/Icons/more.png"
                   style={{
                     maxWidth: "46px",
@@ -203,7 +213,7 @@ const Home = () => {
       <div className="container">
         <div className="img">
           <img
-          className="imgOmar"
+            className="imgOmar"
             src={books[2]?.thumbnailUrl}
             style={{
               maxHeight: "350px",
@@ -216,7 +226,12 @@ const Home = () => {
           <Rating
             name="simple-controlled "
             style={{ marginTop: "10%" }}
-            value={4}
+            value={
+              books[2]?.review.length == 0
+                ? 0
+                : books[2]?.review.reduce((acc, curr) => acc + curr.stars, 0) /
+                  books[2]?.review.length
+            }
             readOnly
           />
           <h5>{books[2]?.title}</h5>
@@ -241,7 +256,7 @@ const Home = () => {
             <div className="icon d-flex justify-content-end  align-items-center">
               <Link to={"book/" + books[2]?._id}>
                 <img
-                className="imgOmar"
+                  className="imgOmar"
                   src="./../../public/Icons/more.png"
                   style={{
                     maxWidth: "46px",
@@ -259,7 +274,7 @@ const Home = () => {
       <div className="container">
         <div className="img">
           <img
-          className="imgOmar"
+            className="imgOmar"
             src={books[3]?.thumbnailUrl}
             style={{
               maxHeight: "350px",
@@ -272,7 +287,12 @@ const Home = () => {
           <Rating
             name="simple-controlled "
             style={{ marginTop: "10%" }}
-            value={4}
+            value={
+              books[3]?.review.length == 0
+                ? 0
+                : books[3]?.review.reduce((acc, curr) => acc + curr.stars, 0) /
+                  books[3]?.review.length
+            }
             readOnly
           />
           <h5>{books[3]?.title}</h5>
@@ -297,7 +317,7 @@ const Home = () => {
             <div className="icon d-flex justify-content-end  align-items-center">
               <Link to={"book/" + books[3]?._id}>
                 <img
-                className="imgOmar"
+                  className="imgOmar"
                   src="./../../public/Icons/more.png"
                   style={{
                     maxWidth: "46px",
@@ -315,7 +335,7 @@ const Home = () => {
       <div className="container">
         <div className="img">
           <img
-          className="imgOmar"
+            className="imgOmar"
             src={books[4]?.thumbnailUrl}
             style={{
               maxHeight: "350px",
@@ -328,7 +348,12 @@ const Home = () => {
           <Rating
             name="simple-controlled "
             style={{ marginTop: "10%" }}
-            value={4}
+            value={
+              books[4]?.review.length == 0
+                ? 0
+                : books[4]?.review.reduce((acc, curr) => acc + curr.stars, 0) /
+                  books[4]?.review.length
+            }
             readOnly
           />
           <h5>{books[4]?.title}</h5>
@@ -353,7 +378,7 @@ const Home = () => {
             <div className="icon d-flex justify-content-end  align-items-center">
               <Link to={"book/" + books[4]?._id}>
                 <img
-                className="imgOmar"
+                  className="imgOmar"
                   src="./../../public/Icons/more.png"
                   style={{
                     maxWidth: "46px",
@@ -453,7 +478,8 @@ const Home = () => {
         <div className="container d-flex flex-wrap  col-10 offset-1 ">
           <div className="div book-display-card col-12 col-lg-6 mt-4 mt-lg-0 d-flex justify-content-center ">
             <div className="book-cover-con  mx-2">
-              <img className="imgOmar"
+              <img
+                className="imgOmar"
                 src={books[0]?.thumbnailUrl}
                 style={{
                   width: "200px",
@@ -493,11 +519,18 @@ const Home = () => {
                   className="col-6 col-lg-3"
                 >
                   <img
-                  className="imgOmar"
+                    className="imgOmar"
                     src="./../../public/Icons/star.png"
                     style={{ width: "18px", height: "18px" }}
                   />
-                  <p>4.0</p>
+                  <p style={{ fontWeight: "bold" }}>
+                    {books[0]?.review.length == 0
+                      ? 0
+                      : books[0]?.review.reduce(
+                          (acc, curr) => acc + curr.stars,
+                          0
+                        ) / books[0]?.review.length}
+                  </p>
                 </div>
               </div>
               <div className="data-con w-100 ms-lg-4  ">
@@ -523,7 +556,7 @@ const Home = () => {
           <div className="div book-display-card col-12 col-lg-6 mt-4 mt-lg-0 d-flex justify-content-center ">
             <div className="book-cover-con  mx-2">
               <img
-              className="imgOmar"
+                className="imgOmar"
                 src={books[1]?.thumbnailUrl}
                 style={{
                   width: "200px",
@@ -563,11 +596,19 @@ const Home = () => {
                   className="col-6 col-lg-3"
                 >
                   <img
-                  className="imgOmar"
+                    className="imgOmar"
                     src="./../../public/Icons/star.png"
                     style={{ width: "18px", height: "18px" }}
                   />
-                  <p>4.0</p>
+                  <p style={{ fontWeight: "bold" }}>
+                    {" "}
+                    {books[1]?.review.length == 0
+                      ? 0
+                      : books[1]?.review.reduce(
+                          (acc, curr) => acc + curr.stars,
+                          0
+                        ) / books[1]?.review.length}
+                  </p>
                 </div>
               </div>
               <div className="data-con w-100 ms-lg-4  ">
@@ -593,7 +634,7 @@ const Home = () => {
           <div className="div  book-display-card col-12 col-lg-6 mt-4 mt-lg-2 d-flex justify-content-center ">
             <div className="book-cover-con  mx-2">
               <img
-              className="imgOmar"
+                className="imgOmar"
                 src={books[2]?.thumbnailUrl}
                 style={{
                   width: "200px",
@@ -633,11 +674,19 @@ const Home = () => {
                   className="col-6 col-lg-3"
                 >
                   <img
-                  className="imgOmar"
+                    className="imgOmar"
                     src="./../../public/Icons/star.png"
                     style={{ width: "18px", height: "18px" }}
                   />
-                  <p>4.0</p>
+                  <p style={{ fontWeight: "bold" }}>
+                    {" "}
+                    {books[2]?.review.length == 0
+                      ? 0
+                      : books[2]?.review.reduce(
+                          (acc, curr) => acc + curr.stars,
+                          0
+                        ) / books[2]?.review.length}
+                  </p>
                 </div>
               </div>
               <div className="data-con w-100 ms-lg-4  ">
@@ -663,7 +712,7 @@ const Home = () => {
           <div className="div  book-display-card col-12 col-lg-6 mt-4  d-flex justify-content-center ">
             <div className="book-cover-con  mx-2">
               <img
-              className="imgOmar"
+                className="imgOmar"
                 src={books[3]?.thumbnailUrl}
                 style={{
                   width: "200px",
@@ -703,11 +752,19 @@ const Home = () => {
                   className="col-6 col-lg-3"
                 >
                   <img
-                  className="imgOmar"
+                    className="imgOmar"
                     src="./../../public/Icons/star.png"
                     style={{ width: "18px", height: "18px" }}
                   />
-                  <p>4.0</p>
+                  <p style={{ fontWeight: "bold" }}>
+                    {" "}
+                    {books[3]?.review.length == 0
+                      ? 0
+                      : books[3]?.review.reduce(
+                          (acc, curr) => acc + curr.stars,
+                          0
+                        ) / books[3]?.review.length}
+                  </p>
                 </div>
               </div>
               <div className="data-con w-100 ms-lg-4  ">
@@ -775,7 +832,7 @@ const Home = () => {
           >
             <div className="book-cover-con  mx-2">
               <img
-              className="imgOmar"
+                className="imgOmar"
                 src={books[2]?.thumbnailUrl}
                 style={{
                   width: "200px",
@@ -811,7 +868,18 @@ const Home = () => {
                 }}
                 className="col-6 col-lg-6"
               >
-                <Rating name="simple-controlled " value={3} readOnly />
+                <Rating
+                  name="simple-controlled "
+                  value={
+                    books[2]?.review.length == 0
+                      ? 0
+                      : books[2]?.review.reduce(
+                          (acc, curr) => acc + curr.stars,
+                          0
+                        ) / books[2]?.review.length
+                  }
+                  readOnly
+                />
               </div>
 
               <div className="data-con w-100 ms-lg-4  ">
@@ -829,7 +897,6 @@ const Home = () => {
                     onClick={() => addToCart(books[2]._id)}
                   >
                     <img
-
                       className="me-2 imgOmar"
                       src="./../../public/Icons/shopping-cart (2).png"
                       style={{ width: "25px", height: "23px" }}
@@ -840,7 +907,7 @@ const Home = () => {
                   <Link to={"/book/" + books[2]?._id}>
                     <ButtonMui variant="outlined" className="ms-2  ">
                       <img
-                      className="imgOmar"
+                        className="imgOmar"
                         src="./../../public/Icons/more2.png"
                         style={{ width: "25px", height: "25px" }}
                       ></img>
@@ -860,7 +927,7 @@ const Home = () => {
           >
             <div className="book-cover-con  mx-2">
               <img
-              className="imgOmar"
+                className="imgOmar"
                 src={books[1]?.thumbnailUrl}
                 style={{
                   width: "200px",
@@ -896,7 +963,18 @@ const Home = () => {
                 }}
                 className="col-6 col-lg-6"
               >
-                <Rating name="simple-controlled " value={3} readOnly />
+                <Rating
+                  name="simple-controlled "
+                  value={
+                    books[1]?.review.length == 0
+                      ? 0
+                      : books[1]?.review.reduce(
+                          (acc, curr) => acc + curr.stars,
+                          0
+                        ) / books[1]?.review.length
+                  }
+                  readOnly
+                />
               </div>
 
               <div className="data-con w-100 ms-lg-4  ">
@@ -924,7 +1002,7 @@ const Home = () => {
                   <Link to={"/book/" + books[1]?._id}>
                     <ButtonMui variant="outlined" className="ms-2  ">
                       <img
-                      className="imgOmar"
+                        className="imgOmar"
                         src="./../../public/Icons/more2.png"
                         style={{ width: "25px", height: "25px" }}
                       ></img>
@@ -936,7 +1014,7 @@ const Home = () => {
           </div>
         </div>
         <div className="container d-flex flex-column flex-lg-row  mt-3 ">
-        <div
+          <div
             className=" book-display-card col-12 me-2 col-lg-6 mt-4 mt-lg-0 d-flex justify-content-center"
             style={{
               backgroundColor: "#fafafa",
@@ -946,7 +1024,7 @@ const Home = () => {
           >
             <div className="book-cover-con  mx-2">
               <img
-              className="imgOmar"
+                className="imgOmar"
                 src={books[4]?.thumbnailUrl}
                 style={{
                   width: "200px",
@@ -982,7 +1060,18 @@ const Home = () => {
                 }}
                 className="col-6 col-lg-6"
               >
-                <Rating name="simple-controlled " value={3} readOnly />
+                <Rating
+                  name="simple-controlled "
+                  value={
+                    books[4]?.review.length == 0
+                      ? 0
+                      : books[4]?.review.reduce(
+                          (acc, curr) => acc + curr.stars,
+                          0
+                        ) / books[4]?.review.length
+                  }
+                  readOnly
+                />
               </div>
 
               <div className="data-con w-100 ms-lg-4  ">
@@ -1010,7 +1099,7 @@ const Home = () => {
                   <Link to={"/book/" + books[4]?._id}>
                     <ButtonMui variant="outlined" className="ms-2  ">
                       <img
-                      className="imgOmar"
+                        className="imgOmar"
                         src="./../../public/Icons/more2.png"
                         style={{ width: "25px", height: "25px" }}
                       ></img>
@@ -1030,7 +1119,7 @@ const Home = () => {
           >
             <div className="book-cover-con  mx-2">
               <img
-              className="imgOmar"
+                className="imgOmar"
                 src={books[0]?.thumbnailUrl}
                 style={{
                   width: "200px",
@@ -1066,7 +1155,18 @@ const Home = () => {
                 }}
                 className="col-6 col-lg-6"
               >
-                <Rating name="simple-controlled " value={3} readOnly />
+                <Rating
+                  name="simple-controlled "
+                  value={
+                    books[0]?.review.length == 0
+                      ? 0
+                      : books[0]?.review.reduce(
+                          (acc, curr) => acc + curr.stars,
+                          0
+                        ) / books[0]?.review.length
+                  }
+                  readOnly
+                />
               </div>
 
               <div className="data-con w-100 ms-lg-4  ">
@@ -1094,7 +1194,7 @@ const Home = () => {
                   <Link to={"/book/" + books[0]?._id}>
                     <ButtonMui variant="outlined" className="ms-2  ">
                       <img
-                      className="imgOmar"
+                        className="imgOmar"
                         src="./../../public/Icons/more2.png"
                         style={{ width: "25px", height: "25px" }}
                       ></img>
@@ -1133,13 +1233,15 @@ const Home = () => {
           <h6 className="my-3" style={{ fontWeight: "bold" }}>
             Bestselling Author John Smith Announces Highly Anticipated Sequel
           </h6>
-          <p className="my-3"
-           style={{
-            color: "#8f8f8f",
-            maxHeight: "144px",
-            overflow: "hidden",
-            textOverflow: "ellipsis",
-          }}>
+          <p
+            className="my-3"
+            style={{
+              color: "#8f8f8f",
+              maxHeight: "144px",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+            }}
+          >
             Renowned author John Smith has just revealed exciting news for fans
             eagerly awaiting the next chapter in his bestselling series. The
             much-anticipated sequel, titled "Echoes of Destiny," promises to
@@ -1232,35 +1334,34 @@ const Home = () => {
       </div>
       <div className="reviews d-flex flex-column flex-md-row justify-content-center align-items-center col-10 offset-1   mt-5 flex-wrap">
         <div
-          className="review col-10 col-lg-3 my-2 p-3 mx-1 "
+          className="review col-10 col-lg-3 my-2 p-3 mx-1 d-flex flex-column justify-content-evenly "
           style={{
             border: "5px #ddddddy solid",
             borderRadius: "15px",
             boxShadow: "0 4px 8px rgba(0, 0, 0, 0.8)",
+            height: "260px",
+            width: "330px",
           }}
         >
           <Rating
             name="simple-controlled "
             className="my-3"
-            value={5}
+            value={+books[1]?.review[0].stars}
             readOnly
           />
           <div className="comment col-10 mb-3">
-            <p style={{ color: "#8f8f8f" }}>
-              BookShelf has completely changed the way I discover and enjoy
-              books! Highly recommend,The selection is good.
-            </p>
+            <p style={{ color: "#8f8f8f" }}>{books[1]?.review[0].comment}</p>
           </div>
           <div className="contact-info d-flex justify-content-between ">
             <div>
-              <h6>Gamila Ali</h6>
+              <h6>{books[1]?.review[0].userName}</h6>
               <p style={{ color: "#8f8f8f", fontSize: "smaller" }}>
                 Content Creator
               </p>
             </div>
             <div>
               <img
-              className="imgOmar"
+                className="imgOmar"
                 src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 style={{ width: "60px", height: "60px", borderRadius: "50%" }}
               />
@@ -1268,36 +1369,34 @@ const Home = () => {
           </div>
         </div>
         <div
-          className="review  col-10 col-lg-3 my-2 p-3 mx-1 "
+          className="review  col-10 col-lg-3 my-2 p-3 mx-1 d-flex flex-column justify-content-evenly "
           style={{
             border: "5px #ddddddy solid",
             borderRadius: "15px",
             boxShadow: "0 4px 8px rgba(0, 0, 0, 0.8)",
+            height: "260px",
+            width: "330px",
           }}
         >
           <Rating
             name="simple-controlled "
             className="my-3"
-            value={4}
+            value={+books[2]?.review[1].stars}
             readOnly
           />
           <div className="comment col-10 mb-3">
-            <p style={{ color: "#8f8f8f" }}>
-              I love how easy it is to navigate BookShelf's website. Finding my
-              next read is a breeze, The quick delivery never fails to impress
-              me.
-            </p>
+            <p style={{ color: "#8f8f8f" }}>{books[2]?.review[1].comment}</p>
           </div>
           <div className="contact-info d-flex justify-content-between ">
             <div>
-              <h6>Yousra Ahmed</h6>
+              <h6>{books[2]?.review[1].userName}</h6>
               <p style={{ color: "#8f8f8f", fontSize: "smaller" }}>
                 Web Developer
               </p>
             </div>
             <div>
               <img
-              className="imgOmar"
+                className="imgOmar"
                 src="https://media.istockphoto.com/id/819419874/photo/young-woman-summer-portrait-outdoors.webp?s=170667a&w=0&k=20&c=9SofNH7CyB0SrzLJTwca-o1tl5C07ORHbThgvRk5FHY="
                 style={{ width: "60px", height: "60px", borderRadius: "50%" }}
               />
@@ -1305,34 +1404,35 @@ const Home = () => {
           </div>
         </div>
         <div
-          className="review  col-10 col-lg-3 my-2 p-3 mx-1 "
+          className="review  col-10 col-lg-3 my-2 p-3 mx-1 d-flex flex-column justify-content-evenly  "
           style={{
             border: "5px #ddddddy solid",
             borderRadius: "15px",
             boxShadow: "0 4px 8px rgba(0, 0, 0, 0.8)",
+            height: "260px",
+            width: "330px",
           }}
         >
           <Rating
             name="simple-controlled "
             className="my-3"
-            value={4}
+            value={+books[2]?.review[0].stars}
             readOnly
           />
           <div className="comment col-10 mb-3">
-            <p style={{ color: "#8f8f8f" }}>
-              Book Shelf's return guarantee gives me peace of mind when trying
-              out new authors. It's a game I can't get enough of it .
-            </p>
+            <p style={{ color: "#8f8f8f" }}>{books[2]?.review[0].comment}</p>
           </div>
           <div className="contact-info d-flex justify-content-between ">
             <div>
-              <h6>Ali Nasr</h6>
-              <p style={{ color: "#8f8f8f", fontSize: "smaller" }}>Sales Man</p>
+              <h6>{books[2]?.review[0].userName}</h6>
+              <p style={{ color: "#8f8f8f", fontSize: "smaller" }}>
+                Web Developer
+              </p>
             </div>
             <div>
               <img
-              className="imgOmar"
-                src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
+                className="imgOmar"
+                src="https://media.istockphoto.com/id/819419874/photo/young-woman-summer-portrait-outdoors.webp?s=170667a&w=0&k=20&c=9SofNH7CyB0SrzLJTwca-o1tl5C07ORHbThgvRk5FHY="
                 style={{ width: "60px", height: "60px", borderRadius: "50%" }}
               />
             </div>
