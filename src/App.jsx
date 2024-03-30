@@ -9,25 +9,96 @@ import Join from "./Pages/Join.jsx";
 import SystemLayout from "./Layout/SystemLayout.jsx";
 import CartPage from "./Pages/CartPage";
 import { CartContext, CartProvider } from "./Contexts/CartContext";
+import { ThemeProvider, createTheme } from "@mui/material";
+import Navbar from "./Components/Navbar/Navbar.jsx";
+import Footer from "./Components/Footer/Footer.jsx";
 function App() {
+  const theme = createTheme({
+    breakpoints: {
+      values: {
+        xs: 0,
+        sm: 576,
+        md: 768,
+        lg: 992,
+        xl: 1200,
+        xxl: 1400,
+      },
+    },
+    palette: {
+      book: {
+        main: "#8d27ae",
+      },
+      button: {
+        main: "#8d27ae",
+        hover: "#8d27ae",
+        active: "#651c7d",
+      },
+      bg: {
+        main: "#8d27ae",
+      },
+      text: {
+        main: "#414082",
+      },
+    },
+    colors: {
+      bg: {
+        main: "#8d27ae",
+        light: "#f0e3f4",
+      },
+      text: {
+        main: "#8d27ae",
+        dark: "#414082",
+        light: "#a9a8c7",
+        light2: "#7e7da9",
+      },
+    },
+  });
+
   return (
     <>
-      <AppProvider>
-      <CartProvider>
-      <BookContextProvider>
-        <BrowserRouter>
-          <Routes>
-          <Route path="/" element={<Home></Home>}></Route>
-              <Route path="/home" element={<Home></Home>}></Route>
-              <Route path="/login" element={<Join></Join>}></Route>
-              <Route path="/cart" element={<CartPage></CartPage>}></Route>
-            <Route path="/allBooks" element={<AllBooksPage></AllBooksPage>}></Route>
-            <Route path="/profile" element={<ProfilePage></ProfilePage>}></Route>
-          </Routes>
-        </BrowserRouter>
-        </BookContextProvider>
-        </CartProvider>
-      </AppProvider>
+      <ThemeProvider theme={theme}>
+        <AppProvider>
+          <CartProvider>
+            <BookContextProvider>
+              <BrowserRouter>
+                {/* <Navbar />
+                <Routes>
+                  <Route path="/" element={<Home></Home>}></Route>
+                  <Route path="/home" element={<Home></Home>}></Route>
+                  <Route path="/login" element={<Join></Join>}></Route>
+                  <Route path="/cart" element={<CartPage></CartPage>}></Route>
+                  <Route
+                    path="/allBooks"
+                    element={<AllBooksPage></AllBooksPage>}
+                  ></Route>
+                  <Route
+                    path="/profile"
+                    element={<ProfilePage></ProfilePage>}
+                  ></Route>
+                </Routes>
+                <Footer /> */}
+                <Routes>
+                  <Route path="/" element={<SystemLayout />}>
+                    <Route index element={<Home />}></Route>
+                    <Route path="/home" element={<Home></Home>}></Route>
+
+                    <Route path="/cart" element={<CartPage></CartPage>}></Route>
+                    <Route
+                      path="/allBooks"
+                      element={<AllBooksPage></AllBooksPage>}
+                    ></Route>
+                    <Route
+                      path="/profile"
+                      element={<ProfilePage></ProfilePage>}
+                    ></Route>
+                  </Route>
+                  <Route path="/login" element={<Join></Join>}></Route>
+                </Routes>
+              </BrowserRouter>
+            </BookContextProvider>
+          </CartProvider>
+        </AppProvider>
+      </ThemeProvider>
     </>
   );
 }

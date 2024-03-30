@@ -8,14 +8,18 @@ import { Link } from "react-router-dom";
 
 const routes = [
   { name: "Home", path: "" },
-  { name: "Books", path: "/books" },
+  { name: "Books", path: "/allBooks" },
 ];
-const logo = "Books";
+const logo = "BookShelf";
 function Navbar() {
   const navigate = useNavigate();
   //demo
   const isLogin = false;
   let favCount = 10;
+  const getToken = () => {
+    return localStorage.getItem("token");
+  };
+  // useEffect(() => {}, []);
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top py-3">
@@ -56,28 +60,37 @@ function Navbar() {
                 ))}
               </ul>
               <Box>
-                {isLogin ? (
-                  <Chip
-                    avatar={
-                      <Avatar
-                        alt="Mohamed"
-                        src="https://scontent-lhr8-1.xx.fbcdn.net/v/t1.6435-9/89740896_2528669554072512_8339425380305731584_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeFVE92s4CHVJh0PAFW5__UtdDuAuQj5zOd0O4C5CPnM55q9zzZ7RYPj9TdwA2aEyS9qETmZHpWXn3I78OgHD7ms&_nc_ohc=I8A1pmIM-WYAX83oVHk&_nc_ht=scontent-lhr8-1.xx&oh=00_AfASPEhMRvfv8p_O-vuOF3xDMXgwdzRCw7ZLuKJfG0ADbQ&oe=6627DE38"
-                      />
-                    }
-                    label="Mohamed"
-                    variant="outlined"
-                    sx={{
-                      borderColor: "#8d27ae",
-                      color: "#8d27ae",
-                    }}
-                  />
+                {getToken() ? (
+                  <Box>
+                    <Chip
+                      avatar={
+                        <Avatar
+                          alt="Mohamed"
+                          src="https://scontent-lhr8-1.xx.fbcdn.net/v/t1.6435-9/89740896_2528669554072512_8339425380305731584_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeFVE92s4CHVJh0PAFW5__UtdDuAuQj5zOd0O4C5CPnM55q9zzZ7RYPj9TdwA2aEyS9qETmZHpWXn3I78OgHD7ms&_nc_ohc=I8A1pmIM-WYAX83oVHk&_nc_ht=scontent-lhr8-1.xx&oh=00_AfASPEhMRvfv8p_O-vuOF3xDMXgwdzRCw7ZLuKJfG0ADbQ&oe=6627DE38"
+                        />
+                      }
+                      label="Mohamed"
+                      variant="outlined"
+                      sx={{
+                        borderColor: "#8d27ae",
+                        color: "#8d27ae",
+                        mr: 2,
+                      }}
+                    />
+                    <BtnBg
+                      onClick={() => {
+                        navigate("/login");
+                      }}
+                      label={"log out"}
+                    />
+                  </Box>
                 ) : (
                   <>
                     <BtnBg
                       onClick={() => {
                         navigate("/login");
                       }}
-                      label={"Sign up/in"}
+                      label={"Sign in"}
                     />
                   </>
                 )}
@@ -88,7 +101,6 @@ function Navbar() {
             sx={{
               ml: "auto ",
               mr: { xs: 1, sm: 2, md: 3 },
-              display: isLogin ? "block" : "none",
             }}
           >
             <CartIcon count={favCount} />
