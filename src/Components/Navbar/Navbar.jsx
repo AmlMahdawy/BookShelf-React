@@ -23,7 +23,7 @@ import FavIcon from "./FavIcon";
 
 const routes = [
   { name: "Home", path: "" },
-  // { name: "Books", path: "/allBooks" },
+  { name: "Books", path: "/allBooks" },
 ];
 const logo = "BookShelf";
 function Navbar() {
