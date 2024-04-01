@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
 import api from "../Interceptors/Auth";
-const api_url = "http://localhost:3000";
+const api_url = "https://bookshelf.cyclic.app";
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
