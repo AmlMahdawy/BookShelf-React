@@ -17,7 +17,7 @@ export const AppProvider = ({ children }) => {
   const login = async (userData) => {
     let res;
     await axios
-      .post("http://localhost:3000/auth/login", { data: userData })
+      .post("https://bookshelf.cyclic.app/auth/login", { data: userData })
       .then((response) => {
         localStorage.setItem("token", response.data.token);
         res = response;
@@ -30,7 +30,7 @@ export const AppProvider = ({ children }) => {
   const register = async (userData) => {
     let res;
     await axios
-      .post("http://localhost:3000/auth/register", { data: userData })
+      .post("https://bookshelf.cyclic.app/auth/register", { data: userData })
       .then((response) => {
         res = response.data.message;
       })

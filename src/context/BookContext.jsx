@@ -25,7 +25,7 @@ const BookContextProvider = ({ children }) => {
 
   const fetchCategories = useCallback(async () => {
     try {
-      const res = await api.get("http://localhost:3000/book/genre/all");
+      const res = await api.get("https://bookshelf.cyclic.app/book/genre/all");
       setCategories(res.data);
       res.data;
     } catch (error) {
@@ -33,7 +33,7 @@ const BookContextProvider = ({ children }) => {
     }
   }, []);
   const getFavNumbers = useCallback(async () => {
-    const res = await api.get("http://localhost:3000/user/favs");
+    const res = await api.get("https://bookshelf.cyclic.app/user/favs");
 
     if (res.data.message === "success") {
       setFavCount(res.data.data);
@@ -42,7 +42,7 @@ const BookContextProvider = ({ children }) => {
 
   const fetchAuthors = useCallback(async () => {
     try {
-      const res = await api.get("http://localhost:3000/book/author/all");
+      const res = await api.get("https://bookshelf.cyclic.app/book/author/all");
       setAuthors(res.data);
     } catch (error) {
       console.error("Error fetching authors:", error);
@@ -51,7 +51,7 @@ const BookContextProvider = ({ children }) => {
 
   const fetchDataByCategory = useCallback(async (cat) => {
     try {
-      const res = await api.get(`http://localhost:3000/book/genre/${cat}`);
+      const res = await api.get(`https://bookshelf.cyclic.app/book/genre/${cat}`);
       setOriginalBooks(res.data);
       setBooksPages(res.data);
     } catch (error) {
@@ -62,7 +62,7 @@ const BookContextProvider = ({ children }) => {
   const fetchDataByAuthor = useCallback(async (selectedAuthor) => {
     try {
       const res = await api.get(
-        `http://localhost:3000/book/author/${selectedAuthor}`
+        `https://bookshelf.cyclic.app/book/author/${selectedAuthor}`
       );
       setOriginalBooks(res.data);
       setBooksPages(res.data);
@@ -73,7 +73,7 @@ const BookContextProvider = ({ children }) => {
 
   const fetchData = useCallback(async () => {
     try {
-      const res = await api.get("http://localhost:3000/book/all");
+      const res = await api.get("https://bookshelf.cyclic.app/book/all");
 
       setOriginalBooks(res.data);
       setBooksPages(res.data);
@@ -122,7 +122,7 @@ const BookContextProvider = ({ children }) => {
     }
   }, [originalBooks, search]);
   const addReview = async (comment, stars, bookId) => {
-    const res = await api.post("http://localhost:3000/book/add-review", {
+    const res = await api.post("https://bookshelf.cyclic.app/book/add-review", {
       bookId,
       comment,
       stars,
