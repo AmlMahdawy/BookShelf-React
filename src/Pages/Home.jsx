@@ -75,16 +75,9 @@ const Home = () => {
   useEffect(() => {
     axios.get("https://bookshelf.cyclic.app/book/all").then((res) => {
       setBooks(res.data);
-      let result = [];
-      books.filter((book) => {
-        if (book.review.length > 0) {
-          result.push(book);
-        }
-      });
 
+      let result = books.filter((book) => book.review.length > 0);
       setBooksReview(result);
-      console.log(result);
-      console.log(booksReview);
     });
   }, []);
 
@@ -1407,53 +1400,55 @@ const Home = () => {
         </p>
       </div>
       <div className="reviews d-flex flex-column flex-md-row justify-content-center align-items-center col-10 offset-1   mt-5 flex-wrap">
-        {booksReview.map((book) => {
-          return (
-            <>
-              <div
-                className="review col-10 col-lg-3 my-2 p-3 mx-1 d-flex flex-column justify-content-evenly "
-                style={{
-                  border: "5px #ddddddy solid",
-                  borderRadius: "15px",
-                  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.8)",
-                  height: "260px",
-                  width: "330px",
-                }}
-              >
-                <Rating
-                  name="simple-controlled "
-                  className="my-3"
-                  value={+book?.review[0]?.stars}
-                  readOnly
-                />
-                <div className="comment col-10 mb-3">
-                  <p style={{ color: "#8f8f8f" }}>
-                    {book?.review[0]?.comment}
-                  </p>
-                </div>
-                <div className="contact-info d-flex justify-content-between ">
-                  <div>
-                    <h6>{book?.review[0]?.userName}</h6>
-                    <p style={{ color: "#8f8f8f", fontSize: "smaller" }}>
-                      Content Creator
+        {books
+          .filter((book) => book.review.length > 0)
+          .map((book) => {
+            return (
+              <>
+                <div
+                  className="review col-10 col-lg-3 my-2 p-3 mx-1 d-flex flex-column justify-content-evenly "
+                  style={{
+                    border: "5px #ddddddy solid",
+                    borderRadius: "15px",
+                    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.8)",
+                    height: "260px",
+                    width: "330px",
+                  }}
+                >
+                  <Rating
+                    name="simple-controlled "
+                    className="my-3"
+                    value={+book?.review[0]?.stars}
+                    readOnly
+                  />
+                  <div className="comment col-10 mb-3">
+                    <p style={{ color: "#8f8f8f" }}>
+                      {book?.review[0]?.comment}
                     </p>
                   </div>
-                  <div>
-                    <img
-                      className="imgOmar"
-                      src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                      style={{
-                        width: "60px",
-                        height: "60px",
-                        borderRadius: "50%",
-                      }}
-                    />
+                  <div className="contact-info d-flex justify-content-between ">
+                    <div>
+                      <h6>{book?.review[0]?.userName}</h6>
+                      <p style={{ color: "#8f8f8f", fontSize: "smaller" }}>
+                        Content Creator
+                      </p>
+                    </div>
+                    <div>
+                      <img
+                        className="imgOmar"
+                        src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        style={{
+                          width: "60px",
+                          height: "60px",
+                          borderRadius: "50%",
+                        }}
+                      />
+                    </div>
                   </div>
                 </div>
-              </div>
-            </>
-          );
-        })}
+              </>
+            );
+          })}
       </div>
     </>
   );
