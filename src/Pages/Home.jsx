@@ -72,7 +72,7 @@ const Home = () => {
 
   //Getting data from API in useEffext
   useEffect(() => {
-    axios.get("https://bookshelf.cyclic.app/book/all").then((res) => {
+    axios.get("http://localhost:3000/book/all").then((res) => {
       setBooks(res.data);
     });
   }, []);
