@@ -76,8 +76,8 @@ function App() {
                       path="/profile"
                       element={<ProfilePage></ProfilePage>}
                     ></Route>
-                  </Route>
                   <Route path="/admin" element={<AdminPage />}></Route>
+                  </Route>
                   <Route path="/login" element={<Join></Join>}></Route>
                 </Routes>
               </BrowserRouter>
