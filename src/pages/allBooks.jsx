@@ -1,12 +1,12 @@
 
-import Index from '../Components/AllBooks';
+// import Index from '../Components/AllBooks';
 
-const AllBooksPage = () => {
-    return (
-        <div>
-            <Index></Index>
-        </div>
-    );
-}
+// const AllBooksPage = () => {
+//     return (
+//         <div>
+//             <Index></Index>
+//         </div>
+//     );
+// }
 
-export default AllBooksPage;
+// export default AllBooksPage;
