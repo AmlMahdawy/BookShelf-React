@@ -128,7 +128,7 @@ navigate("/home")
               onBlur={handleOnBLur}
               value={userData.name}
               className={styles.inputs}
-              placeholder="Your full name"
+              placeholder="  Your full name"
             ></input>
             {nameInvalid ? (
               <div className={styles.error}>{nameError}</div>
@@ -148,7 +148,7 @@ navigate("/home")
               onChange={handleOnChange}
               onBlur={handleOnBLur}
               className={styles.inputs}
-              placeholder="Your Email address"
+              placeholder="  Your Email address"
             ></input>
             {emailInvalid ? (
               <div className={styles.error}>{emailError}</div>
@@ -169,7 +169,7 @@ navigate("/home")
               onBlur={handleOnBLur}
               value={userData.password}
               className={styles.inputs}
-              placeholder="Your password"
+              placeholder="  Your password"
             ></input>
             {passwordInvalid ? (
               <div className={styles.error}>{passwordError}</div>
@@ -187,7 +187,7 @@ navigate("/home")
       name="image"
       onChange={handleImageChange} 
       accept="image/*" 
-      className={styles.inputs}
+      className={styles.imgUpload}
     />
     {/* Add any error handling for image upload if necessary */}
   </div>
