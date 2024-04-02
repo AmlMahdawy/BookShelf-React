@@ -71,13 +71,22 @@ const Home = () => {
     },
   ];
 
-  //Getting data from API in useEffext
   useEffect(() => {
     axios.get("https://bookshelf.cyclic.app/book/all").then((res) => {
       setBooks(res.data);
 
       let result = books.filter((book) => book.review.length > 0);
       setBooksReview(result);
+      console.log(booksReview);
+      fetch("http://localhost:3000/user/660a8112b1d6f8b9e2e60ee6").then(
+        (res) => {
+          if (!res.ok) {
+            throw new Error("Network response was not ok");
+          }
+
+          return res.json();
+        }
+      );
     });
   }, []);
 
@@ -1436,7 +1445,7 @@ const Home = () => {
                     <div>
                       <img
                         className="imgOmar"
-                        src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        src="./../../public/user.png"
                         style={{
                           width: "60px",
                           height: "60px",
