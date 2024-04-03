@@ -72,7 +72,7 @@ const Home = () => {
   ];
 
   useEffect(() => {
-    axios.get("https://bookshelf.cyclic.app/book/all").then((res) => {
+    axios.get("http://localhost:3000/book/all").then((res) => {
       setBooks(res.data);
 
       let result = books.filter((book) => book.review.length > 0);
